@@ -12,6 +12,11 @@ namespace Loops1
     {
         static void Main(string[] args)
         {
+            string[] choices = new string[4] { "[1] Count to 20", "[2] Count down to 0", "[3] Word repeater", "[4] Capital Test\n" };
+            for (int i = 0; i < choices.Length; i++)
+            {
+                Console.WriteLine(choices[i]);
+            }
             Console.Write("Enter exercise number (1-4): ");
             int choice = int.Parse(Console.ReadLine());
             switch (choice)
