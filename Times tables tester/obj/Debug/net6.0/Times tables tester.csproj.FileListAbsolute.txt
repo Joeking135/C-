@@ -1,0 +1,15 @@
+D:\A levels\Computer Science\C#\College\Times tables tester\bin\Debug\net6.0\Times tables tester.exe
+D:\A levels\Computer Science\C#\College\Times tables tester\bin\Debug\net6.0\Times tables tester.deps.json
+D:\A levels\Computer Science\C#\College\Times tables tester\bin\Debug\net6.0\Times tables tester.runtimeconfig.json
+D:\A levels\Computer Science\C#\College\Times tables tester\bin\Debug\net6.0\Times tables tester.dll
+D:\A levels\Computer Science\C#\College\Times tables tester\bin\Debug\net6.0\Times tables tester.pdb
+D:\A levels\Computer Science\C#\College\Times tables tester\obj\Debug\net6.0\Times tables tester.csproj.AssemblyReference.cache
+D:\A levels\Computer Science\C#\College\Times tables tester\obj\Debug\net6.0\Times tables tester.GeneratedMSBuildEditorConfig.editorconfig
+D:\A levels\Computer Science\C#\College\Times tables tester\obj\Debug\net6.0\Times tables tester.AssemblyInfoInputs.cache
+D:\A levels\Computer Science\C#\College\Times tables tester\obj\Debug\net6.0\Times tables tester.AssemblyInfo.cs
+D:\A levels\Computer Science\C#\College\Times tables tester\obj\Debug\net6.0\Times tables tester.csproj.CoreCompileInputs.cache
+D:\A levels\Computer Science\C#\College\Times tables tester\obj\Debug\net6.0\Times tables tester.dll
+D:\A levels\Computer Science\C#\College\Times tables tester\obj\Debug\net6.0\refint\Times tables tester.dll
+D:\A levels\Computer Science\C#\College\Times tables tester\obj\Debug\net6.0\Times tables tester.pdb
+D:\A levels\Computer Science\C#\College\Times tables tester\obj\Debug\net6.0\Times tables tester.genruntimeconfig.cache
+D:\A levels\Computer Science\C#\College\Times tables tester\obj\Debug\net6.0\ref\Times tables tester.dll
