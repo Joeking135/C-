@@ -70,7 +70,7 @@ namespace Cinema_Booking_System
                                 if (date < DateTime.Today.AddDays(8) && date >= DateTime.Today) //checks if the date is within one week and not in the past. Note: I also allowed exactly 7 days in the future
                                 {
                                     filmChoice--; // allows film integer to be used with array which starts at 0, not 1
-                                    Console.WriteLine($"\n--------------------\nAquinas Multiplex\nFilm: {films[filmChoice][3..^20]}\nDate: {date}\n\nEnjoy the film\n-------------------- ");
+                                    Console.WriteLine($"\n--------------------\nAquinas Multiplex\nFilm: {films[filmChoice][3..^20]}\nDate: {date.ToShortDateString()}\n\nEnjoy the film\n-------------------- ");
                                     Console.WriteLine("Press enter to make a new booking: ");Console.ReadLine(); //prints ticket and allows the user to read ticket before restarting
                                     loop2 = false; Console.Clear();//breaks out of nested loop and clears the console for next booking
                                 }
