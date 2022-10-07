@@ -20,18 +20,11 @@ namespace Calculator
                     case '1' or '2' or '5': 
                         double width = GetDoubleNumber("Enter Width (cm): ");
                         double height = GetDoubleNumber("Enter Height (cm): ");
-                        if (choice[0] == '1')
-                        {
-                            Console.WriteLine("Area is {0}cm2", RectangleArea(width, height)); //Area of rectangle
-                        }
-                        else if(choice[0] == 2)
-                        {
-                            Console.WriteLine($"Perimeter is {RectanglePerimeter(width, height)}cm");//Perimeter of rectangle
-                        }
-                        else
-                        {
-                            Console.WriteLine($"Hypotenuse is {Hypotenuse(width, height)} cm");
-                        }
+                        if (choice[0] == '1') { Console.WriteLine("Area is {0}cm2", RectangleArea(width, height)); } //Area of rectangle
+
+                        else if (choice[0] == '2') { Console.WriteLine($"Perimeter is {RectanglePerimeter(width, height)}cm"); }//Perimeter of rectangle
+
+                        else { Console.WriteLine($"Hypotenuse is {Hypotenuse(width, height)} cm"); } //The less lines the better...right?...guys??
                         break;
 
                     case '3':
@@ -43,11 +36,11 @@ namespace Calculator
                         Console.WriteLine($"Permimeter is {CirclePerimeter(radius)} cm"); // Perimeter of cirlce
                         break;
                     case '6':
-                        char op = GetOperator();
+                        char op = GetOperator();                                    //Calculator
                         double num1 = GetDoubleNumber("Enter first number: ");
                         double num2 = GetDoubleNumber("Enter second number: ");
                         double answer = Calculator(op, num1, num2);
-                        Console.WriteLine($"Answer = {answer}");
+                        Console.WriteLine($"{num1} {op} {num2} = {answer}");
 
                         break;
                     case 'q':
@@ -84,7 +77,7 @@ namespace Calculator
 
         static double GetDoubleNumber(string prompt)
         {
-            Boolean valid = false;
+            bool valid = false;
             double NumberIn = 0;
             do
             {
@@ -133,25 +126,26 @@ namespace Calculator
 
         static char GetOperator()
         {
-            Console.Write("Add (a), Subtract (s), Multiply (m) or Divide (d): ");
+            Console.Write("Add (+), Subtract (-), Multiply (*) or Divide (/): ");
             char op = Console.ReadLine().ToLower()[0];
             return op;
         }
-
+        
         static double Calculator(char op, double num1, double num2)
         {
             switch (op)
             {
-                case 'a':
+                case '+':
                     return num1 + num2;
-                case 's':
+                case '-':
                     return num1 - num2;
-                case 'm':
+                case '*':
                     return num1 * num2;
-                case 'd':
+                case '/':
                     return num1 / num2;
                 default:
                     Console.WriteLine("Invalid operator..."); return 0;
+                
             }
         } //Option 6
     }

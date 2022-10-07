@@ -13,3 +13,18 @@ D:\A levels\Computer Science\C#\College\Calculator\obj\Debug\net6.0\refint\Calcu
 D:\A levels\Computer Science\C#\College\Calculator\obj\Debug\net6.0\Calculator.pdb
 D:\A levels\Computer Science\C#\College\Calculator\obj\Debug\net6.0\Calculator.genruntimeconfig.cache
 D:\A levels\Computer Science\C#\College\Calculator\obj\Debug\net6.0\ref\Calculator.dll
+D:\C sharp\College\Calculator\bin\Debug\net6.0\Calculator.exe
+D:\C sharp\College\Calculator\bin\Debug\net6.0\Calculator.deps.json
+D:\C sharp\College\Calculator\bin\Debug\net6.0\Calculator.runtimeconfig.json
+D:\C sharp\College\Calculator\bin\Debug\net6.0\Calculator.dll
+D:\C sharp\College\Calculator\bin\Debug\net6.0\Calculator.pdb
+D:\C sharp\College\Calculator\obj\Debug\net6.0\Calculator.csproj.AssemblyReference.cache
+D:\C sharp\College\Calculator\obj\Debug\net6.0\Calculator.GeneratedMSBuildEditorConfig.editorconfig
+D:\C sharp\College\Calculator\obj\Debug\net6.0\Calculator.AssemblyInfoInputs.cache
+D:\C sharp\College\Calculator\obj\Debug\net6.0\Calculator.AssemblyInfo.cs
+D:\C sharp\College\Calculator\obj\Debug\net6.0\Calculator.csproj.CoreCompileInputs.cache
+D:\C sharp\College\Calculator\obj\Debug\net6.0\Calculator.dll
+D:\C sharp\College\Calculator\obj\Debug\net6.0\refint\Calculator.dll
+D:\C sharp\College\Calculator\obj\Debug\net6.0\Calculator.pdb
+D:\C sharp\College\Calculator\obj\Debug\net6.0\Calculator.genruntimeconfig.cache
+D:\C sharp\College\Calculator\obj\Debug\net6.0\ref\Calculator.dll
