@@ -1,0 +1,15 @@
+D:\A levels\Computer Science\C#\Home\BlackJack\bin\Debug\net6.0\BlackJack.exe
+D:\A levels\Computer Science\C#\Home\BlackJack\bin\Debug\net6.0\BlackJack.deps.json
+D:\A levels\Computer Science\C#\Home\BlackJack\bin\Debug\net6.0\BlackJack.runtimeconfig.json
+D:\A levels\Computer Science\C#\Home\BlackJack\bin\Debug\net6.0\BlackJack.dll
+D:\A levels\Computer Science\C#\Home\BlackJack\bin\Debug\net6.0\BlackJack.pdb
+D:\A levels\Computer Science\C#\Home\BlackJack\obj\Debug\net6.0\BlackJack.csproj.AssemblyReference.cache
+D:\A levels\Computer Science\C#\Home\BlackJack\obj\Debug\net6.0\BlackJack.GeneratedMSBuildEditorConfig.editorconfig
+D:\A levels\Computer Science\C#\Home\BlackJack\obj\Debug\net6.0\BlackJack.AssemblyInfoInputs.cache
+D:\A levels\Computer Science\C#\Home\BlackJack\obj\Debug\net6.0\BlackJack.AssemblyInfo.cs
+D:\A levels\Computer Science\C#\Home\BlackJack\obj\Debug\net6.0\BlackJack.csproj.CoreCompileInputs.cache
+D:\A levels\Computer Science\C#\Home\BlackJack\obj\Debug\net6.0\BlackJack.dll
+D:\A levels\Computer Science\C#\Home\BlackJack\obj\Debug\net6.0\refint\BlackJack.dll
+D:\A levels\Computer Science\C#\Home\BlackJack\obj\Debug\net6.0\BlackJack.pdb
+D:\A levels\Computer Science\C#\Home\BlackJack\obj\Debug\net6.0\BlackJack.genruntimeconfig.cache
+D:\A levels\Computer Science\C#\Home\BlackJack\obj\Debug\net6.0\ref\BlackJack.dll
