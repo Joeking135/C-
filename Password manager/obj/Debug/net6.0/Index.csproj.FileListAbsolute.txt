@@ -1,0 +1,45 @@
+D:\A levels\Computer Science\C#\Home\Index\bin\Debug\net6.0\Index.exe
+D:\A levels\Computer Science\C#\Home\Index\bin\Debug\net6.0\Index.deps.json
+D:\A levels\Computer Science\C#\Home\Index\bin\Debug\net6.0\Index.runtimeconfig.json
+D:\A levels\Computer Science\C#\Home\Index\bin\Debug\net6.0\Index.dll
+D:\A levels\Computer Science\C#\Home\Index\bin\Debug\net6.0\Index.pdb
+D:\A levels\Computer Science\C#\Home\Index\obj\Debug\net6.0\Index.csproj.AssemblyReference.cache
+D:\A levels\Computer Science\C#\Home\Index\obj\Debug\net6.0\Index.GeneratedMSBuildEditorConfig.editorconfig
+D:\A levels\Computer Science\C#\Home\Index\obj\Debug\net6.0\Index.AssemblyInfoInputs.cache
+D:\A levels\Computer Science\C#\Home\Index\obj\Debug\net6.0\Index.AssemblyInfo.cs
+D:\A levels\Computer Science\C#\Home\Index\obj\Debug\net6.0\Index.csproj.CoreCompileInputs.cache
+D:\A levels\Computer Science\C#\Home\Index\obj\Debug\net6.0\Index.dll
+D:\A levels\Computer Science\C#\Home\Index\obj\Debug\net6.0\refint\Index.dll
+D:\A levels\Computer Science\C#\Home\Index\obj\Debug\net6.0\Index.pdb
+D:\A levels\Computer Science\C#\Home\Index\obj\Debug\net6.0\Index.genruntimeconfig.cache
+D:\A levels\Computer Science\C#\Home\Index\obj\Debug\net6.0\ref\Index.dll
+D:\A levels\Computer Science\C#\Home\Homework manager\bin\Debug\net6.0\Index.exe
+D:\A levels\Computer Science\C#\Home\Homework manager\bin\Debug\net6.0\Index.deps.json
+D:\A levels\Computer Science\C#\Home\Homework manager\bin\Debug\net6.0\Index.runtimeconfig.json
+D:\A levels\Computer Science\C#\Home\Homework manager\bin\Debug\net6.0\Index.dll
+D:\A levels\Computer Science\C#\Home\Homework manager\bin\Debug\net6.0\Index.pdb
+D:\A levels\Computer Science\C#\Home\Homework manager\obj\Debug\net6.0\Index.csproj.AssemblyReference.cache
+D:\A levels\Computer Science\C#\Home\Homework manager\obj\Debug\net6.0\Index.GeneratedMSBuildEditorConfig.editorconfig
+D:\A levels\Computer Science\C#\Home\Homework manager\obj\Debug\net6.0\Index.AssemblyInfoInputs.cache
+D:\A levels\Computer Science\C#\Home\Homework manager\obj\Debug\net6.0\Index.AssemblyInfo.cs
+D:\A levels\Computer Science\C#\Home\Homework manager\obj\Debug\net6.0\Index.csproj.CoreCompileInputs.cache
+D:\A levels\Computer Science\C#\Home\Homework manager\obj\Debug\net6.0\Index.dll
+D:\A levels\Computer Science\C#\Home\Homework manager\obj\Debug\net6.0\refint\Index.dll
+D:\A levels\Computer Science\C#\Home\Homework manager\obj\Debug\net6.0\Index.pdb
+D:\A levels\Computer Science\C#\Home\Homework manager\obj\Debug\net6.0\Index.genruntimeconfig.cache
+D:\A levels\Computer Science\C#\Home\Homework manager\obj\Debug\net6.0\ref\Index.dll
+D:\A levels\Computer Science\C#\Home\Password manager\bin\Debug\net6.0\Index.exe
+D:\A levels\Computer Science\C#\Home\Password manager\bin\Debug\net6.0\Index.deps.json
+D:\A levels\Computer Science\C#\Home\Password manager\bin\Debug\net6.0\Index.runtimeconfig.json
+D:\A levels\Computer Science\C#\Home\Password manager\bin\Debug\net6.0\Index.dll
+D:\A levels\Computer Science\C#\Home\Password manager\bin\Debug\net6.0\Index.pdb
+D:\A levels\Computer Science\C#\Home\Password manager\obj\Debug\net6.0\Index.csproj.AssemblyReference.cache
+D:\A levels\Computer Science\C#\Home\Password manager\obj\Debug\net6.0\Index.GeneratedMSBuildEditorConfig.editorconfig
+D:\A levels\Computer Science\C#\Home\Password manager\obj\Debug\net6.0\Index.AssemblyInfoInputs.cache
+D:\A levels\Computer Science\C#\Home\Password manager\obj\Debug\net6.0\Index.AssemblyInfo.cs
+D:\A levels\Computer Science\C#\Home\Password manager\obj\Debug\net6.0\Index.csproj.CoreCompileInputs.cache
+D:\A levels\Computer Science\C#\Home\Password manager\obj\Debug\net6.0\Index.dll
+D:\A levels\Computer Science\C#\Home\Password manager\obj\Debug\net6.0\refint\Index.dll
+D:\A levels\Computer Science\C#\Home\Password manager\obj\Debug\net6.0\Index.pdb
+D:\A levels\Computer Science\C#\Home\Password manager\obj\Debug\net6.0\Index.genruntimeconfig.cache
+D:\A levels\Computer Science\C#\Home\Password manager\obj\Debug\net6.0\ref\Index.dll
