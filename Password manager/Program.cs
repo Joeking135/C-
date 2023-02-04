@@ -1,9 +1,13 @@
-﻿class Program
+﻿
+using System.Runtime.Intrinsics.Arm;
+using System.Security.Cryptography;
+
+class Program
 {
     private struct LoginStruct
     {
         public string MainUsername;
-        public string Mainpassword;
+        public byte[] Mainpassword;
     }
 
     private struct Passwords
@@ -14,6 +18,8 @@
     }
 
 
+    
+
     static void Main(string[] args)
     {
         List<Passwords> index = new List<Passwords>();
@@ -23,6 +29,8 @@
         bool quit = false;
 
         int sessionPos = 0;
+
+
         Login(logins);
 
 
@@ -62,17 +70,15 @@
 
                 case '2': //Main manager
                     Console.Clear();
-                    Console.Write("1. Display Main Logins\n2. Add Main Login\n3. Remove Main Login\nq. Quit\n\nEnter Selection: ");
+                    Console.Write("1. Add Main Login\n2. Remove Main Login\nq. Quit\n\nEnter Selection: ");
                     char mainManagerChoice = Console.ReadLine()[0];
                     switch (mainManagerChoice)
                     {
+                        
                         case '1':
-                            DisplayMains(logins);
-                            break;
-                        case '2':
                             AddLogin(ref logins);
                             break;
-                        case '3':
+                        case '2':
                             RemoveMain(ref logins);
                             break;
                         case 'q':
@@ -117,7 +123,15 @@
                 Console.Write("Enter password: ");
                 string passwordAttempt = Console.ReadLine();
 
-                if (logins.ElementAt(Pos).Mainpassword == passwordAttempt)
+
+                byte[] data = System.Text.Encoding.UTF8.GetBytes(passwordAttempt);
+
+                byte[]hashAttempt = SHA256.HashData(data);
+
+
+
+
+                if (hashAttempt.SequenceEqual(logins.ElementAt(Pos).Mainpassword))
                 {
                     Console.Clear();
                     Console.WriteLine("Login successful. Hit a key"); Console.ReadKey(); return;
@@ -176,18 +190,18 @@
         }
         sr.Close();
 
-        StreamReader sr2 = new StreamReader("logins.txt");
+        BinaryReader sr2 = new BinaryReader(File.OpenRead("logins.bin"));
 
-        while (!sr2.EndOfStream)
+        while (sr2.BaseStream.Position != sr2.BaseStream.Length)
         {
             LoginStruct user;
-            user.MainUsername = sr2.ReadLine();
-            user.Mainpassword = sr2.ReadLine();
+            user.MainUsername = sr2.ReadString();
+            user.Mainpassword = sr2.ReadBytes(32);
             logins.Add(user);
         }
         sr2.Close();
-
     }
+
     static void Write(List<Passwords> index, List<LoginStruct> logins)
     {
         StreamWriter sw = new StreamWriter("Index.txt");
@@ -200,11 +214,11 @@
         }
         sw.Close();
 
-        StreamWriter sw2 = new StreamWriter("logins.txt");
+        BinaryWriter sw2 = new BinaryWriter(File.Open("logins.bin", FileMode.Create));
         for (int i = 0; i < logins.Count; i++)
         {
-            sw2.WriteLine(logins[i].MainUsername);
-            sw2.WriteLine(logins[i].Mainpassword);
+            sw2.Write(logins[i].MainUsername);
+            sw2.Write(logins[i].Mainpassword);
         }
         sw2.Close();
 
@@ -271,13 +285,12 @@
         }
     }
 
-    static void DisplayMains(List<LoginStruct> logins)
+    
+    static void DisplayMainLogins(List<LoginStruct> logins)
     {
-
-        Console.Clear();
         for (int i = 0; i < logins.Count; i++)
         {
-            Console.WriteLine($"{i + 1}. USERNAME: {logins[i].MainUsername}\tPASSWORD: {logins[i].Mainpassword}");
+            Console.WriteLine($"{i + 1}. USERNAME: {logins[i].MainUsername}");
         }
     }
 
@@ -285,21 +298,35 @@
     {
         Console.Clear();
         LoginStruct NewLogin;
-        Console.Write("Enter a Username: "); NewLogin.MainUsername = Console.ReadLine();
-        Console.Write("Enter a Password: "); NewLogin.Mainpassword = Console.ReadLine();
-        Console.Clear();
-        if (NewLogin.MainUsername == NewLogin.Mainpassword)
+        Console.Write("Enter a Username: "); string newUsername = Console.ReadLine();
+        if (logins.Any(x => x.MainUsername == newUsername))
         {
-            Console.WriteLine("The username and password must not be the same.");
+            Console.WriteLine("That username is taken.");
         }
         else
         {
-            logins.Add(NewLogin); Console.Write("Login added. ");
-        }
+            NewLogin.MainUsername = newUsername;
 
+            Console.Write("Enter a Password: "); string newPassword = Console.ReadLine();
+            Console.Clear();
+            if (NewLogin.MainUsername == newPassword)
+            {
+                Console.WriteLine("The username and password must not be the same.");
+            }
+            else
+            {
+                byte[] data = System.Text.Encoding.UTF8.GetBytes(newPassword);
+
+
+
+                NewLogin.Mainpassword = SHA256.HashData(data);
+
+                logins.Add(NewLogin); Console.Write("Login added. ");
+            }
+        }
     }
 
-    static void RemoveMain(ref List<LoginStruct> logins)
+    static void RemoveMain(ref List<LoginStruct> logins) 
     {
         while (true)
         {
@@ -310,7 +337,7 @@
             else
             {
                 Console.Clear();
-                DisplayMains(logins);
+                DisplayMainLogins(logins);
                 Console.WriteLine("\nEnter the number you would like to remove or c to cancel.");
                 string input = Console.ReadLine().ToLower();
                 if (input == "c")
@@ -319,21 +346,18 @@
                 }
                 else
                 {
-                    try
+                    if (int.TryParse(input, out int intInput))
                     {
-                        int intInput = int.Parse(input);
                         logins.RemoveAt(intInput - 1);
                         Console.Write("Login removed. "); return;
-
                     }
-                    catch
+                    else
                     {
                         Console.WriteLine("That is not a valid input. Try again."); Thread.Sleep(1000);
                     }
+                    
                 }
             }
-            
         }
-        
     }
 }

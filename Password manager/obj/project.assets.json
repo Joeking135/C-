@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\A levels\\Computer Science\\C#\\Home\\Password manager\\Index.csproj",
+      "projectUniqueName": "D:\\C sharp\\Home\\Password manager\\Index.csproj",
       "projectName": "Index",
-      "projectPath": "D:\\A levels\\Computer Science\\C#\\Home\\Password manager\\Index.csproj",
+      "projectPath": "D:\\C sharp\\Home\\Password manager\\Index.csproj",
       "packagesPath": "C:\\Users\\Josep\\.nuget\\packages\\",
-      "outputPath": "D:\\A levels\\Computer Science\\C#\\Home\\Password manager\\obj\\",
+      "outputPath": "D:\\C sharp\\Home\\Password manager\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Josep\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -61,7 +61,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

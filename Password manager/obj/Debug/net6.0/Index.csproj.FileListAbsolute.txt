@@ -43,3 +43,18 @@ D:\A levels\Computer Science\C#\Home\Password manager\obj\Debug\net6.0\refint\In
 D:\A levels\Computer Science\C#\Home\Password manager\obj\Debug\net6.0\Index.pdb
 D:\A levels\Computer Science\C#\Home\Password manager\obj\Debug\net6.0\Index.genruntimeconfig.cache
 D:\A levels\Computer Science\C#\Home\Password manager\obj\Debug\net6.0\ref\Index.dll
+D:\C sharp\Home\Password manager\bin\Debug\net6.0\Index.exe
+D:\C sharp\Home\Password manager\bin\Debug\net6.0\Index.deps.json
+D:\C sharp\Home\Password manager\bin\Debug\net6.0\Index.runtimeconfig.json
+D:\C sharp\Home\Password manager\bin\Debug\net6.0\Index.dll
+D:\C sharp\Home\Password manager\bin\Debug\net6.0\Index.pdb
+D:\C sharp\Home\Password manager\obj\Debug\net6.0\Index.csproj.AssemblyReference.cache
+D:\C sharp\Home\Password manager\obj\Debug\net6.0\Index.GeneratedMSBuildEditorConfig.editorconfig
+D:\C sharp\Home\Password manager\obj\Debug\net6.0\Index.AssemblyInfoInputs.cache
+D:\C sharp\Home\Password manager\obj\Debug\net6.0\Index.AssemblyInfo.cs
+D:\C sharp\Home\Password manager\obj\Debug\net6.0\Index.csproj.CoreCompileInputs.cache
+D:\C sharp\Home\Password manager\obj\Debug\net6.0\Index.dll
+D:\C sharp\Home\Password manager\obj\Debug\net6.0\refint\Index.dll
+D:\C sharp\Home\Password manager\obj\Debug\net6.0\Index.pdb
+D:\C sharp\Home\Password manager\obj\Debug\net6.0\Index.genruntimeconfig.cache
+D:\C sharp\Home\Password manager\obj\Debug\net6.0\ref\Index.dll
