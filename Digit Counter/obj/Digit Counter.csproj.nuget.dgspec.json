@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\C sharp\\College\\Digit Counter\\Digit Counter.csproj": {}
+    "D:\\C sharp\\C-\\Digit Counter\\Digit Counter.csproj": {}
   },
   "projects": {
-    "D:\\C sharp\\College\\Digit Counter\\Digit Counter.csproj": {
+    "D:\\C sharp\\C-\\Digit Counter\\Digit Counter.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\C sharp\\College\\Digit Counter\\Digit Counter.csproj",
+        "projectUniqueName": "D:\\C sharp\\C-\\Digit Counter\\Digit Counter.csproj",
         "projectName": "Digit Counter",
-        "projectPath": "D:\\C sharp\\College\\Digit Counter\\Digit Counter.csproj",
+        "projectPath": "D:\\C sharp\\C-\\Digit Counter\\Digit Counter.csproj",
         "packagesPath": "C:\\Users\\Josep\\.nuget\\packages\\",
-        "outputPath": "D:\\C sharp\\College\\Digit Counter\\obj\\",
+        "outputPath": "D:\\C sharp\\C-\\Digit Counter\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Josep\\AppData\\Roaming\\NuGet\\NuGet.Config",
