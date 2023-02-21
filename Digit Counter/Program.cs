@@ -16,7 +16,7 @@ namespace Digit_Counter
             Console.WriteLine("\nINDEX");
             digits.Display(); 
 
-            Console.WriteLine($"\nMode = {digits.Mode()}\nMedian = {digits.Median()}\nMean = {digits.Mean()}"); //Ouputs the extra features using methods within the Digits class
+            Console.WriteLine($"\nMode = {digits.Mode()}\nMedian = {digits.Median()}\nMean = {digits.Mean()}"); //Outputs the extra features using methods within the Digits class
 
             Console.ReadLine();
 
