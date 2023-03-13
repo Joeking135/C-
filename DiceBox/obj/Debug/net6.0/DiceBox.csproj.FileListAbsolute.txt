@@ -1,0 +1,15 @@
+D:\A levels\Computer Science\C#\College\DiceBox\bin\Debug\net6.0\DiceBox.exe
+D:\A levels\Computer Science\C#\College\DiceBox\bin\Debug\net6.0\DiceBox.deps.json
+D:\A levels\Computer Science\C#\College\DiceBox\bin\Debug\net6.0\DiceBox.runtimeconfig.json
+D:\A levels\Computer Science\C#\College\DiceBox\bin\Debug\net6.0\DiceBox.dll
+D:\A levels\Computer Science\C#\College\DiceBox\bin\Debug\net6.0\DiceBox.pdb
+D:\A levels\Computer Science\C#\College\DiceBox\obj\Debug\net6.0\DiceBox.csproj.AssemblyReference.cache
+D:\A levels\Computer Science\C#\College\DiceBox\obj\Debug\net6.0\DiceBox.GeneratedMSBuildEditorConfig.editorconfig
+D:\A levels\Computer Science\C#\College\DiceBox\obj\Debug\net6.0\DiceBox.AssemblyInfoInputs.cache
+D:\A levels\Computer Science\C#\College\DiceBox\obj\Debug\net6.0\DiceBox.AssemblyInfo.cs
+D:\A levels\Computer Science\C#\College\DiceBox\obj\Debug\net6.0\DiceBox.csproj.CoreCompileInputs.cache
+D:\A levels\Computer Science\C#\College\DiceBox\obj\Debug\net6.0\DiceBox.dll
+D:\A levels\Computer Science\C#\College\DiceBox\obj\Debug\net6.0\refint\DiceBox.dll
+D:\A levels\Computer Science\C#\College\DiceBox\obj\Debug\net6.0\DiceBox.pdb
+D:\A levels\Computer Science\C#\College\DiceBox\obj\Debug\net6.0\DiceBox.genruntimeconfig.cache
+D:\A levels\Computer Science\C#\College\DiceBox\obj\Debug\net6.0\ref\DiceBox.dll

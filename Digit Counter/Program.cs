@@ -16,7 +16,7 @@ namespace Digit_Counter
             Console.WriteLine("\nINDEX");
             digits.Display(); 
 
-            Console.WriteLine($"\nMode = {digits.Mode()}\nMedian = {digits.Median()}\nMean = {digits.Mean()}"); //Outputs the extra features using methods within the Digits class
+            //Console.WriteLine($"\nMode = {digits.Mode()}\nMedian = {digits.Median()}\nMean = {digits.Mean()}"); //Outputs the extra features using methods within the Digits class
 
             Console.ReadLine();
 
@@ -25,50 +25,64 @@ namespace Digit_Counter
 
         public class Digits
         {
-            public List<int> Numbers { get; private set; } 
+            public Dictionary<int, int> Numbers { get; private set; }
 
             public Digits(string inputString) //Constructor
             {
-                Numbers = Array.ConvertAll(inputString.Split(','), int.Parse).ToList(); //Splits the string into an integer array, which is then converted a list.
+                int[] numbers = Array.ConvertAll(inputString.Split(','), int.Parse);
+
+                foreach (int number in numbers)
+                {
+                    if (Numbers.ContainsKey(number))
+                    {
+                        Numbers[number]++;
+                    }
+                    else
+                    {
+                        Numbers.Add(number, 1);
+                    }
+                }
+
+                
             }
 
             public void Display() 
             {
-                for (int i = 1; i <= 9; i++)
+                foreach (KeyValuePair<int, int> pair in Numbers)
                 {
-                    Console.WriteLine($"{i} - {Numbers.Count(e => e.Equals(i))}"); //Uses LINQ to count each number.
+                    Console.WriteLine($"{pair.Key} - {pair.Value}");
                 }
             }
 
-            public int Mode()
-            {
-                return Numbers.GroupBy(i => i)          //Groups by identical numbers
-                .OrderByDescending(grp => grp.Count())  //Orders the groups in descending order by size
-                .Select(grp => grp.Key)                 //Takes the number from the biggest (first) group
-                .FirstOrDefault();
-            }
+            //public int Mode()
+            //{
+            //    return Numbers.GroupBy(i => i)          //Groups by identical numbers
+            //    .OrderByDescending(grp => grp.Count())  //Orders the groups in descending order by size
+            //    .Select(grp => grp.Key)                 //Takes the number from the biggest (first) group
+            //    .FirstOrDefault();
+            //}
 
-            public double Median()
-            {
-                Numbers.Sort();
-                if (Numbers.Count % 2 != 0)
-                {
+            //public double Median()
+            //{
+            //    Numbers.Sort();
+            //    if (Numbers.Count % 2 != 0)
+            //    {
 
-                    return Numbers[Numbers.Count / 2]; //If the list has a definite middle value (count is odd), take that value.
-                }
-                else
-                {
-                    double Higher = Numbers[Numbers.Count / 2];
-                    double Lower = Numbers[(Numbers.Count / 2) - 1]; //calculates the average of the 2 middle values.
+            //        return Numbers[Numbers.Count / 2]; //If the list has a definite middle value (count is odd), take that value.
+            //    }
+            //    else
+            //    {
+            //        double Higher = Numbers[Numbers.Count / 2];
+            //        double Lower = Numbers[(Numbers.Count / 2) - 1]; //calculates the average of the 2 middle values.
 
-                    return Math.Round((Lower + Higher) / 2, 2);
-                }
-            }
+            //        return Math.Round((Lower + Higher) / 2, 2);
+            //    }
+            //}
 
-            public double Mean()
-            {
-                return Math.Round(Numbers.Average(), 2); //Simple inbuilt function to find mean.
-            }
+            //public double Mean()
+            //{
+            //    return Math.Round(Numbers.Average(), 2); //Simple inbuilt function to find mean.
+            //}
 
 
         }
