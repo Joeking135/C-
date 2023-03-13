@@ -13,7 +13,7 @@ namespace DiceBox
             bool gameOver;
 
             DiceBox player1 = new();
-            DiceBox player2 = new(); //initiate objects of each playerIdentifier
+            DiceBox player2 = new(); //initiate objects of each player
 
             do
             {
@@ -71,9 +71,9 @@ namespace DiceBox
     {
         public bool[] DiceValues { get; set; } //Boolean array that stores which values have been rolled.
 
-        public int Lives { get; set; } //Stores the unique playerIdentifier's lives.
+        public int Lives { get; set; } //Stores the unique playerId's lives.
 
-        public bool Duplicate { get; set; } //Boolean to represent if the playerIdentifier has rolled a duplicate
+        public bool Duplicate { get; set; } //Boolean to represent if the player has rolled a duplicate
 
 
         public DiceBox() //Constructor.
@@ -128,7 +128,7 @@ namespace DiceBox
 
         }
 
-        public bool CheckWin() //This checks whether the entire array is set to true (and if so, the playerIdentifier has won).
+        public bool CheckWin() //This checks whether the entire array is set to true (and if so, the player has won).
         {
             if (Array.TrueForAll(DiceValues, e => e.Equals(true)))
             {
