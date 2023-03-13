@@ -1,5 +1,4 @@
-﻿using System.Runtime.InteropServices;
-using System.Security.Cryptography;
+﻿
 
 namespace DiceBox
 {
@@ -10,56 +9,60 @@ namespace DiceBox
         static void Main(string[] args)
         {
             int playCount = 0; //This is used to determine each players go.
-            int player;
+            int playerIdentifier;
+            bool gameOver;
 
             DiceBox player1 = new();
-            DiceBox player2 = new(); //initiate objects of each player
+            DiceBox player2 = new(); //initiate objects of each playerIdentifier
 
-            while (true)
+            do
             {
-                player = (playCount % 2) + 1;
+                playerIdentifier = (playCount % 2) + 1; //This just identifies the player number.
 
-                Console.WriteLine($"Player {player} - press enter to roll the dice."); Console.ReadLine();
-                Console.Write($"Player {player} rolled a ");
-
-                if (player == 1) //Determines whose go it is (alternates after each cycle).
+                if (playerIdentifier == 1) //Determines which player is playing.
                 {
-                    Console.WriteLine(player1.RollDice()); //Rolls the dice, returning an integer value (to display to the user), but this method also updates player 1's boolean array.
-                    Console.WriteLine($"PLAYER {player} SCORESHEET \n");
-                    player1.DisplayBox(); //Displays player one's boolean array values.
+                    gameOver = Turn(player1, playerIdentifier); 
                 }
-                else //Same as player one but with player two 
+                else
                 {
-                    Console.WriteLine(player2.RollDice());
-                    Console.WriteLine($"PLAYER {player} SCORESHEET \n"); //Unsure on how to prevent this repeated code
-                    player2.DisplayBox();
-                }
-
-                if (player1.Duplicate || player2.Duplicate)
-                {
-                    Console.WriteLine($"\n PLAYER {player} ROLLED A DUPLICATE"); 
-                    player1.Duplicate = false; player2.Duplicate = false; //Yuck... 
-                    
-                }
-
-                Console.WriteLine($"\nLives: Player 1 = {player1.Lives}\n       Player 2 = {player2.Lives}\n"); //outputs the lives of each player.
-
-
-                if (player1.CheckWin() || player2.Lives <= 0) //Checks whether each player has rolled all of the possible integers, or if the other player has run out of lives.
-                {
-                    Console.WriteLine("Player 1 wins the game.");
-                    break;
-                }
-                else if (player2.CheckWin() || player1.Lives <= 0 )
-                {
-                    Console.WriteLine("Player 2 wins the game.");
-                    break;
+                    gameOver = Turn(player2, playerIdentifier);
                 }
 
                 Console.WriteLine("Hit a key"); Console.ReadKey(); Console.Clear();
                 playCount++; 
 
+            }while (!gameOver); // determines whether the game has finished.
+
+
+
+        }
+
+        private static bool Turn(DiceBox currentPlayer, int playerIdentifier) //This takes in the currentPlayer and identifier parameter and uses it to make each player move.
+        {
+            Console.WriteLine($"Player {playerIdentifier} - press enter to roll the dice."); 
+            Console.ReadLine();
+            Console.WriteLine($"Player {playerIdentifier} rolled a {currentPlayer.RollDice()}"); //User rolls the dice. (duplicate also handled)
+            if (currentPlayer.Duplicate) //If the player has rolled a duplicate.
+            {
+                Console.WriteLine("\nTHAT IS A DUPLICATE");
             }
+            Console.WriteLine($"\nPLAYER {playerIdentifier} SCOREBOARD"); //Outputs scoreboard.
+            currentPlayer.DisplayBox();
+
+            Console.WriteLine($"\nPlayer {playerIdentifier} lives = {currentPlayer.Lives}\n"); //Displays current players lives.
+
+            if (currentPlayer.Lives <= 0) // If the player has no lives left, they lose (opposition win)
+            {
+                Console.WriteLine($"Player {playerIdentifier} Loses.");
+                return true;
+            }
+            
+            if (currentPlayer.CheckWin()) //If the player manages to score all of the combinations they win.
+            {
+                Console.WriteLine($"Player {playerIdentifier} Wins.");
+                return true;
+            }
+            return false; //else the game continues.
 
         }
     }
@@ -68,9 +71,9 @@ namespace DiceBox
     {
         public bool[] DiceValues { get; set; } //Boolean array that stores which values have been rolled.
 
-        public int Lives { get; set; } //Stores the unique player's lives.
+        public int Lives { get; set; } //Stores the unique playerIdentifier's lives.
 
-        public bool Duplicate { get; set; } //Boolean to represent if the player has rolled a duplicate
+        public bool Duplicate { get; set; } //Boolean to represent if the playerIdentifier has rolled a duplicate
 
 
         public DiceBox() //Constructor.
@@ -125,7 +128,7 @@ namespace DiceBox
 
         }
 
-        public bool CheckWin() //This checks whether the entire array is set to true (and if so, the player has won).
+        public bool CheckWin() //This checks whether the entire array is set to true (and if so, the playerIdentifier has won).
         {
             if (Array.TrueForAll(DiceValues, e => e.Equals(true)))
             {
