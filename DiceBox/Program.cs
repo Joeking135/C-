@@ -114,14 +114,12 @@ namespace DiceBox
 
             for (int i = 2; i < DiceValues.Length; i++)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
+                Console.ForegroundColor = ConsoleColor.Red; //The colours are changed to make them easier to read (provided you are not red-green colourblind).
                 if (DiceValues[i] == true)
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
                 }
                 Console.WriteLine($"{i} = {DiceValues[i]}");
-
-                
             }
 
             Console.ForegroundColor = ConsoleColor.White;
