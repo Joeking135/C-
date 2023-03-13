@@ -1,4 +1,4 @@
-﻿
+﻿using System;
 
 namespace DiceBox
 {
@@ -42,10 +42,13 @@ namespace DiceBox
             Console.WriteLine($"Player {playerIdentifier} - press enter to roll the dice."); 
             Console.ReadLine();
             Console.WriteLine($"Player {playerIdentifier} rolled a {currentPlayer.RollDice()}"); //User rolls the dice. (duplicate also handled)
+
             if (currentPlayer.Duplicate) //If the player has rolled a duplicate.
             {
                 Console.WriteLine("\nTHAT IS A DUPLICATE");
             }
+
+
             Console.WriteLine($"\nPLAYER {playerIdentifier} SCOREBOARD"); //Outputs scoreboard.
             currentPlayer.DisplayBox();
 
@@ -63,7 +66,7 @@ namespace DiceBox
                 return true;
             }
             return false; //else the game continues.
-
+            
         }
     }
 
