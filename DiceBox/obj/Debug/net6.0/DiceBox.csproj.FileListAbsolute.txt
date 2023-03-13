@@ -13,3 +13,18 @@ D:\A levels\Computer Science\C#\College\DiceBox\obj\Debug\net6.0\refint\DiceBox.
 D:\A levels\Computer Science\C#\College\DiceBox\obj\Debug\net6.0\DiceBox.pdb
 D:\A levels\Computer Science\C#\College\DiceBox\obj\Debug\net6.0\DiceBox.genruntimeconfig.cache
 D:\A levels\Computer Science\C#\College\DiceBox\obj\Debug\net6.0\ref\DiceBox.dll
+D:\C sharp\C-\DiceBox\bin\Debug\net6.0\DiceBox.exe
+D:\C sharp\C-\DiceBox\bin\Debug\net6.0\DiceBox.deps.json
+D:\C sharp\C-\DiceBox\bin\Debug\net6.0\DiceBox.runtimeconfig.json
+D:\C sharp\C-\DiceBox\bin\Debug\net6.0\DiceBox.dll
+D:\C sharp\C-\DiceBox\bin\Debug\net6.0\DiceBox.pdb
+D:\C sharp\C-\DiceBox\obj\Debug\net6.0\DiceBox.csproj.AssemblyReference.cache
+D:\C sharp\C-\DiceBox\obj\Debug\net6.0\DiceBox.GeneratedMSBuildEditorConfig.editorconfig
+D:\C sharp\C-\DiceBox\obj\Debug\net6.0\DiceBox.AssemblyInfoInputs.cache
+D:\C sharp\C-\DiceBox\obj\Debug\net6.0\DiceBox.AssemblyInfo.cs
+D:\C sharp\C-\DiceBox\obj\Debug\net6.0\DiceBox.csproj.CoreCompileInputs.cache
+D:\C sharp\C-\DiceBox\obj\Debug\net6.0\DiceBox.dll
+D:\C sharp\C-\DiceBox\obj\Debug\net6.0\refint\DiceBox.dll
+D:\C sharp\C-\DiceBox\obj\Debug\net6.0\DiceBox.pdb
+D:\C sharp\C-\DiceBox\obj\Debug\net6.0\DiceBox.genruntimeconfig.cache
+D:\C sharp\C-\DiceBox\obj\Debug\net6.0\ref\DiceBox.dll

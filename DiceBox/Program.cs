@@ -9,7 +9,7 @@ namespace DiceBox
 
         static void Main(string[] args)
         {
-            int playCount = 0; //This is used to determine each players' go.
+            int playCount = 0; //This is used to determine each players go.
 
             DiceBox player1 = new();
             DiceBox player2 = new(); //initiate objects of each player
@@ -17,11 +17,11 @@ namespace DiceBox
             while (true)
             {
 
-                if (playCount % 2 == 0) //Determines whose go it is.
+                if (playCount % 2 == 0) //Determines whose go it is (alternates after each cycle).
                 {
                     Console.WriteLine("Player 1 - press enter to roll the dice."); Console.ReadLine();
                     Console.WriteLine( $"Player 1 rolled a {player1.RollDice()}"); //Rolls the dice, returning an integer value (to display to the user), but this method also updates player 1's boolean array.
-                    Console.WriteLine("PLAYER 1 SCOREBOARD");
+                    Console.WriteLine("\nPLAYER 1 SCOREBOARD");
                     player1.DisplayBox(); //Displays player one's boolean array values.
 
                     
@@ -30,7 +30,7 @@ namespace DiceBox
                 {
                     Console.WriteLine("Player 2 - press enter to roll the dice."); Console.ReadLine();
                     Console.WriteLine($"Player 2 rolled a {player2.RollDice()}");
-                    Console.WriteLine("PLAYER 2 SCOREBOARD");
+                    Console.WriteLine("\nPLAYER 2 SCOREBOARD");
                     player2.DisplayBox();
                 }
 
@@ -83,12 +83,12 @@ namespace DiceBox
                 Lives--;
                 Console.WriteLine($"That is a duplicate, lives = {Lives}"); //This outputs in the wrong order but ... oh well.
             }
-            diceValues[total] = true; //Sets the value at the location of the 
-            return total;
+            diceValues[total] = true; //Sets the value at the location of total to true.
+            return total; //returns the outcome of the dice roll (to display to the user).
 
         }
 
-        public void DisplayBox()
+        public void DisplayBox() //This is a simple for loop which outputs the values in the array from 2-12.
         {
 
             for (int i = 2; i < diceValues.Length; i++)
@@ -97,7 +97,7 @@ namespace DiceBox
             }
         }
 
-        public bool CheckWin()
+        public bool CheckWin() //This checks whether the entire array is set to true (and if so, the player has won).
         {
             if (Array.TrueForAll(diceValues, e => e.Equals(true)))
             {
