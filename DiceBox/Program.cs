@@ -87,7 +87,7 @@ namespace DiceBox
             DiceValues[0] = true; 
             DiceValues[1] = true; //Positions 0 and 1 are set to true as they cannot be rolled naturally.
 
-            Lives = 100; //Sets the players lives to 3.
+            Lives = 3; //Sets the players lives to 3.
             Duplicate = false;
 
         }
