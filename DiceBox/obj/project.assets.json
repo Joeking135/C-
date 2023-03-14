@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\C sharp\\C-\\DiceBox\\DiceBox.csproj",
+      "projectUniqueName": "D:\\A levels\\Computer Science\\C#\\GitHub\\C-\\DiceBox\\DiceBox.csproj",
       "projectName": "DiceBox",
-      "projectPath": "D:\\C sharp\\C-\\DiceBox\\DiceBox.csproj",
+      "projectPath": "D:\\A levels\\Computer Science\\C#\\GitHub\\C-\\DiceBox\\DiceBox.csproj",
       "packagesPath": "C:\\Users\\Josep\\.nuget\\packages\\",
-      "outputPath": "D:\\C sharp\\C-\\DiceBox\\obj\\",
+      "outputPath": "D:\\A levels\\Computer Science\\C#\\GitHub\\C-\\DiceBox\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Josep\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -61,7 +61,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

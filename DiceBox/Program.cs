@@ -45,7 +45,9 @@ namespace DiceBox
 
             if (currentPlayer.Duplicate) //If the player has rolled a duplicate.
             {
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("\nTHAT IS A DUPLICATE");
+                Console.ForegroundColor = ConsoleColor.White ;
             }
 
 
@@ -85,7 +87,7 @@ namespace DiceBox
             DiceValues[0] = true; 
             DiceValues[1] = true; //Positions 0 and 1 are set to true as they cannot be rolled naturally.
 
-            Lives = 3; //Sets the players lives to 3.
+            Lives = 100; //Sets the players lives to 3.
             Duplicate = false;
 
         }
