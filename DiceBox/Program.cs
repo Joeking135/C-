@@ -76,7 +76,7 @@ namespace DiceBox
     {
         public bool[] DiceValues { get; set; } //Boolean array that stores which values have been rolled.
 
-        public int Lives { get; set; } //Stores the unique playerId's lives.
+        public int Lives { get; set; } //Stores the unique players lives.
 
         public bool Duplicate { get; set; } //Boolean to represent if the player has rolled a duplicate
 
