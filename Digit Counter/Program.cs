@@ -5,6 +5,11 @@ using System.Linq;
 
 namespace Digit_Counter
 {
+
+
+    //THIS PROJECT IS BEING REBUILT USING DICTIONARY. (still work in progress)
+
+
     class Program
     {
         static void Main(string[] args)
