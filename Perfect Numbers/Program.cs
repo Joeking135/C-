@@ -1,4 +1,5 @@
-﻿namespace Perfect_Numbers
+﻿using System;
+namespace Perfect_Numbers
 {
     internal class Program
     {
@@ -17,7 +18,7 @@
                 }
                 number++; //Iterates the current number
 
-                if (number > 8128 && number < 8130) //IMPORTANT: This was just added to test and demonstrate the theory, as otherwise the 5th number takes a very long time to find.
+                if (number == 8129) //IMPORTANT: This was just added to test and demonstrate the theory, as otherwise the 5th number takes a very long time to find.
                 {
                     number = 33550300; //skips to a position near the next perfect number to save time 
                 }
@@ -30,6 +31,7 @@
             {
                 Console.WriteLine(item);
             }
+            Console.ReadLine();
         }
 
         static bool IsPerfect(long number) //Takes in the current number and checks if it is perfect
