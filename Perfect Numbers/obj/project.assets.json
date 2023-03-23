@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\A levels\\Computer Science\\C#\\GitHub\\C-\\Perfect Numbers\\Perfect Numbers.csproj",
+      "projectUniqueName": "D:\\C sharp\\C-\\Perfect Numbers\\Perfect Numbers.csproj",
       "projectName": "Perfect Numbers",
-      "projectPath": "D:\\A levels\\Computer Science\\C#\\GitHub\\C-\\Perfect Numbers\\Perfect Numbers.csproj",
+      "projectPath": "D:\\C sharp\\C-\\Perfect Numbers\\Perfect Numbers.csproj",
       "packagesPath": "C:\\Users\\Josep\\.nuget\\packages\\",
-      "outputPath": "D:\\A levels\\Computer Science\\C#\\GitHub\\C-\\Perfect Numbers\\obj\\",
+      "outputPath": "D:\\C sharp\\C-\\Perfect Numbers\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Josep\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -61,7 +61,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }

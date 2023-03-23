@@ -325,8 +325,7 @@ namespace EscapeTheMaze
                 }
 
                 quit = Collision();
-
-
+                quit = Escaped();
 
             }
 
@@ -365,6 +364,20 @@ namespace EscapeTheMaze
         static void GenerateMaze()
         {
             // this routine will place random walls onto the grid
+
+            int randInt;
+            Random rng = new();
+
+            for (int i = 0; i < mazeheight; i++)
+            {
+                for (int j = 0; j < mazewidth; j++)
+                {
+                    randInt = rng.Next(1, 5);
+
+                    maze[i,j] = (randInt == 1) ? 1 : 0;
+                }
+            }
+            maze[0,0] = 0; //Just ensures that the starting spot is alright.
 
         }
 

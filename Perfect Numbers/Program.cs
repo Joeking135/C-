@@ -6,7 +6,7 @@ namespace Perfect_Numbers
         static void Main(string[] args)
         {
             List<long> perfectNumbers = new List<long>(); //Creates a list to store the perfect numbers
-            int number = 1; //Number is the number currently being tested.
+            int number = 2; //Number is the number currently being tested.
 
             Console.WriteLine("Searching...");
 
@@ -22,7 +22,6 @@ namespace Perfect_Numbers
                 {
                     number = 33550300; //skips to a position near the next perfect number to save time 
                 }
-
             }
 
             Console.Clear();
@@ -36,16 +35,23 @@ namespace Perfect_Numbers
 
         static bool IsPerfect(long number) //Takes in the current number and checks if it is perfect
         {
-            long sum = 0; //This is the running total which will be compared to the current number.
+            long sum = 1; // initialize sum to 1 (every number is divisible by 1)
+            long limit = (long)Math.Sqrt(number); // only need to check divisors up to the square root of the current number.
 
-            for (int i = 1; i <= number / 2; i++) //loops to find each factor.
+            for (long i = 2; i <= limit; i++)
             {
                 if (number % i == 0)
                 {
-                    sum += i; //If the number is a factor, add it to the running total.
+                    sum += i; 
+                    long otherDivisor = number / i;
+                    if (otherDivisor != i)
+                    {
+                        sum += otherDivisor; 
+                    }
                 }
             }
-            return sum == number; //If the sum of factors is the same as the number, the number is perfect.
+
+            return sum == number; //returns true if the sum of the factors is equal to number (so it is perfect).
         }
 
 

@@ -13,3 +13,18 @@ D:\A levels\Computer Science\C#\College\EscapeTheMaze\obj\Debug\net6.0\refint\Es
 D:\A levels\Computer Science\C#\College\EscapeTheMaze\obj\Debug\net6.0\EscapeTheMaze.pdb
 D:\A levels\Computer Science\C#\College\EscapeTheMaze\obj\Debug\net6.0\EscapeTheMaze.genruntimeconfig.cache
 D:\A levels\Computer Science\C#\College\EscapeTheMaze\obj\Debug\net6.0\ref\EscapeTheMaze.dll
+D:\C sharp\C-\EscapeTheMaze\bin\Debug\net6.0\EscapeTheMaze.exe
+D:\C sharp\C-\EscapeTheMaze\bin\Debug\net6.0\EscapeTheMaze.deps.json
+D:\C sharp\C-\EscapeTheMaze\bin\Debug\net6.0\EscapeTheMaze.runtimeconfig.json
+D:\C sharp\C-\EscapeTheMaze\bin\Debug\net6.0\EscapeTheMaze.dll
+D:\C sharp\C-\EscapeTheMaze\bin\Debug\net6.0\EscapeTheMaze.pdb
+D:\C sharp\C-\EscapeTheMaze\obj\Debug\net6.0\EscapeTheMaze.csproj.AssemblyReference.cache
+D:\C sharp\C-\EscapeTheMaze\obj\Debug\net6.0\EscapeTheMaze.GeneratedMSBuildEditorConfig.editorconfig
+D:\C sharp\C-\EscapeTheMaze\obj\Debug\net6.0\EscapeTheMaze.AssemblyInfoInputs.cache
+D:\C sharp\C-\EscapeTheMaze\obj\Debug\net6.0\EscapeTheMaze.AssemblyInfo.cs
+D:\C sharp\C-\EscapeTheMaze\obj\Debug\net6.0\EscapeTheMaze.csproj.CoreCompileInputs.cache
+D:\C sharp\C-\EscapeTheMaze\obj\Debug\net6.0\EscapeTheMaze.dll
+D:\C sharp\C-\EscapeTheMaze\obj\Debug\net6.0\refint\EscapeTheMaze.dll
+D:\C sharp\C-\EscapeTheMaze\obj\Debug\net6.0\EscapeTheMaze.pdb
+D:\C sharp\C-\EscapeTheMaze\obj\Debug\net6.0\EscapeTheMaze.genruntimeconfig.cache
+D:\C sharp\C-\EscapeTheMaze\obj\Debug\net6.0\ref\EscapeTheMaze.dll
