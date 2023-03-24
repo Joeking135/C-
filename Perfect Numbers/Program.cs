@@ -1,62 +1,52 @@
 ﻿using System;
-namespace Perfect_Numbers
+
+
+/// <summary>
+/// I must admit, I did some maths research before going into this, in order to find a more efficient way of finding the perfect numbers. My first 
+/// version did work, but it took a VERY long time, so I discovered mersenne primes to reduce this time.
+/// </summary>
+
+class Program
 {
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            List<long> perfectNumbers = new List<long>(); //Creates a list to store the perfect numbers
-            int number = 2; //Number is the number currently being tested.
-
-            Console.WriteLine("Searching...");
-
-            while (perfectNumbers.Count < 5)  //Loop until we have found 5 perfect numbers
-            {
-                if (IsPerfect(number)) //Checks whether the current number is perfect
-                {
-                    perfectNumbers.Add(number); //If so, add it to the list of perfect numbers
-                }
-                number++; //Iterates the current number
-
-                if (number == 8129) //IMPORTANT: This was just added to test and demonstrate the theory, as otherwise the 5th number takes a very long time to find.
-                {
-                    number = 33550300; //skips to a position near the next perfect number to save time 
-                }
-            }
-
-            Console.Clear();
-            Console.WriteLine("The first five perfect numbers are: "); //Displays the list of perfect numbers to the user.
-            foreach (long item in perfectNumbers)
-            {
-                Console.WriteLine(item);
-            }
-            Console.ReadLine();
-        }
-
-        static bool IsPerfect(long number) //Takes in the current number and checks if it is perfect
-        {
-            long sum = 1; // initialize sum to 1 (every number is divisible by 1)
-            long limit = (long)Math.Sqrt(number); // only need to check divisors up to the square root of the current number.
-
-            for (long i = 2; i <= limit; i++)
-            {
-                if (number % i == 0)
-                {
-                    sum += i; 
-                    long otherDivisor = number / i;
-                    if (otherDivisor != i)
-                    {
-                        sum += otherDivisor; 
-                    }
-                }
-            }
-
-            return sum == number; //returns true if the sum of the factors is equal to number (so it is perfect).
-        }
-
-
-
-    }
 
     
+    static void Main(string[] args)
+    {
+        int number = 2; //Sets the current number to 2.
+
+        List<long> perfectNumbers = new List<long>(); //This is a list of the perfect numbers, to be displayed later
+
+        while (perfectNumbers.Count < 5)
+        {
+            long mersennePrime = (long)Math.Pow(2, number) - 1; //Using a formula to calculate the mersenne prime
+
+            if (IsPrime(number) && IsPrime(mersennePrime)) //If both are prime, the number is perfect.
+            {
+                long perfectNumber = mersennePrime * (long)Math.Pow(2, number - 1); //Using formula to calculate perfect number
+                perfectNumbers.Add(perfectNumber); 
+            }
+
+            number++; //Iterate the number, in order to search that next.
+        }
+
+        foreach (int perfectNumber in perfectNumbers) //This loops through the perfect number list and outputs each perfect number.
+        {
+            Console.WriteLine(perfectNumber);
+        }
+        Console.ReadLine();
+    }
+
+    static bool IsPrime(long number) //This method simply returns true if the number is prime
+    {
+        if (number < 2) return false; // 0 and 1 are not prime
+        if (number == 2) return true; // 2 is prime
+
+        for (long i = 2; i <= Math.Sqrt(number); i++)//We only need to check numbers up to the square root of the number.
+        {
+            if (number % i == 0) return false; // If divisible, the numbre is not prime.
+        }
+
+        return true; //if the number is not divisible, then it must be prime.
+
+    }
 }
