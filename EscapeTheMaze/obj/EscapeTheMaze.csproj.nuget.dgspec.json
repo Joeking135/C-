@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\C sharp\\C-\\EscapeTheMaze\\EscapeTheMaze.csproj": {}
+    "D:\\A levels\\Computer Science\\C#\\GitHub\\C-\\EscapeTheMaze\\EscapeTheMaze.csproj": {}
   },
   "projects": {
-    "D:\\C sharp\\C-\\EscapeTheMaze\\EscapeTheMaze.csproj": {
+    "D:\\A levels\\Computer Science\\C#\\GitHub\\C-\\EscapeTheMaze\\EscapeTheMaze.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\C sharp\\C-\\EscapeTheMaze\\EscapeTheMaze.csproj",
+        "projectUniqueName": "D:\\A levels\\Computer Science\\C#\\GitHub\\C-\\EscapeTheMaze\\EscapeTheMaze.csproj",
         "projectName": "EscapeTheMaze",
-        "projectPath": "D:\\C sharp\\C-\\EscapeTheMaze\\EscapeTheMaze.csproj",
+        "projectPath": "D:\\A levels\\Computer Science\\C#\\GitHub\\C-\\EscapeTheMaze\\EscapeTheMaze.csproj",
         "packagesPath": "C:\\Users\\Josep\\.nuget\\packages\\",
-        "outputPath": "D:\\C sharp\\C-\\EscapeTheMaze\\obj\\",
+        "outputPath": "D:\\A levels\\Computer Science\\C#\\GitHub\\C-\\EscapeTheMaze\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Josep\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -55,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
