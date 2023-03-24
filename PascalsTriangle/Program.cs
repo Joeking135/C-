@@ -20,7 +20,7 @@
             return number * Factorial(number - 1);
         }
 
-        static int NumberAtPosition(int row, int column)
+        static int NumberAtPosition(int row, int column) //Finds the number at any given position in Pascal's triangle using the choose equation.
         {
             if (column <= row)
             {
@@ -35,7 +35,7 @@
 
             for (int i = 0; i < rowCount; i++) //Where i is the current row.
             {
-                Console.Write("".PadLeft(rowCount - i));
+                Console.Write(new string(' ', rowCount - i));
                 for (int j = 0; j <= i; j++)
                 {
                     string number = NumberAtPosition(i, j).ToString();
