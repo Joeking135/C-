@@ -8,14 +8,8 @@ namespace TCPserver
 {
     internal class Program
     {
-        static void Main(string[] args)
-        {
-            Task.Run(() =>  Server());
-        }
-
-
-
-        static async Task Server()
+        
+        static async Task Main(string[] args)
         {
             TcpListener listener = new TcpListener(IPAddress.Any, 8888);
             listener.Start();
