@@ -8,8 +8,8 @@ namespace TCPserver
 {
     internal class Program
     {
-        
-        static async Task Main(string[] args)
+
+        static void Main(string[] args)
         {
             TcpListener listener = new TcpListener(IPAddress.Any, 8888);
             listener.Start();
@@ -19,11 +19,13 @@ namespace TCPserver
             {
                 while (true)
                 {
-                    TcpClient client = await listener.AcceptTcpClientAsync();
+                    TcpClient client = listener.AcceptTcpClient();
                     Console.WriteLine("Client connected.");
 
-                    // Handle the client in a separate task.
-                    Task.Run(() => HandleClientAsync(client));
+                    HandleClient(client);
+
+                    client.Close();
+                    Console.WriteLine("Client disconnected.");
                 }
             }
             finally
@@ -33,9 +35,7 @@ namespace TCPserver
             }
         }
 
-        
-
-        static async Task HandleClientAsync(TcpClient client)
+        static void HandleClient(TcpClient client)
         {
             try
             {
@@ -44,25 +44,20 @@ namespace TCPserver
                     byte[] buffer = new byte[1024];
                     int bytesRead;
 
-                    while ((bytesRead = await stream.ReadAsync(buffer, 0, buffer.Length)) > 0)
+                    while ((bytesRead = stream.Read(buffer, 0, buffer.Length)) > 0)
                     {
                         string message = Encoding.ASCII.GetString(buffer, 0, bytesRead);
                         Console.WriteLine("Received: {0}", message);
 
                         // Echo the message back to the client.
                         byte[] response = Encoding.ASCII.GetBytes(message);
-                        await stream.WriteAsync(response, 0, response.Length);
+                        stream.Write(response, 0, response.Length);
                     }
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Exception: {0}", ex.Message);
-            }
-            finally
-            {
-                client.Close();
-                Console.WriteLine("Client disconnected.");
             }
         }
     }
