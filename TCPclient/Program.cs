@@ -1,4 +1,5 @@
-﻿using System.Net.Sockets;
+﻿using System;
+using System.Net.Sockets;
 using System.Text;
 
 namespace TCPclient
@@ -9,7 +10,13 @@ namespace TCPclient
         {
             try
             {
-                TcpClient client = new TcpClient("localhost", 8888);
+                Console.Write("Enter IP: "); string IP = Console.ReadLine() ?? "localhost";
+
+                Console.Write("Enter port"); int port = int.Parse(Console.ReadLine());
+                Console.Clear();
+
+
+                TcpClient client = new TcpClient(IP, port);
                 Console.WriteLine("Connected to server.");
 
                 NetworkStream stream = client.GetStream();
