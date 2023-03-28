@@ -296,8 +296,6 @@ namespace EscapeTheMaze
 
                     switch (turtleOrientation)
                     {
-
-
                         case orientation.north:
                             turtleY -= steps;
                             break;
@@ -347,8 +345,8 @@ namespace EscapeTheMaze
 
             while (!file.EndOfStream)
             {
-                string line = file.ReadLine();
 
+                string line = file.ReadLine();
                 for (int i = 0; i < line.Length; i++)
                 {
                     maze[lineNumber, i] = int.Parse(line[i].ToString());
@@ -459,7 +457,6 @@ namespace EscapeTheMaze
             }
             while (response != "1" && response != "2");
             return response;
-
         }
     }
 }

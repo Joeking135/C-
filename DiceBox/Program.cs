@@ -33,8 +33,6 @@ namespace DiceBox
 
             }while (!gameOver); // determines whether the game has finished.
 
-
-
         }
 
         private static bool Turn(DiceBox currentPlayer, int playerIdentifier) //This takes in the currentPlayer and identifier parameter and uses it to make each player move.
@@ -47,7 +45,7 @@ namespace DiceBox
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("\nTHAT IS A DUPLICATE");
-                Console.ForegroundColor = ConsoleColor.White ;
+                Console.ForegroundColor = ConsoleColor.White;
             }
 
 
