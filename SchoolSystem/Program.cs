@@ -26,6 +26,7 @@ namespace SchoolSystem
 
         static void Main(string[] args)
         {
+
             bool quit;
             LoadDatabase();
             do
@@ -35,7 +36,7 @@ namespace SchoolSystem
 
                 Menu();
 
-                int menuSelection = GetUserInput<int>((input => input < 1 || input > menuElements.Length), "\nEnter Menu Selection:", "That is not a valid Menu Selection. Try again.");
+                int menuSelection = GetUserInput<int>((input => input < 1 || input > menuElements.Length), "\nEnter Menu Selection: ", "That is not a valid Menu Selection. Try again.");
                 switch (menuSelection)
                 {
                     case 1:
@@ -63,7 +64,7 @@ namespace SchoolSystem
                         quit = true;
                         break;
                 }
-                Console.Write("Hit Enter"); Console.ReadLine();
+                Console.Write("Press Enter: "); Console.ReadLine();
 
             } while (!quit);
 
@@ -85,10 +86,14 @@ namespace SchoolSystem
 
             foreach (Student student in students)
             {
-                Console.Write($"{student.FirstName} {student.LastName}: ");
-                char input = Console.ReadLine()[0];
+            
+                char input = GetUserInput<char>(
+                    (input => input != '/' && input != 'a'),
+                    $"{student.FirstName} {student.LastName}: ",
+                    "That is not a valid character."
+                );
 
-                student.Attendance = input == '/' ? Student.Register.Present : Student.Register.Absent;
+                student.Attendance = (input == '/') ? Student.Register.Present : Student.Register.Absent;
             }
 
             Console.Write("Register Complete.");
@@ -116,7 +121,6 @@ namespace SchoolSystem
         {
             StreamReader file = new("Students.txt");
 
-
             string firstName;
             string lastName; 
             Student.GenderType genderType;
@@ -125,12 +129,20 @@ namespace SchoolSystem
 
             while (!file.EndOfStream)
             {
-                firstName = file.ReadLine();
-                lastName = file.ReadLine();
-                genderType = (Student.GenderType)converter.ConvertFromString(file.ReadLine());
-                file.ReadLine();
+                try
+                {
+                    firstName = file.ReadLine();
+                    lastName = file.ReadLine();
+                    genderType = (Student.GenderType)converter.ConvertFromString(file.ReadLine());
+                    file.ReadLine();
 
-                students.Add(new(firstName, lastName, genderType));
+                    students.Add(new(firstName, lastName, genderType));
+                }
+                catch (System.Exception)
+                {
+                    continue; 
+                }
+                
 
             }
             file.Close();
@@ -230,15 +242,16 @@ namespace SchoolSystem
         static void RemoveStudent()
         {
 
-            bool isError = false;
             if (students.Count > 0)
             {
                 DisplayAllStudents();
                 int removeIndex = GetUserInput<int>(
-                    (input => input < 0 || input >= students.Count),
-                    "Enter ID to remove: ",
+                    (input => input < -1 || input >= students.Count),
+                    "Enter ID to remove (-1 to quit): ",
                     "That is not a valid Student ID"
                 );
+
+                if(removeIndex == -1) {return;}
 
                 students.RemoveAt(removeIndex);
             }
