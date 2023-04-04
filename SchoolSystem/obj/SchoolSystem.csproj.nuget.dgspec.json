@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\C sharp\\L6\\Home\\SchoolSystem\\SchoolSystem.csproj": {}
+    "D:\\C sharp\\Github\\C-\\SchoolSystem\\SchoolSystem.csproj": {}
   },
   "projects": {
-    "D:\\C sharp\\L6\\Home\\SchoolSystem\\SchoolSystem.csproj": {
+    "D:\\C sharp\\Github\\C-\\SchoolSystem\\SchoolSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\C sharp\\L6\\Home\\SchoolSystem\\SchoolSystem.csproj",
+        "projectUniqueName": "D:\\C sharp\\Github\\C-\\SchoolSystem\\SchoolSystem.csproj",
         "projectName": "SchoolSystem",
-        "projectPath": "D:\\C sharp\\L6\\Home\\SchoolSystem\\SchoolSystem.csproj",
+        "projectPath": "D:\\C sharp\\Github\\C-\\SchoolSystem\\SchoolSystem.csproj",
         "packagesPath": "C:\\Users\\Josep\\.nuget\\packages\\",
-        "outputPath": "D:\\C sharp\\L6\\Home\\SchoolSystem\\obj\\",
+        "outputPath": "D:\\C sharp\\Github\\C-\\SchoolSystem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Josep\\AppData\\Roaming\\NuGet\\NuGet.Config",

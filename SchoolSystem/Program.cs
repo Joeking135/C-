@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Concurrent;
-using System.Text;
 using System.Windows;
+using System.ComponentModel;
+using System.Text.RegularExpressions;
 
-//Cursor parking: _________1
 
 
 namespace SchoolSystem
@@ -11,7 +11,6 @@ namespace SchoolSystem
     class Program
     {
 
-        // Add remove student routine. Add student.txt to store student name and gender only (register is seperate).
 
         static void Main(string[] args)
         {
@@ -20,19 +19,12 @@ namespace SchoolSystem
             LoadDatabase(ref students);
             do
             {
-
                 
                 students = students.OrderBy(e => e.Name).ToList();
 
                 Menu();
                 
-                GetUserInput(
-                    out int menuSelection,
-                    delegate (int input){ return input < 1 || input > 7 ;},
-                    "\nInput Operation: ",
-                    "That is not a valid operation number. Try again."
-                );
-
+                int menuSelection = GetUserInput<int>((input => input < 1 || input > 7), "\nEnter Menu Selection:", "That is not a valid Menu Selection. Try again.");
                 switch (menuSelection)
                 {
                     case 1:
@@ -56,6 +48,7 @@ namespace SchoolSystem
                         break;
                     case 7:
                         SaveDatabase(students);
+                        SaveRegister(ref students);
                         goto end;
                 }
                 Console.Write("Hit Enter"); Console.ReadLine();
@@ -113,15 +106,15 @@ namespace SchoolSystem
 
 
             string name;
-            char gender;
             Student.GenderType genderType;
+            TypeConverter converter = TypeDescriptor.GetConverter(typeof(Student.GenderType));
+            
+
             while (!file.EndOfStream)
             {
                 name = file.ReadLine();
-                gender = file.ReadLine().ToUpper()[0];
+                genderType = (Student.GenderType)converter.ConvertFromString(file.ReadLine());
                 file.ReadLine();
-
-                genderType = GetGenderType(gender); 
 
                 students.Add(new(name, genderType));
 
@@ -183,13 +176,23 @@ namespace SchoolSystem
 
         static void AddStudent(ref List<Student> students){
         
-            Console.Write("Input Full Name: "); string name = Console.ReadLine() ?? "Undefined";
-            Console.Write("Input Gender (M/F/U): "); char gender = Console.ReadLine().ToUpper()[0];
+            
 
-            Student.GenderType genderType;
-            genderType = GetGenderType(gender); 
 
-            students.Add(new(name, genderType));
+            string name = GetUserInput<string>(
+                (input => input == ""),
+                "Enter Full Name (eg. FirstName Surname): ",
+                "That is not in the correct format."
+            );
+
+            Student.GenderType genderType = GetUserInput<Student.GenderType>(
+                (input => (int)input < 0 || (int)input > 2),
+                "Enter Gender (Male, Female, Undefinded): ",
+                "That is not a valid gender. Try again."
+            );
+
+
+            students.Add(new(name, (Student.GenderType)genderType));
         }
 
         static void RemoveStudent(ref List<Student> students){
@@ -197,16 +200,12 @@ namespace SchoolSystem
             bool isError = false;
             if (students.Count > 0)
             {
+
                 do
                 {
                     DisplayAllStudents(students);
 
-                    GetUserInput(
-                        out int removeIndex,
-                        delegate (int input) {return input < 0 ; },
-                        $"Enter student ID to remove: ",
-                        "That is not a valid student ID."
-                    );
+                    int removeIndex = GetUserInput<int>((input => input < 0), "Enter ID to remove: ", "That is not a valid Student ID");
 
                     if (removeIndex + 1> students.Count )
                     {
@@ -217,7 +216,7 @@ namespace SchoolSystem
                     else
                     {
                         students.RemoveAt(removeIndex);
-                        Console.WriteLine("Student removed from the dtatbase.");
+                        Console.WriteLine("Student removed from the database.");
 
                         isError = false;
                     }
@@ -231,49 +230,44 @@ namespace SchoolSystem
             }                        
 
         }
-        delegate bool FailConditionInt(int input);
-        static void GetUserInput(out int input, FailConditionInt failConditionInt, string request, string errorMessage){
+
+        delegate bool FailCondition<T>(T input);
+        static T GetUserInput<T>(FailCondition<T> failCondition, string request, string errorMessage)
+        {
             bool isError = false;
+
             do
             {
-                input = -1;
                 try
                 {
-                    Console.Write(request); 
-                    input = int.Parse(Console.ReadLine());
-                    if (failConditionInt(input))
+                    Console.Write(request);
+                    T output;
+                    TypeConverter converter = TypeDescriptor.GetConverter(typeof(T));
+
+                    if (converter != null)
                     {
-                        Console.WriteLine(errorMessage);
-                        isError = true;
-                    }
-                    else
-                    {
-                        isError = false;
+                        output = (T)converter.ConvertFromString(Console.ReadLine());
+                        if (failCondition(output))
+                        {
+                            Console.WriteLine(errorMessage);
+                            isError = true;
+                            continue;
+                        }
+
+                        return output;
                     }
                 }
-                catch 
+                catch
                 {
                     Console.WriteLine(errorMessage);
-                    isError = true;    
-                } 
-            } while (isError);
-
-        }
-        static Student.GenderType GetGenderType(char gender){
-            
-            switch (gender)
-            {
-                case 'M':
-                    return Student.GenderType.Male; 
-                case 'F':
-                    return Student.GenderType.Female; 
-                default:
-                    return Student.GenderType.Undefined; 
+                    isError = true;
+                    continue;
+                }
             }
+            while (isError);
+
+            return default;
         }
-
-
-        
 
 	}
     class Student

@@ -1,15 +1,6 @@
-AAdam
+Example
 Undefined
 
-Ava 
-Female
-
-Joe
-Male
-
-Joe
-Undefined
-
-Zorin
+MaleTest
 Male
 
