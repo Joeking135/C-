@@ -207,10 +207,9 @@ namespace SchoolSystem
             bool isError = false;
             if (students.Count > 0)
             {
-
-                
                 DisplayAllStudents();
                 int removeIndex = GetUserInput<int>((input => input < 0 || input + 1 > students.Count), "Enter ID to remove: ", "That is not a valid Student ID");
+                students.RemoveAt(removeIndex);
             }
             else
             {
