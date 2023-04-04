@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
-using System.Windows;
 using System.ComponentModel;
-using System.Text.RegularExpressions;
 
 
 
@@ -111,7 +109,7 @@ namespace SchoolSystem
 
         static void SaveRegister()
         {
-            StreamWriter file = new StreamWriter("Register.txt", true);
+            StreamWriter file = new("Register.txt", true);
 
             file.WriteLine(DateTime.Now.ToString());
 
@@ -150,7 +148,8 @@ namespace SchoolSystem
                 }
                 catch (System.Exception)
                 {
-                    continue;
+                    file.Close();
+                    return;
                 }
 
 
@@ -239,9 +238,9 @@ namespace SchoolSystem
                 "Enter Last Name: ",
                 "That is not a valid last name. Try again."
             );
-
+            
             Student.GenderType genderType = GetUserInput<Student.GenderType>(
-                (input => (int)input < 0 || (int)input > 2),
+                (input => (int)input < 0 || (int)input >= Enum.GetNames(typeof(Student.GenderType)).Length),
                 "Enter Gender (Male, Female, Undefinded): ",
                 "That is not a valid gender. Try again."
             );
