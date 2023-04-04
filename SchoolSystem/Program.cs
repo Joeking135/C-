@@ -8,68 +8,71 @@ using System.Text.RegularExpressions;
 
 namespace SchoolSystem
 {
+
     class Program
     {
 
+        static List<Student> students = new();
 
         static void Main(string[] args)
         {
-            List<Student> students = new();
 
-            LoadDatabase(ref students);
+            LoadDatabase();
             do
             {
-                
+
                 students = students.OrderBy(e => e.Name).ToList();
 
                 Menu();
-                
+
                 int menuSelection = GetUserInput<int>((input => input < 1 || input > 7), "\nEnter Menu Selection:", "That is not a valid Menu Selection. Try again.");
                 switch (menuSelection)
                 {
                     case 1:
-                        Register(ref students);
+                        Register();
                         break;
                     case 2:
-                        SaveRegister(ref students);
-                        break; 
+                        SaveRegister();
+                        break;
 
                     case 3:
-                        DisplayAllStudents(students);
+                        DisplayAllStudents();
                         break;
                     case 4:
-                        SearchForStudent(students);
+                        SearchForStudent();
                         break;
                     case 5:
-                        AddStudent(ref students);
+                        AddStudent();
                         break;
                     case 6:
-                        RemoveStudent(ref students);
+                        RemoveStudent();
                         break;
                     case 7:
-                        SaveDatabase(students);
-                        SaveRegister(ref students);
+                        SaveDatabase();
+                        SaveRegister();
                         goto end;
                 }
                 Console.Write("Hit Enter"); Console.ReadLine();
-                    
+
             } while (true);
 
-            end: ;
-		}
-        
-        static void Menu(){
+        end:;
+        }
+
+        static void Menu()
+        {
             Console.Clear();
-            Console.WriteLine( "1. Register"
+            Console.WriteLine("1. Register"
             + "\n2. Save and reset Register"
-            + "\n3. Display all students" 
+            + "\n3. Display all students"
             + "\n4. Search for student"
             + "\n5. Add new student"
             + "\n6. Remove student"
             + "\n7. Save and Quit");
         }
 
-        static void Register(ref List<Student> students){
+        static void Register()
+        {
             Console.Clear();
             Console.WriteLine("/ = Present, a = Absent.");
 
@@ -78,15 +81,16 @@ namespace SchoolSystem
                 Console.Write($"{student.Name}: ");
                 char input = Console.ReadLine()[0];
 
-                student.Attendance = input == '/' ? Student.Register.Present : Student.Register.Absent; 
-            } 
+                student.Attendance = input == '/' ? Student.Register.Present : Student.Register.Absent;
+            }
 
-            Console.Write("Register Complete."); 
+            Console.Write("Register Complete.");
         }
 
-        static void SaveRegister(ref List<Student> students){
+        static void SaveRegister()
+        {
             StreamWriter file = new StreamWriter("Register.txt", true);
-            
+
             file.WriteLine(DateTime.Now.ToString());
 
             foreach (Student student in students)
@@ -97,18 +101,19 @@ namespace SchoolSystem
 
             file.Close();
 
-            Console.WriteLine("Register written to file. "); 
+            Console.WriteLine("Register written to file. ");
         }
 
 
-        static void LoadDatabase(ref List<Student> students){
+        static void LoadDatabase()
+        {
             StreamReader file = new("Students.txt");
 
 
             string name;
             Student.GenderType genderType;
             TypeConverter converter = TypeDescriptor.GetConverter(typeof(Student.GenderType));
-            
+
 
             while (!file.EndOfStream)
             {
@@ -125,20 +130,22 @@ namespace SchoolSystem
 
 
 
-        static void SaveDatabase(List<Student> students){
-            
+        static void SaveDatabase()
+        {
+
             StreamWriter file = new("Students.txt");
             foreach (Student student in students)
             {
                 file.WriteLine(student.Name);
-                file.WriteLine(student.Gender); 
+                file.WriteLine(student.Gender);
                 file.WriteLine();
             }
 
             file.Close();
         }
 
-        static void DisplayAllStudents(List<Student> students){
+        static void DisplayAllStudents()
+        {
 
             Console.Clear();
             foreach (Student student in students)
@@ -149,14 +156,15 @@ namespace SchoolSystem
 
         }
 
-        static void SearchForStudent(List<Student> students){
+        static void SearchForStudent()
+        {
 
             Console.Clear();
             Console.Write("Enter Student Name: ");
             string name = Console.ReadLine();
             bool found = false;
 
-        
+
             for (int i = 0; i < students.Count; i++)
             {
                 if (students[i].Name == name)
@@ -164,7 +172,7 @@ namespace SchoolSystem
                     Console.WriteLine($"Found: ID = {i}");
                     found = true;
                 }
-                
+
             }
 
             if (!found)
@@ -174,10 +182,8 @@ namespace SchoolSystem
 
         }
 
-        static void AddStudent(ref List<Student> students){
-        
-            
-
+        static void AddStudent()
+        {
 
             string name = GetUserInput<string>(
                 (input => input == ""),
@@ -195,39 +201,21 @@ namespace SchoolSystem
             students.Add(new(name, (Student.GenderType)genderType));
         }
 
-        static void RemoveStudent(ref List<Student> students){
-            
+        static void RemoveStudent()
+        {
+
             bool isError = false;
             if (students.Count > 0)
             {
 
-                do
-                {
-                    DisplayAllStudents(students);
-
-                    int removeIndex = GetUserInput<int>((input => input < 0), "Enter ID to remove: ", "That is not a valid Student ID");
-
-                    if (removeIndex + 1> students.Count )
-                    {
-                        Console.WriteLine("That is not a valid Student ID.");
-                        isError = true;
-                        Console.WriteLine("Hit Enter."); Console.ReadLine();
-                    }    
-                    else
-                    {
-                        students.RemoveAt(removeIndex);
-                        Console.WriteLine("Student removed from the database.");
-
-                        isError = false;
-                    }
-                } while (isError);
-
-    
+                
+                DisplayAllStudents();
+                int removeIndex = GetUserInput<int>((input => input < 0 || input + 1 > students.Count), "Enter ID to remove: ", "That is not a valid Student ID");
             }
             else
             {
                 Console.WriteLine("There are no students on the database.");
-            }                        
+            }
 
         }
 
@@ -269,7 +257,7 @@ namespace SchoolSystem
             return default;
         }
 
-	}
+    }
     class Student
     {
         public enum Register
@@ -282,13 +270,13 @@ namespace SchoolSystem
         {
             Male,
             Female,
-            Undefined 
+            Undefined
         }
 
-        public string Name {get; set;}
-        public GenderType Gender {get; set;} 
+        public string Name { get; set; }
+        public GenderType Gender { get; set; }
 
-        public Register Attendance {get; set;} 
+        public Register Attendance { get; set; }
 
         public Student(string name, GenderType gender)
         {
