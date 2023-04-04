@@ -90,16 +90,18 @@ namespace SchoolSystem
         static void Register()
         {
             Console.Clear();
-            Console.WriteLine("/ = Present, a = Absent.");
+            Console.WriteLine("/ = Present, a = Absent. (q to quit).");
 
             foreach (Student student in students)
             {
 
                 char input = GetUserInput<char>(
-                    (input => input != '/' && input != 'a'),
+                    (input => input != '/' && input != 'a' && input != 'q'),
                     $"{student.FirstName} {student.LastName}: ",
                     "That is not a valid character."
                 );
+
+                if (input == 'q') {return; }
 
                 student.Attendance = (input == '/') ? Student.Register.Present : Student.Register.Absent;
             }
