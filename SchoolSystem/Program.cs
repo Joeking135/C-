@@ -30,7 +30,7 @@ namespace SchoolSystem
             do
             {
                 quit = false;
-                students = students.OrderBy(e => e.LastName).ToList();
+                students = students.OrderBy(e => e.Name.Item2).ToList();
 
                 if (students.Count == 0)
                 {
@@ -97,7 +97,7 @@ namespace SchoolSystem
 
                 char input = GetUserInput<char>(
                     (input => input != '/' && input != 'a' && input != 'q'),
-                    $"{student.FirstName} {student.LastName}: ",
+                    $"{student.Name.Item1} {student.Name.Item2}: ",
                     "That is not a valid character."
                 );
 
@@ -116,7 +116,7 @@ namespace SchoolSystem
 
             foreach (Student student in students)
             {
-                file.WriteLine($"{student.FirstName} {student.LastName}: {student.Attendance}");
+                file.WriteLine($"{student.Name.Item1} {student.Name.Item2}: {student.Attendance}");
                 student.Attendance = Student.Register.Absent;
             }
 
@@ -166,8 +166,8 @@ namespace SchoolSystem
             StreamWriter file = new("Students.txt");
             foreach (Student student in students)
             {
-                file.WriteLine(student.FirstName);
-                file.WriteLine(student.LastName);
+                file.WriteLine(student.Name.Item1);
+                file.WriteLine(student.Name.Item2);
                 file.WriteLine(student.Gender);
                 file.WriteLine();
             }
@@ -210,7 +210,7 @@ namespace SchoolSystem
 
             for (int i = 0; i < students.Count; i++)
             {
-                if (students[i].FirstName == firstName && students[i].LastName == lastName)
+                if (students[i].Name.Item1 == firstName && students[i].Name.Item2 == lastName)
                 {
                     Console.WriteLine($"Found: ID = {i}");
                     found = true;
@@ -311,22 +311,20 @@ namespace SchoolSystem
             Undefined
         }
 
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public Tuple<string, string> Name {get; set;}
         public GenderType Gender { get; set; }
         public Register Attendance { get; set; }
 
         public Student(string firstName, string lastName, GenderType gender)
         {
-            FirstName = firstName;
-            LastName = lastName;
+            Name = Tuple.Create(firstName, lastName);
             Gender = gender;
             Attendance = Register.Absent;
         }
 
         public void Display()
         {
-            Console.WriteLine($"Name: {FirstName} {LastName}");
+            Console.WriteLine($"Name: {Name.Item1} {Name.Item2}");
             Console.WriteLine($"Gender: {Gender}");
             Console.WriteLine($"Current Attendance: {Attendance}\n");
         }
