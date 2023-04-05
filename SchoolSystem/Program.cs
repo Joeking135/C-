@@ -47,9 +47,11 @@ namespace SchoolSystem
                 {
                     case 1:
                         Register();
+                        Console.Write("Register Complete.");
                         break;
                     case 2:
                         SaveRegister();
+                        Console.WriteLine("Register written to file. ");
                         break;
 
                     case 3:
@@ -104,7 +106,6 @@ namespace SchoolSystem
                 student.Attendance = (input == '/') ? Student.Register.Present : Student.Register.Absent;
             }
 
-            Console.Write("Register Complete.");
         }
 
         static void SaveRegister()
@@ -121,7 +122,6 @@ namespace SchoolSystem
 
             file.Close();
 
-            Console.WriteLine("Register written to file. ");
         }
 
 
@@ -186,6 +186,7 @@ namespace SchoolSystem
             }
 
         }
+        
 
         static void SearchForStudent()
         {
@@ -267,8 +268,6 @@ namespace SchoolSystem
         delegate bool FailCondition<T>(T input);
         static T GetUserInput<T>(FailCondition<T> failCondition, string request, string errorMessage)
         {
-            bool isError = false;
-
             do
             {
                 try
@@ -276,30 +275,24 @@ namespace SchoolSystem
                     Console.Write(request);
                     T output;
                     TypeConverter converter = TypeDescriptor.GetConverter(typeof(T));
+                    output = (T)converter.ConvertFromString(Console.ReadLine());
 
-                    if (converter != null)
+                    if (failCondition(output))
                     {
-                        output = (T)converter.ConvertFromString(Console.ReadLine());
-                        if (failCondition(output))
-                        {
-                            Console.WriteLine(errorMessage);
-                            isError = true;
-                            continue;
-                        }
+                        Console.WriteLine(errorMessage);
+                        continue;
+                    }
 
                         return output;
-                    }
                 }
                 catch
                 {
                     Console.WriteLine(errorMessage);
-                    isError = true;
                     continue;
                 }
             }
-            while (isError);
+            while (true);
 
-            return default;
         }
 
     }
