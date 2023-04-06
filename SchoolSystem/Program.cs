@@ -242,7 +242,7 @@ namespace SchoolSystem
             
             Student.GenderType genderType = GetUserInput<Student.GenderType>(
                 (input => (int)input < 0 || (int)input >= Enum.GetNames(typeof(Student.GenderType)).Length),
-                "Enter Gender (Male, Female, Undefinded): ",
+                "Enter Gender (Male, Female, Undefined): ",
                 "That is not a valid gender. Try again."
             );
 
@@ -298,7 +298,7 @@ namespace SchoolSystem
     }
     class Student
     {
-        public enum Register
+        internal enum Register
         {
             Present,
             Absent
@@ -328,5 +328,7 @@ namespace SchoolSystem
             Console.WriteLine($"Gender: {Gender}");
             Console.WriteLine($"Current Attendance: {Attendance}\n");
         }
+
+        
     }
 }
