@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.ComponentModel;
 using System.Text.RegularExpressions;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace BankSystemOOP
 {
@@ -12,6 +11,7 @@ namespace BankSystemOOP
     {
         // instantiate empty bank object as a global variable
         public static Bank ThisBank = new Bank();
+        
 
         static void Main(string[] args)
         {
@@ -19,12 +19,28 @@ namespace BankSystemOOP
             char option;
             Account ThisAccount;
             GoldAccount ThisGoldAccount;
+
+            LoadBank();
             do
             {
                 Menu();
                 option = Console.ReadLine().ToUpper()[0]; //collect option capitalised.
                 switch (option)
                 {
+
+                    case 'D':
+
+                        if (ThisBank.Accounts.Count > 0)
+                        {
+                            ThisBank.DisplayAllAccounts();
+                        }
+                        else
+                        {
+                            Console.WriteLine("There are no accounts to display.");
+                        }
+                        break;
+
+
                     case '1':     //Add account
 
                         AddAccount<Account>();
@@ -52,32 +68,40 @@ namespace BankSystemOOP
 
                         break;
 
-                    case '5': //Add Gold account
+                    case '5':
+
+                        RemoveAccount<Account>();
+                        break;
+
+                    case '6': //Add Gold account
 
                         AddAccount<GoldAccount>();
                         break;
 
-                    case '6': //View Gold Account balance
+                    case '7': //View Gold Account balance
 
                         ThisGoldAccount = ThisBank.FindAccount<GoldAccount>();
                         ThisGoldAccount?.ViewAccount();
 
                         break;
 
-                    case '7': //deposit money to gold account
+                    case '8': //deposit money to gold account
 
                         ThisGoldAccount = ThisBank.FindAccount<GoldAccount>();
                         ThisGoldAccount?.Deposit();
 
                         break;
 
-                    case '8': // withdraw money from gold account account
+                    case '9': // withdraw money from gold account account
 
                         ThisGoldAccount = ThisBank.FindAccount<GoldAccount>();
                         ThisGoldAccount?.Withdraw();
 
                         break;
 
+                    case '0':
+                        RemoveAccount<GoldAccount>();
+                        break;
                 }
 
                 Console.WriteLine();
@@ -87,22 +111,28 @@ namespace BankSystemOOP
 
             } while (option != 'Q');
 
+
+            SaveBank();
+
         }
 
         static void Menu()
         {
 
             Console.WriteLine("MENU");
+            Console.WriteLine("\nD. Display All Accounts\n");
             Console.WriteLine("Accounts");
             Console.WriteLine(" 1. Create Account");
             Console.WriteLine(" 2. View Account");
             Console.WriteLine(" 3. Deposit to Account");
             Console.WriteLine(" 4. Withdraw from Account");
-            Console.WriteLine("Gold Accounts");
-            Console.WriteLine(" 5. Create Account");
-            Console.WriteLine(" 6. View Account");
-            Console.WriteLine(" 7. Deposit to Account");
-            Console.WriteLine(" 8. Withdraw from Account");
+            Console.WriteLine(" 5. Remove Account");
+            Console.WriteLine("\nGold Accounts");
+            Console.WriteLine(" 6. Create Account");
+            Console.WriteLine(" 7. View Account");
+            Console.WriteLine(" 8. Deposit to Account");
+            Console.WriteLine(" 9. Withdraw from Account");
+            Console.WriteLine(" 0. Remove Account");
             Console.WriteLine();
             Console.WriteLine(" Q. Quit");
             Console.WriteLine();
@@ -132,6 +162,54 @@ namespace BankSystemOOP
             }
 
 
+        }
+
+        static void RemoveAccount<T>()
+        {
+            long AccountNumber = Program.GetUserInput<long>(input => input < 0, "Enter Account Number: ", "That is not a valid Account Number.");
+
+            if (ThisBank.Accounts.ContainsKey(AccountNumber))
+            {
+                if (typeof(T) == ThisBank.Accounts[AccountNumber].GetType())
+                {
+                    ThisBank.Accounts.Remove(AccountNumber);
+                }
+                else
+                {
+                    Console.WriteLine("Wrong Account Type.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Account Not Found");
+            }
+        }
+
+
+        private static void SaveBank()
+        {
+            IFormatter formatter = new BinaryFormatter(); 
+            Stream stream = new FileStream("Accounts.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+            formatter.Serialize(stream, ThisBank);
+            stream.Close();
+        }
+
+        private static void LoadBank()
+        {
+            IFormatter formatter = new BinaryFormatter();
+            if (File.Exists("Accounts.bin"))
+            {
+                Stream stream = new FileStream("Accounts.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+                try
+                {
+                    ThisBank = (Bank)formatter.Deserialize(stream);
+                    stream.Close();
+                }
+                catch 
+                {
+                    stream.Close();    
+                }
+            }
         }
 
 

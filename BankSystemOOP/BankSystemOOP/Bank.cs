@@ -1,23 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.ComponentModel;
 using System.Collections;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace BankSystemOOP
 {
 
+    [Serializable] 
     class Bank
     {
         //attributes
-        public Hashtable Accounts {get; private set;} 
+        public Hashtable Accounts { get; private set; }
 
         public Bank()
         {
             Accounts = new Hashtable();
-
         }
         //methods
         public void AddAccount(Account A)
@@ -30,41 +28,75 @@ namespace BankSystemOOP
         public void AddAccount(GoldAccount GA) //overloaded method (same name, different parameters)
         {
             Accounts.Add(GA.AccountNumber, GA);
- 
+
         }
 
-        public T FindAccount<T>() 
+        public T FindAccount<T>()
         {
 
-                long AccountNumber = Program.GetUserInput<long>(input => input < 0, "Enter Account Number: ", "That is not a valid Account Number.");
-                T AccountToFind;
-                //find this account in the dictionary
+            long AccountNumber = Program.GetUserInput<long>(input => input < 0, "Enter Account Number: ", "That is not a valid Account Number.");
+            T AccountToFind;
+            //find this account in the dictionary
 
-                // does the Account exist?
-                if (Accounts.ContainsKey(AccountNumber))
+            // does the Account exist?
+            if (Accounts.ContainsKey(AccountNumber))
+            {
+                if (typeof(T) == Accounts[AccountNumber].GetType())
                 {
-                    if (typeof(T) == Accounts[AccountNumber].GetType())
-                    {
-                        //yes
-                        AccountToFind = (T)Accounts[AccountNumber];
-                        return AccountToFind;   
-                    }
-                    else
-                    {
-                        Console.WriteLine("Wrong Account Type.");
-                        return default;
-                    }
-                    
-
+                    //yes
+                    AccountToFind = (T)Accounts[AccountNumber];
+                    return AccountToFind;
                 }
                 else
                 {
-                    //no
-                    Console.WriteLine("No Account Found");
+                    Console.WriteLine("Wrong Account Type.");
                     return default;
                 }
+
+
+            }
+            else
+            {
+                //no
+                Console.WriteLine("No Account Found");
+                return default;
+            }
+        }
+
+        public void DisplayAllAccounts()
+        {
+            Console.Clear();
+
+            Console.WriteLine("STANDARD ACCOUNTS\n" + new string('=', 20));
+
+
+            foreach (DictionaryEntry item in Accounts)
+            {
+                if (Accounts[item.Key].GetType() == typeof(Account))
+                {
+                    Console.Write(new string('-', 20));
+                    ((Account)Accounts[item.Key]).ViewAccount();
+                }
+            }
+            Console.WriteLine(new string('-', 20));
+
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("\nGOLD ACCOUNTS\n" + new string('=', 20));
+            foreach (DictionaryEntry item in Accounts)
+            {
+                if (Accounts[item.Key].GetType() == typeof(GoldAccount))
+                {
+                    Console.Write(new string('-', 20));
+                    ((GoldAccount)Accounts[item.Key]).ViewAccount();
+                }
+            }
+            Console.WriteLine(new string('-', 20));
+
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         
+
     }
 }

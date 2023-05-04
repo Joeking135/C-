@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Runtime.Serialization;
+
 
 namespace BankSystemOOP
 {
+    [Serializable]
     public class Account
     {
         //attributes
@@ -27,7 +30,6 @@ namespace BankSystemOOP
             DOB = dob;
 
             Console.WriteLine("Account Created.");
-
 
         }
 

@@ -52,3 +52,11 @@ D:\Programming\C sharp\L6\College\BankSystemOOP\BankSystemOOP\obj\Debug\BankSyst
 D:\Programming\C sharp\L6\College\BankSystemOOP\BankSystemOOP\obj\Debug\BankSystemOOP.csproj.CoreCompileInputs.cache
 D:\Programming\C sharp\L6\College\BankSystemOOP\BankSystemOOP\obj\Debug\BankSystemOOP.exe
 D:\Programming\C sharp\L6\College\BankSystemOOP\BankSystemOOP\obj\Debug\BankSystemOOP.pdb
+D:\Programming\C sharp\Github\C-\BankSystemOOP\BankSystemOOP\bin\Debug\BankSystemOOP.exe.config
+D:\Programming\C sharp\Github\C-\BankSystemOOP\BankSystemOOP\bin\Debug\BankSystemOOP.exe
+D:\Programming\C sharp\Github\C-\BankSystemOOP\BankSystemOOP\bin\Debug\BankSystemOOP.pdb
+D:\Programming\C sharp\Github\C-\BankSystemOOP\BankSystemOOP\obj\Debug\BankSystemOOP.csproj.AssemblyReference.cache
+D:\Programming\C sharp\Github\C-\BankSystemOOP\BankSystemOOP\obj\Debug\BankSystemOOP.csproj.SuggestedBindingRedirects.cache
+D:\Programming\C sharp\Github\C-\BankSystemOOP\BankSystemOOP\obj\Debug\BankSystemOOP.csproj.CoreCompileInputs.cache
+D:\Programming\C sharp\Github\C-\BankSystemOOP\BankSystemOOP\obj\Debug\BankSystemOOP.exe
+D:\Programming\C sharp\Github\C-\BankSystemOOP\BankSystemOOP\obj\Debug\BankSystemOOP.pdb
