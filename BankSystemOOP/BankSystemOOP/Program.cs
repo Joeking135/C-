@@ -141,11 +141,11 @@ namespace BankSystemOOP
 
         static void AddAccount<T>()
         {
-            long accountNumber = GetUserInput<long>(input => input < 0 || ThisBank.Accounts.ContainsKey(input), "Input Account Number: ", "That is not a valid Account Number");
-            double balance = GetUserInput<double>(input => input < 0, "Input starting Balance: ", "That is not a valid Balance");
-            string name = GetUserInput<string>(input => input == "", "Input Name: ", "That is not a valid Name");
-            string address = GetUserInput<string>(input => !Regex.IsMatch(input, "^[A-Za-z]{2}[0-9]{2} [0-9][A-Za-z]{2}$"), "Input Address: ", "That is not a valid Address").ToUpper();
-            DateTime dob = GetUserInput<DateTime>(input => input.Date >= DateTime.Now.Date || (int)((DateTime.Now - input).TotalDays / 365.242199) < 18, "Input Date of Birth (xx/xx/xxxx): ", "That is not a valid Date of Birth, or you are too young.");
+            long accountNumber = GetUserInput<long>    (input => input < 0 || ThisBank.Accounts.ContainsKey(input), "Input Account Number: ", "That is not a valid Account Number");
+            double balance =     GetUserInput<double>  (input => input < 0, "Input starting Balance: ", "That is not a valid Balance");
+            string name =        GetUserInput<string>  (input => input == "", "Input Name: ", "That is not a valid Name");
+            string address =     GetUserInput<string>  (input => !Regex.IsMatch(input, "^[A-Za-z]{2}[0-9]{2} [0-9][A-Za-z]{2}$"), "Input Address: ", "That is not a valid Address").ToUpper();
+            DateTime dob =       GetUserInput<DateTime>(input => input.Date >= DateTime.Now.Date || (int)((DateTime.Now - input).TotalDays / 365.242199) < 18, "Input Date of Birth (xx/xx/xxxx): ", "That is not a valid Date of Birth, or you are too young.");
 
 
             if (typeof(T) == typeof(Account))

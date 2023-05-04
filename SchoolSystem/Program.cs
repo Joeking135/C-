@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.ComponentModel;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 
 
@@ -9,8 +11,7 @@ namespace SchoolSystem
 
     class Program
     {
-
-        static List<Student> students = new();
+        public static School ThisSchool = new(); 
 
         static string[] menuElements = {
             "1. Register",
@@ -22,17 +23,19 @@ namespace SchoolSystem
             "7. Save and Quit"
         };
 
+
         static void Main(string[] args)
         {
+            
 
             bool quit;
             LoadDatabase();
             do
             {
                 quit = false;
-                students = students.OrderBy(e => e.Name.Item2).ToList();
+                ThisSchool.students = ThisSchool.students.OrderBy(e => e.Name.Item2).ToList();
 
-                if (students.Count == 0)
+                if (ThisSchool.students.Count == 0)
                 {
                     Console.Clear();
                     Console.WriteLine("There are no students on the database -> Adding first student: ");
@@ -92,7 +95,7 @@ namespace SchoolSystem
             Console.Clear();
             Console.WriteLine("/ = Present, a = Absent. (q to quit).");
 
-            foreach (Student student in students)
+            foreach (Student student in ThisSchool.students)
             {
 
                 char input = GetUserInput<char>(
@@ -114,7 +117,7 @@ namespace SchoolSystem
 
             file.WriteLine(DateTime.Now.ToString());
 
-            foreach (Student student in students)
+            foreach (Student student in ThisSchool.students)
             {
                 file.WriteLine($"{student.Name.Item1} {student.Name.Item2}: {student.Attendance}");
                 student.Attendance = Student.Register.Absent;
@@ -126,63 +129,43 @@ namespace SchoolSystem
 
 
         static void LoadDatabase()
-        {
-            StreamReader file = new("Students.txt");
+        { 
+            IFormatter formatter = new BinaryFormatter();
 
-            string firstName;
-            string lastName;
-            Student.GenderType genderType;
-            TypeConverter converter = TypeDescriptor.GetConverter(typeof(Student.GenderType));
-
-
-            while (!file.EndOfStream)
+            if (File.Exists("Students.bin"))
             {
+                Stream stream = new FileStream("Students.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
                 try
                 {
-                    firstName = file.ReadLine();
-                    lastName = file.ReadLine();
-                    genderType = (Student.GenderType)converter.ConvertFromString(file.ReadLine());
-                    file.ReadLine();
-
-                    students.Add(new(firstName, lastName, genderType));
+                    ThisSchool.students = (List<Student>)formatter.Deserialize(stream);
+                    stream.Close();
                 }
-                catch (System.Exception)
+                catch 
                 {
-                    file.Close();
-                    return;
+                    stream.Close();    
                 }
-
-
             }
-            
-            file.Close();
-
         }
+
+
 
 
 
         static void SaveDatabase()
         {
-
-            StreamWriter file = new("Students.txt");
-            foreach (Student student in students)
-            {
-                file.WriteLine(student.Name.Item1);
-                file.WriteLine(student.Name.Item2);
-                file.WriteLine(student.Gender);
-                file.WriteLine();
-            }
-
-            file.Close();
+            IFormatter formatter = new BinaryFormatter();
+            Stream stream = new FileStream("Students.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+            formatter.Serialize(stream, ThisSchool.students);
+            stream.Close();
         }
 
         static void DisplayAllStudents()
         {
 
             Console.Clear();
-            foreach (Student student in students)
+            foreach (Student student in ThisSchool.students)
             {
-                Console.WriteLine($"ID: {students.IndexOf(student)}");
+                Console.WriteLine($"ID: {ThisSchool.students.IndexOf(student)}");
                 student.Display();
             }
 
@@ -209,9 +192,9 @@ namespace SchoolSystem
             bool found = false;
 
 
-            for (int i = 0; i < students.Count; i++)
+            for (int i = 0; i < ThisSchool.students.Count; i++)
             {
-                if (students[i].Name.Item1 == firstName && students[i].Name.Item2 == lastName)
+                if (ThisSchool.students[i].Name.Item1 == firstName && ThisSchool.students[i].Name.Item2 == lastName)
                 {
                     Console.WriteLine($"Found: ID = {i}");
                     found = true;
@@ -247,7 +230,7 @@ namespace SchoolSystem
                 "That is not a valid gender. Try again."
             );
 
-            students.Add(new(firstName, lastName, (Student.GenderType)genderType));
+            ThisSchool.students.Add(new(firstName, lastName, (Student.GenderType)genderType));
         }
 
         static void RemoveStudent()
@@ -255,14 +238,14 @@ namespace SchoolSystem
 
             DisplayAllStudents();
             int removeIndex = GetUserInput<int>(
-                (input => input < -1 || input >= students.Count),
+                (input => input < -1 || input >= ThisSchool.students.Count),
                 "Enter ID to remove (-1 to quit): ",
                 "That is not a valid Student ID"
             );
 
             if (removeIndex == -1) { return; }
 
-            students.RemoveAt(removeIndex);
+            ThisSchool.students.RemoveAt(removeIndex);
 
         }
 
@@ -297,6 +280,21 @@ namespace SchoolSystem
         }
 
     }
+
+    [Serializable]
+    internal class School 
+    {
+        public List<Student> students {get; set;}
+
+        public School()
+        {
+            students = new List<Student>();
+        }
+    } 
+
+
+
+    [Serializable]
     class Student
     {
         internal enum Register
