@@ -40,6 +40,10 @@ namespace BankSystemOOP
                         }
                         break;
 
+                    case 'B':
+                        ThisBank.DisplayTotalBalance();
+                        break;
+
 
                     case '1':     //Add account
 
@@ -120,7 +124,8 @@ namespace BankSystemOOP
         {
 
             Console.WriteLine("MENU");
-            Console.WriteLine("\nD. Display All Accounts\n");
+            Console.WriteLine("\n D. Display All Accounts");
+            Console.WriteLine(" B. Display Total Balance\n");
             Console.WriteLine("Accounts");
             Console.WriteLine(" 1. Create Account");
             Console.WriteLine(" 2. View Account");

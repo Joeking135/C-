@@ -3,6 +3,7 @@ using System.Collections;
 using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Linq;
 
 namespace BankSystemOOP
 {
@@ -28,7 +29,6 @@ namespace BankSystemOOP
         public void AddAccount(GoldAccount GA) //overloaded method (same name, different parameters)
         {
             Accounts.Add(GA.AccountNumber, GA);
-
         }
 
         public T FindAccount<T>()
@@ -95,6 +95,14 @@ namespace BankSystemOOP
 
             Console.ForegroundColor = ConsoleColor.White;
         }
+
+        public void DisplayTotalBalance()
+        {
+            double totalBalance = Accounts.Values.OfType<Account>().Sum(account => account.Balance); 
+
+            Console.WriteLine($"Total Balance = {totalBalance.ToString("C0")}");
+        }
+
 
         
 
