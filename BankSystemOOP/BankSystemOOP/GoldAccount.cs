@@ -22,8 +22,10 @@ namespace BankSystemOOP
 
         public override void ViewAccount()
         {
+            Console.ForegroundColor = ConsoleColor.Yellow;
             base.ViewAccount();
             Console.WriteLine($"Overdraft: \t{OverdraftLimit}");
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         public override void Withdraw()

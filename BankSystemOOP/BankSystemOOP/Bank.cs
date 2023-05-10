@@ -96,6 +96,7 @@ namespace BankSystemOOP
             Console.ForegroundColor = ConsoleColor.White;
         }
 
+
         public void DisplayTotalBalance()
         {
             double totalBalance = Accounts.Values.OfType<Account>().Sum(account => account.Balance); 
@@ -103,7 +104,45 @@ namespace BankSystemOOP
             Console.WriteLine($"Total Balance = {totalBalance.ToString("C0")}");
         }
 
+        public void MultiView()
+        {
+            Console.Clear();
+            Console.WriteLine("FILTER OPTIONS"); 
 
+            int minAccount = Program.GetUserInput<int>(input => input < 0 || input > 99999999, "Input Min Account Number (max 99999999): ", "Invalid Account Number.");
+            int maxAccount = Program.GetUserInput<int>(input => input < minAccount || input > 99999999, "Input Max Account Number (max: 99999999): ", "Invalid Account Number.");
+
+            int minBalance = Program.GetUserInput<int>(input => input < 0 , "Input Min Balance: ", "Invalid Balance");
+            int maxBalance = Program.GetUserInput<int>(input => input < minBalance, "Input Max Balance: ", "Invalid Balance.");
+
+            DateTime minDob = Program.GetUserInput<DateTime>(input => input >= DateTime.Now.Date, "Input Min DOB: ", "Invalid DOB.");
+            DateTime maxDob = Program.GetUserInput<DateTime>(input => input < minDob, "Input Max DOB: ", "Invalid DOB.");
+
+            var filteredAccounts = Accounts.Values.OfType<Account>()
+                    .Where(e => e.AccountNumber >= minAccount && e.AccountNumber <= maxAccount
+                            &&  e.Balance >= minBalance && e.Balance <= maxBalance
+                            &&  e.DOB.Date >= minDob.Date && e.DOB <= maxDob);
+
+
+            
+            Console.Clear();
+
+            Console.WriteLine($"Using Filter: | {minAccount} <= Number <= {maxAccount} | {minBalance} <= Balance <= {maxBalance} | {minDob.ToShortDateString()} <= DOB <= {maxDob.ToShortDateString()}");
+            if (filteredAccounts.ToList().Count == 0)
+            {
+                Console.WriteLine("There are no accounts matching these filters.");   
+            }
+            else
+            {
+                foreach (Account account in filteredAccounts)
+                {
+                    account.ViewAccount(); 
+                }
+            }
+
+           
+        }
+        
         
 
     }

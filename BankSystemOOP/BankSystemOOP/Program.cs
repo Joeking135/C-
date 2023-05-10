@@ -44,6 +44,10 @@ namespace BankSystemOOP
                         ThisBank.DisplayTotalBalance();
                         break;
 
+                    case 'M':
+                        ThisBank.MultiView();
+                        break;
+
 
                     case '1':     //Add account
 
@@ -125,7 +129,8 @@ namespace BankSystemOOP
 
             Console.WriteLine("MENU");
             Console.WriteLine("\n D. Display All Accounts");
-            Console.WriteLine(" B. Display Total Balance\n");
+            Console.WriteLine(" B. Display Total Balance");
+            Console.WriteLine(" M. Multi-View\n");
             Console.WriteLine("Accounts");
             Console.WriteLine(" 1. Create Account");
             Console.WriteLine(" 2. View Account");
