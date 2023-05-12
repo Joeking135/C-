@@ -1,0 +1,12 @@
+D:\A levels\Computer Science\C#\L6\College\QuizAppWeb\Shared\bin\Debug\net6.0\QuizAppWeb.Shared.deps.json
+D:\A levels\Computer Science\C#\L6\College\QuizAppWeb\Shared\bin\Debug\net6.0\QuizAppWeb.Shared.dll
+D:\A levels\Computer Science\C#\L6\College\QuizAppWeb\Shared\bin\Debug\net6.0\QuizAppWeb.Shared.pdb
+D:\A levels\Computer Science\C#\L6\College\QuizAppWeb\Shared\obj\Debug\net6.0\QuizAppWeb.Shared.csproj.AssemblyReference.cache
+D:\A levels\Computer Science\C#\L6\College\QuizAppWeb\Shared\obj\Debug\net6.0\QuizAppWeb.Shared.GeneratedMSBuildEditorConfig.editorconfig
+D:\A levels\Computer Science\C#\L6\College\QuizAppWeb\Shared\obj\Debug\net6.0\QuizAppWeb.Shared.AssemblyInfoInputs.cache
+D:\A levels\Computer Science\C#\L6\College\QuizAppWeb\Shared\obj\Debug\net6.0\QuizAppWeb.Shared.AssemblyInfo.cs
+D:\A levels\Computer Science\C#\L6\College\QuizAppWeb\Shared\obj\Debug\net6.0\QuizAppWeb.Shared.csproj.CoreCompileInputs.cache
+D:\A levels\Computer Science\C#\L6\College\QuizAppWeb\Shared\obj\Debug\net6.0\QuizAppWeb.Shared.dll
+D:\A levels\Computer Science\C#\L6\College\QuizAppWeb\Shared\obj\Debug\net6.0\refint\QuizAppWeb.Shared.dll
+D:\A levels\Computer Science\C#\L6\College\QuizAppWeb\Shared\obj\Debug\net6.0\QuizAppWeb.Shared.pdb
+D:\A levels\Computer Science\C#\L6\College\QuizAppWeb\Shared\obj\Debug\net6.0\ref\QuizAppWeb.Shared.dll
