@@ -9,41 +9,41 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = browser
 build_property.RootNamespace = QuizAppWeb.Client
 build_property.RootNamespace = QuizAppWeb.Client
-build_property.ProjectDir = d:\A levels\Computer Science\C#\L6\College\QuizAppWeb\Client\
+build_property.ProjectDir = d:\Programming\C sharp\Github\C-\QuizAppWeb\Client\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = d:\A levels\Computer Science\C#\L6\College\QuizAppWeb\Client
+build_property.MSBuildProjectDirectory = d:\Programming\C sharp\Github\C-\QuizAppWeb\Client
 build_property._RazorSourceGeneratorDebug = 
 
-[d:/A levels/Computer Science/C\#/L6/College/QuizAppWeb/Client/App.razor]
+[d:/Programming/C sharp/Github/C-/QuizAppWeb/Client/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/A levels/Computer Science/C\#/L6/College/QuizAppWeb/Client/Pages/Counter.razor]
+[d:/Programming/C sharp/Github/C-/QuizAppWeb/Client/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ291bnRlci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/A levels/Computer Science/C\#/L6/College/QuizAppWeb/Client/Pages/FetchData.razor]
+[d:/Programming/C sharp/Github/C-/QuizAppWeb/Client/Pages/FetchData.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRmV0Y2hEYXRhLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/A levels/Computer Science/C\#/L6/College/QuizAppWeb/Client/Pages/Index.razor]
+[d:/Programming/C sharp/Github/C-/QuizAppWeb/Client/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/A levels/Computer Science/C\#/L6/College/QuizAppWeb/Client/Shared/SurveyPrompt.razor]
+[d:/Programming/C sharp/Github/C-/QuizAppWeb/Client/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/A levels/Computer Science/C\#/L6/College/QuizAppWeb/Client/_Imports.razor]
+[d:/Programming/C sharp/Github/C-/QuizAppWeb/Client/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/A levels/Computer Science/C\#/L6/College/QuizAppWeb/Client/Shared/MainLayout.razor]
+[d:/Programming/C sharp/Github/C-/QuizAppWeb/Client/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-ssf3lgjy64
 
-[d:/A levels/Computer Science/C\#/L6/College/QuizAppWeb/Client/Shared/NavMenu.razor]
+[d:/Programming/C sharp/Github/C-/QuizAppWeb/Client/Shared/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-0ctcc8ggqi

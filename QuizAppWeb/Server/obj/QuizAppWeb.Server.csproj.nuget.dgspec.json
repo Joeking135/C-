@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\A levels\\Computer Science\\C#\\L6\\College\\QuizAppWeb\\Server\\QuizAppWeb.Server.csproj": {}
+    "D:\\Programming\\C sharp\\Github\\C-\\QuizAppWeb\\Server\\QuizAppWeb.Server.csproj": {}
   },
   "projects": {
-    "D:\\A levels\\Computer Science\\C#\\L6\\College\\QuizAppWeb\\Client\\QuizAppWeb.Client.csproj": {
+    "D:\\Programming\\C sharp\\Github\\C-\\QuizAppWeb\\Client\\QuizAppWeb.Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\A levels\\Computer Science\\C#\\L6\\College\\QuizAppWeb\\Client\\QuizAppWeb.Client.csproj",
+        "projectUniqueName": "D:\\Programming\\C sharp\\Github\\C-\\QuizAppWeb\\Client\\QuizAppWeb.Client.csproj",
         "projectName": "QuizAppWeb.Client",
-        "projectPath": "D:\\A levels\\Computer Science\\C#\\L6\\College\\QuizAppWeb\\Client\\QuizAppWeb.Client.csproj",
+        "projectPath": "D:\\Programming\\C sharp\\Github\\C-\\QuizAppWeb\\Client\\QuizAppWeb.Client.csproj",
         "packagesPath": "C:\\Users\\Josep\\.nuget\\packages\\",
-        "outputPath": "D:\\A levels\\Computer Science\\C#\\L6\\College\\QuizAppWeb\\Client\\obj\\",
+        "outputPath": "D:\\Programming\\C sharp\\Github\\C-\\QuizAppWeb\\Client\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -26,14 +26,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\A levels\\Computer Science\\C#\\L6\\College\\QuizAppWeb\\Shared\\QuizAppWeb.Shared.csproj": {
-                "projectPath": "D:\\A levels\\Computer Science\\C#\\L6\\College\\QuizAppWeb\\Shared\\QuizAppWeb.Shared.csproj"
+              "D:\\Programming\\C sharp\\Github\\C-\\QuizAppWeb\\Shared\\QuizAppWeb.Shared.csproj": {
+                "projectPath": "D:\\Programming\\C sharp\\Github\\C-\\QuizAppWeb\\Shared\\QuizAppWeb.Shared.csproj"
               }
             }
           }
@@ -89,14 +90,14 @@
         }
       }
     },
-    "D:\\A levels\\Computer Science\\C#\\L6\\College\\QuizAppWeb\\Server\\QuizAppWeb.Server.csproj": {
+    "D:\\Programming\\C sharp\\Github\\C-\\QuizAppWeb\\Server\\QuizAppWeb.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\A levels\\Computer Science\\C#\\L6\\College\\QuizAppWeb\\Server\\QuizAppWeb.Server.csproj",
+        "projectUniqueName": "D:\\Programming\\C sharp\\Github\\C-\\QuizAppWeb\\Server\\QuizAppWeb.Server.csproj",
         "projectName": "QuizAppWeb.Server",
-        "projectPath": "D:\\A levels\\Computer Science\\C#\\L6\\College\\QuizAppWeb\\Server\\QuizAppWeb.Server.csproj",
+        "projectPath": "D:\\Programming\\C sharp\\Github\\C-\\QuizAppWeb\\Server\\QuizAppWeb.Server.csproj",
         "packagesPath": "C:\\Users\\Josep\\.nuget\\packages\\",
-        "outputPath": "D:\\A levels\\Computer Science\\C#\\L6\\College\\QuizAppWeb\\Server\\obj\\",
+        "outputPath": "D:\\Programming\\C sharp\\Github\\C-\\QuizAppWeb\\Server\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -111,17 +112,18 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\A levels\\Computer Science\\C#\\L6\\College\\QuizAppWeb\\Client\\QuizAppWeb.Client.csproj": {
-                "projectPath": "D:\\A levels\\Computer Science\\C#\\L6\\College\\QuizAppWeb\\Client\\QuizAppWeb.Client.csproj"
+              "D:\\Programming\\C sharp\\Github\\C-\\QuizAppWeb\\Client\\QuizAppWeb.Client.csproj": {
+                "projectPath": "D:\\Programming\\C sharp\\Github\\C-\\QuizAppWeb\\Client\\QuizAppWeb.Client.csproj"
               },
-              "D:\\A levels\\Computer Science\\C#\\L6\\College\\QuizAppWeb\\Shared\\QuizAppWeb.Shared.csproj": {
-                "projectPath": "D:\\A levels\\Computer Science\\C#\\L6\\College\\QuizAppWeb\\Shared\\QuizAppWeb.Shared.csproj"
+              "D:\\Programming\\C sharp\\Github\\C-\\QuizAppWeb\\Shared\\QuizAppWeb.Shared.csproj": {
+                "projectPath": "D:\\Programming\\C sharp\\Github\\C-\\QuizAppWeb\\Shared\\QuizAppWeb.Shared.csproj"
               }
             }
           }
@@ -164,14 +166,14 @@
         }
       }
     },
-    "D:\\A levels\\Computer Science\\C#\\L6\\College\\QuizAppWeb\\Shared\\QuizAppWeb.Shared.csproj": {
+    "D:\\Programming\\C sharp\\Github\\C-\\QuizAppWeb\\Shared\\QuizAppWeb.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\A levels\\Computer Science\\C#\\L6\\College\\QuizAppWeb\\Shared\\QuizAppWeb.Shared.csproj",
+        "projectUniqueName": "D:\\Programming\\C sharp\\Github\\C-\\QuizAppWeb\\Shared\\QuizAppWeb.Shared.csproj",
         "projectName": "QuizAppWeb.Shared",
-        "projectPath": "D:\\A levels\\Computer Science\\C#\\L6\\College\\QuizAppWeb\\Shared\\QuizAppWeb.Shared.csproj",
+        "projectPath": "D:\\Programming\\C sharp\\Github\\C-\\QuizAppWeb\\Shared\\QuizAppWeb.Shared.csproj",
         "packagesPath": "C:\\Users\\Josep\\.nuget\\packages\\",
-        "outputPath": "D:\\A levels\\Computer Science\\C#\\L6\\College\\QuizAppWeb\\Shared\\obj\\",
+        "outputPath": "D:\\Programming\\C sharp\\Github\\C-\\QuizAppWeb\\Shared\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -186,6 +188,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
