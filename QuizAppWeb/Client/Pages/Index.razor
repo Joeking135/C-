@@ -1,17 +1,21 @@
 ﻿@page "/"
 @using QuizAppWeb.Shared
 @using Microsoft.AspNetCore.Components
+@using System.Diagnostics;
 @inject HttpClient Http
 
 <PageTitle>Questions</PageTitle>
 
 
+@if(qN == 1) //Starts the timer after the first question has been answered (once they are ready)
+{
+    timer.Start();
+}
+
 
 @if (MyQuiz.GetQuestion(qN) != null)
 {
     <h1>Question @qN</h1>
-
-    <p>@MyQuiz.Score</p>
 
     <p role="status">@MyQuiz.GetQuestion(qN).QuestionText</p>
     <hr>
@@ -22,11 +26,19 @@
 }
 else
 {
-    <p>You scored @MyQuiz.Score / @MyQuiz.QuestionTotal</p>
+    timer.Stop();
+
+    <h1>You scored @MyQuiz.Score / @MyQuiz.QuestionTotal (@Math.Round(GetPercentage(MyQuiz.Score, MyQuiz.QuestionTotal))%)</h1>
+
+    <h2>@GetFeedback(MyQuiz.Score)</h2>
+
+    <p>You finished in @timer.Elapsed.Seconds seconds.</p>
 }
 
 
 <hr />
+
+
 @if (clicked)
 {
     clicked = false;
@@ -42,6 +54,8 @@ else
     private Quiz MyQuiz = new Quiz();
     private int qN = 0;
     private bool clicked = false;
+    private Stopwatch timer = new Stopwatch();
+
 
     private static bool OnButtonClick(int aN, ref Quiz MyQuiz)
     {
@@ -51,5 +65,36 @@ else
 
     }
 
+    private static string GetFeedback(int score)
+    {
+        string output;
+
+        if (score == 8)
+        {
+            output = "Full House! Nice job.";
+        }
+        else if (score > 5)
+        {
+            output = "Impressive, but some room for improvement.";
+        }
+        else if (score > 3)
+        {
+            output = "Not bad, but you could learn a thing or two";
+        }
+        else
+        {
+            output = "I think you have a lot to learn.";
+        }
+
+        return output;
+    }
+
+    private static double GetPercentage(double score, double total)
+    {
+        return (score / total) * 100;
+    }
+
     
+
 }
+
