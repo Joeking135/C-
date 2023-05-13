@@ -1652,7 +1652,6 @@ D:\Programming\C sharp\Github\C-\QuizAppWeb\Client\obj\Debug\net6.0\staticwebass
 D:\Programming\C sharp\Github\C-\QuizAppWeb\Client\obj\Debug\net6.0\staticwebassets.build.json
 D:\Programming\C sharp\Github\C-\QuizAppWeb\Client\obj\Debug\net6.0\staticwebassets.development.json
 D:\Programming\C sharp\Github\C-\QuizAppWeb\Client\obj\Debug\net6.0\scopedcss\Shared\MainLayout.razor.rz.scp.css
-D:\Programming\C sharp\Github\C-\QuizAppWeb\Client\obj\Debug\net6.0\scopedcss\Shared\NavMenu.razor.rz.scp.css
 D:\Programming\C sharp\Github\C-\QuizAppWeb\Client\obj\Debug\net6.0\scopedcss\bundle\QuizAppWeb.Client.styles.css
 D:\Programming\C sharp\Github\C-\QuizAppWeb\Client\obj\Debug\net6.0\scopedcss\projectbundle\QuizAppWeb.Client.bundle.scp.css
 D:\Programming\C sharp\Github\C-\QuizAppWeb\Client\obj\Debug\net6.0\service-worker\service-worker.js
