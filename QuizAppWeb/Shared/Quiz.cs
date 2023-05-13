@@ -93,18 +93,18 @@ namespace QuizAppWeb.Shared
 		/// This gets the next question in the quiz. If there are no more questions it will return null
 		/// </summary>
 		/// <returns>a question object</returns>
-		public Question GetNextQuestion()
+		public bool GetNextQuestion()
 		{
 			if (_QCount < _QuizQuestions.Count)
 			{
 				_QCount++;
-				
-				return _QuizQuestions[_QCount - 1];
+
+				return false;
 				
 			}
 			else
 			{
-				return null;
+				return true;
 			}
 		}
 

@@ -3,19 +3,28 @@
 @using Microsoft.AspNetCore.Components
 @inject HttpClient Http
 
-<PageTitle>Index</PageTitle>
+<PageTitle>Questions</PageTitle>
 
 
-<h1>Question @qN</h1>
 
-<p>@MyQuiz.Score</p>
+@if (MyQuiz.GetQuestion(qN) != null)
+{
+    <h1>Question @qN</h1>
 
-<p role="status">@MyQuiz.GetQuestion(qN).QuestionText</p>
-<hr>
-<button class="btn btn-primary" role="status" @onclick="args=>clicked = OnButtonClick(1, ref MyQuiz)">@MyQuiz.GetQuestion(qN).Answer1</button>
-<button class="btn btn-primary" role="status" @onclick="args=>clicked = OnButtonClick(2, ref MyQuiz)">@MyQuiz.GetQuestion(qN).Answer2</button>
-<button class="btn btn-primary" role="status" @onclick="args=>clicked = OnButtonClick(3, ref MyQuiz)">@MyQuiz.GetQuestion(qN).Answer3</button>
-<button class="btn btn-primary" role="status" @onclick="args=>clicked = OnButtonClick(4, ref MyQuiz)">@MyQuiz.GetQuestion(qN).Answer4</button>
+    <p>@MyQuiz.Score</p>
+
+    <p role="status">@MyQuiz.GetQuestion(qN).QuestionText</p>
+    <hr>
+    <button class="btn btn-primary" role="status" @onclick="args=>clicked = OnButtonClick(1, ref MyQuiz)">@MyQuiz.GetQuestion(qN).Answer1</button>
+    <button class="btn btn-primary" role="status" @onclick="args=>clicked = OnButtonClick(2, ref MyQuiz)">@MyQuiz.GetQuestion(qN).Answer2</button>
+    <button class="btn btn-primary" role="status" @onclick="args=>clicked = OnButtonClick(3, ref MyQuiz)">@MyQuiz.GetQuestion(qN).Answer3</button>
+    <button class="btn btn-primary" role="status" @onclick="args=>clicked = OnButtonClick(4, ref MyQuiz)">@MyQuiz.GetQuestion(qN).Answer4</button>
+}
+else
+{
+    <p>You scored @MyQuiz.Score / @MyQuiz.QuestionTotal</p>
+}
+
 
 <hr />
 @if (clicked)
