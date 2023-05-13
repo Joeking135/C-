@@ -857,19 +857,19 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-eKFCNxCo8\/Xf0vqcSk69bLpmhMPiteJ1r9Q6oyzQzDs=",
+      "hash": "sha256-DnyPXFiB7\/c49pTigCPIQXVCCPw178IEvp1W2k97+1U=",
       "url": "_framework\/QuizAppWeb.Shared.dll"
     },
     {
-      "hash": "sha256-Iyw+0u38Uv4+jyvcsnAp5JGQpNvlklGiax80BSDQiOw=",
+      "hash": "sha256-sbkooHQfNMO\/5rJhTMdx0XFYx\/64mfZ20Xa2SIHts0M=",
       "url": "_framework\/QuizAppWeb.Shared.pdb"
     },
     {
-      "hash": "sha256-rHCbyl3uzylKbOHkswRJfMW3ywdGga7y\/C9Qa1QjsKI=",
+      "hash": "sha256-\/XhQczxQFRyOiWnVynGi2guy7RSyikoKmwllG7zVMws=",
       "url": "_framework\/QuizAppWeb.Client.dll"
     },
     {
-      "hash": "sha256-Sq0g3\/s4gBjvUEKRq+WbX1wH8WB1MpWl3CzKp36vEdg=",
+      "hash": "sha256-sIl1hzF2N5zRb0YOJyFM2Tltx9b+uZ7WsQfQ6W7xa0A=",
       "url": "_framework\/QuizAppWeb.Client.pdb"
     },
     {
@@ -877,9 +877,9 @@
       "url": "_framework\/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-vfs7q9729r9G3UKfG9ylWfbhKn3F4vadszEDodCSXaQ=",
+      "hash": "sha256-DofK5X4MbbAKRFmA8wTHMv7xroUMqKsD3ieN9+W9c5k=",
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "EwqOJH52"
+  "version": "Cit7QLDH"
 };

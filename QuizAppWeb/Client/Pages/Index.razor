@@ -3,6 +3,7 @@
 @using Microsoft.AspNetCore.Components
 @using System.Diagnostics;
 @inject HttpClient Http
+@inject NavigationManager navigationManager
 
 <PageTitle>Questions</PageTitle>
 
@@ -34,6 +35,8 @@ else
     
 
     <p>You finished in @timer.Elapsed.Seconds seconds.</p>
+
+    <button class="btn btn-primary" role="status" @onclick="args => navigationManager.NavigateTo(url, true)">Try Again</button>
 }
 
 
@@ -56,6 +59,7 @@ else
     private int qN = 0;
     private bool clicked = false;
     private Stopwatch timer = new Stopwatch();
+    private string url = "";
 
 
     private static bool OnButtonClick(int aN, ref Quiz MyQuiz)
@@ -95,7 +99,7 @@ else
         return (score / total) * 100;
     }
 
-    
+
 
 }
 

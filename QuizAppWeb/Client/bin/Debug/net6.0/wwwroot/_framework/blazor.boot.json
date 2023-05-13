@@ -197,14 +197,14 @@
       "netstandard.dll": "sha256-CgGkoZQx73t3qchcsu85kgBcgrjNEOiudArOwKNb18k=",
       "System.Private.CoreLib.dll": "sha256-6nUSjiT7okMlkN897OnDypwppYuK7JxTahOClXkAuwE=",
       "QuizAppWeb.Shared.dll": "sha256-DnyPXFiB7\/c49pTigCPIQXVCCPw178IEvp1W2k97+1U=",
-      "QuizAppWeb.Client.dll": "sha256-ZiScccJEDl6u51upDem7wNPrlP0cgnAGyKhOSE8GNGQ="
+      "QuizAppWeb.Client.dll": "sha256-OH68M8pr0nXArVulPVJR+xYs60C6ngYwK2IfA\/VN2Io="
     },
     "extensions": null,
     "lazyAssembly": null,
     "libraryInitializers": null,
     "pdb": {
       "QuizAppWeb.Shared.pdb": "sha256-sbkooHQfNMO\/5rJhTMdx0XFYx\/64mfZ20Xa2SIHts0M=",
-      "QuizAppWeb.Client.pdb": "sha256-0oyKQFiMSIaTif2t2daCkM6JhjIDzzEiYxTQag36ByA="
+      "QuizAppWeb.Client.pdb": "sha256-wDLZGTqIzgcvuvl7aWaRhoWmZN1yFSI7XWUYkXX+Luk="
     },
     "runtime": {
       "dotnet.6.0.16.0ws365ykff.js": "sha256-GT2gK+GjOisRXJY+9yh6H8s6K\/KDIsaFMFIgWvAnttY=",
