@@ -15,7 +15,7 @@
 
 @if (MyQuiz.GetQuestion(qN) != null)
 {
-    <h1>Question @qN</h1>
+    <h1>Question @(qN + 1)</h1>
 
     <p role="status">@MyQuiz.GetQuestion(qN).QuestionText</p>
     <hr>
@@ -30,7 +30,8 @@ else
 
     <h1>You scored @MyQuiz.Score / @MyQuiz.QuestionTotal (@Math.Round(GetPercentage(MyQuiz.Score, MyQuiz.QuestionTotal))%)</h1>
 
-    <h2>@GetFeedback(MyQuiz.Score)</h2>
+    <h3>@GetFeedback(MyQuiz.Score)</h3>
+    
 
     <p>You finished in @timer.Elapsed.Seconds seconds.</p>
 }
@@ -83,7 +84,7 @@ else
         }
         else
         {
-            output = "I think you have a lot to learn.";
+            output = "You have a lot to learn.";
         }
 
         return output;
