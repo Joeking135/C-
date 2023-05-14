@@ -21,6 +21,38 @@
       "PackagePath": "staticwebassets\\service-worker.js"
     },
     {
+      "Id": "D:\\Programming\\C sharp\\Github\\C-\\QuizAppWeb\\Client\\wwwroot\\Images\\Q1.png",
+      "PackagePath": "staticwebassets\\Images\\Q1.png"
+    },
+    {
+      "Id": "D:\\Programming\\C sharp\\Github\\C-\\QuizAppWeb\\Client\\wwwroot\\Images\\Q2.jpg",
+      "PackagePath": "staticwebassets\\Images\\Q2.jpg"
+    },
+    {
+      "Id": "D:\\Programming\\C sharp\\Github\\C-\\QuizAppWeb\\Client\\wwwroot\\Images\\Q3.jpg",
+      "PackagePath": "staticwebassets\\Images\\Q3.jpg"
+    },
+    {
+      "Id": "D:\\Programming\\C sharp\\Github\\C-\\QuizAppWeb\\Client\\wwwroot\\Images\\Q4.jpg",
+      "PackagePath": "staticwebassets\\Images\\Q4.jpg"
+    },
+    {
+      "Id": "D:\\Programming\\C sharp\\Github\\C-\\QuizAppWeb\\Client\\wwwroot\\Images\\Q5.jpg",
+      "PackagePath": "staticwebassets\\Images\\Q5.jpg"
+    },
+    {
+      "Id": "D:\\Programming\\C sharp\\Github\\C-\\QuizAppWeb\\Client\\wwwroot\\Images\\Q6.jpg",
+      "PackagePath": "staticwebassets\\Images\\Q6.jpg"
+    },
+    {
+      "Id": "D:\\Programming\\C sharp\\Github\\C-\\QuizAppWeb\\Client\\wwwroot\\Images\\Q7.jpg",
+      "PackagePath": "staticwebassets\\Images\\Q7.jpg"
+    },
+    {
+      "Id": "D:\\Programming\\C sharp\\Github\\C-\\QuizAppWeb\\Client\\wwwroot\\Images\\Q8.jpg",
+      "PackagePath": "staticwebassets\\Images\\Q8.jpg"
+    },
+    {
       "Id": "D:\\Programming\\C sharp\\Github\\C-\\QuizAppWeb\\Client\\wwwroot\\css\\app.css",
       "PackagePath": "staticwebassets\\css\\app.css"
     },

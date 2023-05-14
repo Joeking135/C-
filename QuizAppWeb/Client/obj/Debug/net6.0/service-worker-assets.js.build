@@ -61,6 +61,38 @@
       "url": "icon-512.png"
     },
     {
+      "hash": "sha256-5qFxKJclL7LGVi49qSEAGxJRzUdgJB0t4x2+Ov5z9TU=",
+      "url": "Images\/Q1.png"
+    },
+    {
+      "hash": "sha256-LDy3hqqxRlBQ6mp3jxmN2Vk5AtlkB+rM5fCXZmhFalk=",
+      "url": "Images\/Q2.jpg"
+    },
+    {
+      "hash": "sha256-OUL1hjNnJQjGu7CZ3R0qLaFMavpwBkYm6OsrLIwG91g=",
+      "url": "Images\/Q3.jpg"
+    },
+    {
+      "hash": "sha256-xbN04JxIMg2acO0AV+aw10U6Ly8PldwWUrZ1DGsU3Ww=",
+      "url": "Images\/Q4.jpg"
+    },
+    {
+      "hash": "sha256-bWbMBDoD77+7qM0w8JSVZonUPw7ejFGP2C6Gr2R7hZg=",
+      "url": "Images\/Q5.jpg"
+    },
+    {
+      "hash": "sha256-W1tkbgB9CDo4kNJ0qZlElStFcwRqI1GOi6pyJzYH7\/g=",
+      "url": "Images\/Q6.jpg"
+    },
+    {
+      "hash": "sha256-xvTixjOUbFxD6ezMfvOUeskcriHU3TTpPkS+\/jMrZ3g=",
+      "url": "Images\/Q7.jpg"
+    },
+    {
+      "hash": "sha256-gn8lYie8e2QhhbzCoRb2XQEOPBf+3CV+yGLAZsymJXE=",
+      "url": "Images\/Q8.jpg"
+    },
+    {
       "hash": "sha256-9Q8F+xcCWseUm0KYOXz6MkBqydgo1QxP1vMXrGfvtf0=",
       "url": "index.html"
     },
@@ -865,11 +897,11 @@
       "url": "_framework\/QuizAppWeb.Shared.pdb"
     },
     {
-      "hash": "sha256-\/XhQczxQFRyOiWnVynGi2guy7RSyikoKmwllG7zVMws=",
+      "hash": "sha256-gk0FZ0tJ9QW\/ETokxz5lv3DwS2sZbPxPxh1\/BWByK\/s=",
       "url": "_framework\/QuizAppWeb.Client.dll"
     },
     {
-      "hash": "sha256-sIl1hzF2N5zRb0YOJyFM2Tltx9b+uZ7WsQfQ6W7xa0A=",
+      "hash": "sha256-7ZzplOe8qg9BBVoswJJoV124SX\/hThtkedO57zDdxDs=",
       "url": "_framework\/QuizAppWeb.Client.pdb"
     },
     {
@@ -877,9 +909,9 @@
       "url": "_framework\/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-DofK5X4MbbAKRFmA8wTHMv7xroUMqKsD3ieN9+W9c5k=",
+      "hash": "sha256-jYZgFwO4Jhdz\/NRP61Wr0OhKld6cydNHdJH0N87EDuM=",
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "Cit7QLDH"
+  "version": "XsO2Ppl+"
 };
