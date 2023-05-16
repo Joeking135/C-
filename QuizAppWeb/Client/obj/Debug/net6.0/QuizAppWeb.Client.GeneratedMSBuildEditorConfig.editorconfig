@@ -9,29 +9,33 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = browser
 build_property.RootNamespace = QuizAppWeb.Client
 build_property.RootNamespace = QuizAppWeb.Client
-build_property.ProjectDir = D:\Programming\C sharp\Github\C-\QuizAppWeb\Client\
+build_property.ProjectDir = D:\A levels\Computer Science\C#\GitHub\C-\QuizAppWeb\Client\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\Programming\C sharp\Github\C-\QuizAppWeb\Client
+build_property.MSBuildProjectDirectory = D:\A levels\Computer Science\C#\GitHub\C-\QuizAppWeb\Client
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Programming/C sharp/Github/C-/QuizAppWeb/Client/App.razor]
+[D:/A levels/Computer Science/C\#/GitHub/C-/QuizAppWeb/Client/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Programming/C sharp/Github/C-/QuizAppWeb/Client/Pages/Index.razor]
+[D:/A levels/Computer Science/C\#/GitHub/C-/QuizAppWeb/Client/Pages/About.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWJvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/A levels/Computer Science/C\#/GitHub/C-/QuizAppWeb/Client/Pages/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Programming/C sharp/Github/C-/QuizAppWeb/Client/Shared/SurveyPrompt.razor]
+[D:/A levels/Computer Science/C\#/GitHub/C-/QuizAppWeb/Client/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Programming/C sharp/Github/C-/QuizAppWeb/Client/_Imports.razor]
+[D:/A levels/Computer Science/C\#/GitHub/C-/QuizAppWeb/Client/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Programming/C sharp/Github/C-/QuizAppWeb/Client/Shared/MainLayout.razor]
+[D:/A levels/Computer Science/C\#/GitHub/C-/QuizAppWeb/Client/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-ssf3lgjy64

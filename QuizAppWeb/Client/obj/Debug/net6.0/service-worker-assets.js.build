@@ -5,7 +5,7 @@
       "url": "css\/app.css"
     },
     {
-      "hash": "sha256-SiIVMGgRhdXjKSTIddX7mh9IbOXVcwQWc7\/p4nS6D\/0=",
+      "hash": "sha256-z8OR40MowJ8GgK6P89Y+hiJK5+cclzFHzLhFQLL92bg=",
       "url": "css\/bootstrap\/bootstrap.min.css"
     },
     {
@@ -101,7 +101,7 @@
       "url": "manifest.json"
     },
     {
-      "hash": "sha256-mEY82SmV0fx5XTmP\/LI7sheQCfrKH+egLb5LjHQKP6Y=",
+      "hash": "sha256-P4OjOdZ7AWlj5dzJT3gytuXmERPFXURZFkDPythpMH8=",
       "url": "QuizAppWeb.Client.styles.css"
     },
     {
@@ -861,7 +861,7 @@
       "url": "_framework\/System.Private.CoreLib.dll"
     },
     {
-      "hash": "sha256-lMY3UOF7WlUEjm7PGT6jMauG1JwlHrvuXPBA995KyEw=",
+      "hash": "sha256-GT2gK+GjOisRXJY+9yh6H8s6K\/KDIsaFMFIgWvAnttY=",
       "url": "_framework\/dotnet.6.0.16.0ws365ykff.js"
     },
     {
@@ -889,19 +889,19 @@
       "url": "_framework\/icudt_no_CJK.dat"
     },
     {
-      "hash": "sha256-DnyPXFiB7\/c49pTigCPIQXVCCPw178IEvp1W2k97+1U=",
+      "hash": "sha256-tS16uu3DV6oQ\/glkkEvAkWZBeJdShgbogYRF2r9JLyk=",
       "url": "_framework\/QuizAppWeb.Shared.dll"
     },
     {
-      "hash": "sha256-sbkooHQfNMO\/5rJhTMdx0XFYx\/64mfZ20Xa2SIHts0M=",
+      "hash": "sha256-z3rJDZh34h5xnBtSxboDAGNzIE9m0LBCacKuNv\/DeTc=",
       "url": "_framework\/QuizAppWeb.Shared.pdb"
     },
     {
-      "hash": "sha256-gk0FZ0tJ9QW\/ETokxz5lv3DwS2sZbPxPxh1\/BWByK\/s=",
+      "hash": "sha256-UsFuNlgw2iFwmHWmkOGtuscBwkpa284iZjx9ir61uLM=",
       "url": "_framework\/QuizAppWeb.Client.dll"
     },
     {
-      "hash": "sha256-7ZzplOe8qg9BBVoswJJoV124SX\/hThtkedO57zDdxDs=",
+      "hash": "sha256-OtIXu0QbFJQsxhP3KYx9rp9IqjZCFPKBBb204XYoTnA=",
       "url": "_framework\/QuizAppWeb.Client.pdb"
     },
     {
@@ -909,9 +909,9 @@
       "url": "_framework\/blazor.webassembly.js"
     },
     {
-      "hash": "sha256-jYZgFwO4Jhdz\/NRP61Wr0OhKld6cydNHdJH0N87EDuM=",
+      "hash": "sha256-d0ioF36dBZ4zkLOgXDQ2CKxhur\/CjycwDauohDa+G+Q=",
       "url": "_framework\/blazor.boot.json"
     }
   ],
-  "version": "XsO2Ppl+"
+  "version": "Y3dVdIQr"
 };

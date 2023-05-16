@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ExQZbD8WWR8T8uz43c3iCvvVkhebEVyurMkKQ+K2jyqTkpCp9GMthE0Q9BOHYqqvgwUAk9OY0sWwzVj7QOx0OQ==",
+  "dgSpecHash": "QNdUR5qmiexCv5omSU0vbpWuV4bUaJzionNxmv5tGuSHe9mtjOMA+0Z/t6kjmxmsBVPIz0EMpC/7IR5yCAvv5w==",
   "success": true,
-  "projectFilePath": "D:\\Programming\\C sharp\\Github\\C-\\QuizAppWeb\\Client\\QuizAppWeb.Client.csproj",
+  "projectFilePath": "D:\\A levels\\Computer Science\\C#\\GitHub\\C-\\QuizAppWeb\\Client\\QuizAppWeb.Client.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Josep\\.nuget\\packages\\microsoft.aspnetcore.authorization\\6.0.15\\microsoft.aspnetcore.authorization.6.0.15.nupkg.sha512",
     "C:\\Users\\Josep\\.nuget\\packages\\microsoft.aspnetcore.components\\6.0.15\\microsoft.aspnetcore.components.6.0.15.nupkg.sha512",

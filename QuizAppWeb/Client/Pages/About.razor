@@ -1,0 +1,24 @@
+﻿@page "/about"
+@using Microsoft.AspNetCore.Components
+@using System.Diagnostics;
+@using System.Diagnostics;
+@inject NavigationManager navigationManager
+
+<PageTitle>About</PageTitle>
+
+<h1>About</h1>
+
+<p>
+	This website was made by <strong>Joe Boothman</strong> <br />
+	This was made for a computer science homework, please <strong>do not</strong> take it seriously.
+</p>
+
+
+
+<button class="btn btn-primary" role="status" @onclick="args => navigationManager.NavigateTo(url, true)">Return to quiz</button>
+
+
+@code{
+	 private string url = "";
+
+}
