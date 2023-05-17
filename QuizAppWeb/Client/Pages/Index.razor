@@ -8,14 +8,15 @@
 <PageTitle>Questions</PageTitle>
 
 
-@if (!start)
+@if (!start) //Once the website is loaded
 {
     <h1>Take the Quiz</h1>
     <p>This is a basic general knowledge quiz, it doesn't count towards anything, and is just a bit of fun. Enjoy!</p>
     <button class="btn btn-primary" @onclick="args=> start = true">Start Quiz</button>
 }
-else
+else 
 {
+    //Once the start button has been pressed - the quiz begins;
     timer.Start();
     if (MyQuiz.GetQuestion(qN) != null)
     {
@@ -34,6 +35,7 @@ else
     }
     else
     {
+        //Once the quiz is finished
         timer.Stop();
 
         <h1>You scored @MyQuiz.Score / @MyQuiz.QuestionTotal (@Math.Round(GetPercentage(MyQuiz.Score, MyQuiz.QuestionTotal))%)</h1>
