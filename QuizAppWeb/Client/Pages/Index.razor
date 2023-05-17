@@ -8,41 +8,50 @@
 <PageTitle>Questions</PageTitle>
 
 
-@if (qN == 1) //Starts the timer after the first question has been answered (once they are ready)
+@if (!start)
 {
-    timer.Start();
-}
-
-
-@if (MyQuiz.GetQuestion(qN) != null)
-{
-    <h1>Q.@(
-          qN + 1
-          )</h1>
-
-    <p role="status">@MyQuiz.GetQuestion(qN).QuestionText</p>
-    <hr>
-    <button class="btn btn-primary" role="status" @onclick="args=>clicked = OnButtonClick(1, ref MyQuiz)">@MyQuiz.GetQuestion(qN).Answer1</button>
-    <button class="btn btn-primary" role="status" @onclick="args=>clicked = OnButtonClick(2, ref MyQuiz)">@MyQuiz.GetQuestion(qN).Answer2</button>
-    <button class="btn btn-primary" role="status" @onclick="args=>clicked = OnButtonClick(3, ref MyQuiz)">@MyQuiz.GetQuestion(qN).Answer3</button>
-    <button class="btn btn-primary" role="status" @onclick="args=>clicked = OnButtonClick(4, ref MyQuiz)">@MyQuiz.GetQuestion(qN).Answer4</button>
-    <hr />
-
-    <img src="@images[qN]" width="854" height="480">
-
+    <h1>Take the Quiz</h1>
+    <p>This is a basic general knowledge quiz, it doesn't count towards anything, and is just a bit of fun. Enjoy!</p>
+    <button class="btn btn-primary" @onclick="args=> start = true">Start Quiz</button>
 }
 else
 {
-    timer.Stop();
+    timer.Start();
+    if (MyQuiz.GetQuestion(qN) != null)
+    {
+        <h1>Q@(qN + 1)</h1>
 
-    <h1>You scored @MyQuiz.Score / @MyQuiz.QuestionTotal (@Math.Round(GetPercentage(MyQuiz.Score, MyQuiz.QuestionTotal))%)</h1>
+        <p role="status">@MyQuiz.GetQuestion(qN).QuestionText</p>
+        <hr>
+        <button class="btn btn-primary" role="status" @onclick="args=>clicked = OnButtonClick(1, ref MyQuiz)">@MyQuiz.GetQuestion(qN).Answer1</button>
+        <button class="btn btn-primary" role="status" @onclick="args=>clicked = OnButtonClick(2, ref MyQuiz)">@MyQuiz.GetQuestion(qN).Answer2</button>
+        <button class="btn btn-primary" role="status" @onclick="args=>clicked = OnButtonClick(3, ref MyQuiz)">@MyQuiz.GetQuestion(qN).Answer3</button>
+        <button class="btn btn-primary" role="status" @onclick="args=>clicked = OnButtonClick(4, ref MyQuiz)">@MyQuiz.GetQuestion(qN).Answer4</button>
+        <hr />
 
-    <h3>@GetFeedback(MyQuiz.Score)</h3>
+        <img src="@images[qN]" width="854" height="480">
+
+    }
+    else
+    {
+        timer.Stop();
+
+        <h1>You scored @MyQuiz.Score / @MyQuiz.QuestionTotal (@Math.Round(GetPercentage(MyQuiz.Score, MyQuiz.QuestionTotal))%)</h1>
+
+        <h3>@GetFeedback(MyQuiz.Score)</h3>
 
 
-    <p>You finished in @timer.Elapsed.Seconds seconds.</p>
+        <p>You finished in @(timer.Elapsed.Minutes)m @(timer.Elapsed.Seconds)s.</p>
 
-    <button class="btn btn-primary" role="status" @onclick="args => navigationManager.NavigateTo(url, true)">Try Again</button>
+        <button class="btn btn-primary" role="status" @onclick="args => navigationManager.NavigateTo(url, true)">Try Again</button>
+    }
+
+    @if (clicked)
+    {
+        clicked = false;
+        qN++;
+        StateHasChanged();
+    }
 }
 
 
@@ -51,18 +60,14 @@ else
 
 
 
-@if (clicked)
-{
-    clicked = false;
-    qN++;
-    StateHasChanged();
-}
 
 
 
 
 
 @code{
+
+    private bool start = false;
     private Quiz MyQuiz = new Quiz();
     private int qN = 0;
     private bool clicked = false;
