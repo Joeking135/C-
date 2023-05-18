@@ -1,5 +1,5 @@
 *.dll
 *.vsidx
 **/bin
-**/.vs
-**/.obj
+**/vs
+**/obj
