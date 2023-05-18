@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 namespace NewSchoolSystem
 {
 
-    public enum GenderType{
+    public enum GenderType
+    {
         Male,
         Female,
         Undefined
@@ -15,9 +16,10 @@ namespace NewSchoolSystem
 
 
 
-    public abstract class SchoolUser: IHuman
+    public abstract class SchoolMember 
     {
         
+        public int ID {get; protected set;}
         public Tuple<string, string> Name {get;  protected set;}
 
         public GenderType Gender {get; protected set;} 
@@ -29,10 +31,18 @@ namespace NewSchoolSystem
 
         public virtual void Display()
         {
+            Console.WriteLine($"ID: {ID}");
             Console.WriteLine($"Name: {Name.Item1} {Name.Item2}");
-            Console.WriteLine($"Gender: {Gender}");
+            Console.WriteLine($"Gender: {(GenderType)Gender}");
             Console.WriteLine($"Age: {Age}");
             Console.WriteLine($"DOB: {DOB.ToShortDateString()}");
+        }
+
+        protected static int GetAgeFromDOB(DateTime dateOfBirth)
+        {
+            int now = int.Parse(DateTime.Now.ToString("yyyyMMdd"));
+            int dob = int.Parse(dateOfBirth.ToString("yyyyMMdd"));
+            return (now - dob) / 10000;
         }
 
          

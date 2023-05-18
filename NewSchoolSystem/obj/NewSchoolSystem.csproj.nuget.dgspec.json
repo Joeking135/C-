@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\A levels\\Computer Science\\C#\\GitHub\\C-\\NewSchoolSystem\\NewSchoolSystem.csproj": {}
+    "D:\\Programming\\C sharp\\Github\\C-\\NewSchoolSystem\\NewSchoolSystem.csproj": {}
   },
   "projects": {
-    "D:\\A levels\\Computer Science\\C#\\GitHub\\C-\\NewSchoolSystem\\NewSchoolSystem.csproj": {
+    "D:\\Programming\\C sharp\\Github\\C-\\NewSchoolSystem\\NewSchoolSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\A levels\\Computer Science\\C#\\GitHub\\C-\\NewSchoolSystem\\NewSchoolSystem.csproj",
+        "projectUniqueName": "D:\\Programming\\C sharp\\Github\\C-\\NewSchoolSystem\\NewSchoolSystem.csproj",
         "projectName": "NewSchoolSystem",
-        "projectPath": "D:\\A levels\\Computer Science\\C#\\GitHub\\C-\\NewSchoolSystem\\NewSchoolSystem.csproj",
+        "projectPath": "D:\\Programming\\C sharp\\Github\\C-\\NewSchoolSystem\\NewSchoolSystem.csproj",
         "packagesPath": "C:\\Users\\Josep\\.nuget\\packages\\",
-        "outputPath": "D:\\A levels\\Computer Science\\C#\\GitHub\\C-\\NewSchoolSystem\\obj\\",
+        "outputPath": "D:\\Programming\\C sharp\\Github\\C-\\NewSchoolSystem\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -59,7 +60,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

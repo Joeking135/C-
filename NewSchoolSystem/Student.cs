@@ -6,31 +6,35 @@ using System.Threading.Tasks;
 
 namespace NewSchoolSystem
 {
-    public class Student : SchoolUser 
+    public class Student : SchoolMember 
     {
         public enum Register
         {
             Present,
-            Absent
+            Absent,
+            Unkown
         }
 
-        public Register attendance {get; private set; }
+        public Register Attendance {get; private set; }
 
 
-        public Student(string firstName, string lastName, GenderType gender, DateTime dob)
+        public Student(int id, string firstName, string lastName, GenderType gender, DateTime dob)
         {
+
+            ID = id;
             Name = Tuple.Create(firstName, lastName);                         
             Gender = gender;
             DOB = dob;
-            attendance = Register.Absent;
+            Age = GetAgeFromDOB(dob);
+            Attendance = Register.Unkown;
         }
 
 
         public override void Display()
         {
-            Console.WriteLine("Status: Student");
             base.Display();
-            Console.WriteLine($"Attendance: {attendance}");
+            Console.WriteLine("Role: Student");
+            Console.WriteLine($"Attendance: {Attendance}\n");
         }
     }
 }

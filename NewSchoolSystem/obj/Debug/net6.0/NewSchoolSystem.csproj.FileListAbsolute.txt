@@ -1,0 +1,15 @@
+D:\Programming\C sharp\Github\C-\NewSchoolSystem\bin\Debug\net6.0\NewSchoolSystem.exe
+D:\Programming\C sharp\Github\C-\NewSchoolSystem\bin\Debug\net6.0\NewSchoolSystem.deps.json
+D:\Programming\C sharp\Github\C-\NewSchoolSystem\bin\Debug\net6.0\NewSchoolSystem.runtimeconfig.json
+D:\Programming\C sharp\Github\C-\NewSchoolSystem\bin\Debug\net6.0\NewSchoolSystem.dll
+D:\Programming\C sharp\Github\C-\NewSchoolSystem\bin\Debug\net6.0\NewSchoolSystem.pdb
+D:\Programming\C sharp\Github\C-\NewSchoolSystem\obj\Debug\net6.0\NewSchoolSystem.csproj.AssemblyReference.cache
+D:\Programming\C sharp\Github\C-\NewSchoolSystem\obj\Debug\net6.0\NewSchoolSystem.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programming\C sharp\Github\C-\NewSchoolSystem\obj\Debug\net6.0\NewSchoolSystem.AssemblyInfoInputs.cache
+D:\Programming\C sharp\Github\C-\NewSchoolSystem\obj\Debug\net6.0\NewSchoolSystem.AssemblyInfo.cs
+D:\Programming\C sharp\Github\C-\NewSchoolSystem\obj\Debug\net6.0\NewSchoolSystem.csproj.CoreCompileInputs.cache
+D:\Programming\C sharp\Github\C-\NewSchoolSystem\obj\Debug\net6.0\NewSchoolSystem.dll
+D:\Programming\C sharp\Github\C-\NewSchoolSystem\obj\Debug\net6.0\refint\NewSchoolSystem.dll
+D:\Programming\C sharp\Github\C-\NewSchoolSystem\obj\Debug\net6.0\NewSchoolSystem.pdb
+D:\Programming\C sharp\Github\C-\NewSchoolSystem\obj\Debug\net6.0\NewSchoolSystem.genruntimeconfig.cache
+D:\Programming\C sharp\Github\C-\NewSchoolSystem\obj\Debug\net6.0\ref\NewSchoolSystem.dll
