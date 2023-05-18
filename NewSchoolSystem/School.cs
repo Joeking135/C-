@@ -31,23 +31,17 @@ namespace NewSchoolSystem
                 if (typeof(T) == typeof(Staff))
                 {
                     Console.WriteLine("STAFF\n" + new string('=', 20));
-
-                    foreach (Staff staff in users.Values.OfType<Staff>())
-                    {
-                        Console.WriteLine(new string('-', 20));
-                        staff.Display(); 
-                        Console.WriteLine(new string ('-', 20));
-                    }   
                 } 
                 else if(typeof(T) == typeof(Student))
                 {
                     Console.WriteLine("STUDENTS\n" + new string('=', 20));
-                    foreach (Student student in users.Values.OfType<Student>())
-                    {
-                        Console.WriteLine(new string('-', 20));
-                        student.Display(); 
-                        Console.WriteLine(new string('-', 20));
-                    }
+                }
+                       
+                foreach (T user in users.Values.OfType<T>())
+                {
+                    Console.WriteLine(new string('-', 20));
+                    user.Display(); 
+                    Console.WriteLine(new string ('-', 20));
                 }
             }
 
@@ -56,12 +50,15 @@ namespace NewSchoolSystem
 
         public void LookupMember<T>() where T :SchoolMember
         {
-            string[] lookupOptions = {
+            List<string> lookupOptions = new List<string> (){
                 "ID",
-                "Name"
+                "Name",
+                "Gender",
+                "Age"
             };
 
-            int lookupOption = Program.DisplayMenu(lookupOptions, "LOOKUP OPTIONS");
+
+            int lookupOption = Program.DisplayMenu(lookupOptions.ToArray(), "LOOKUP OPTIONS");
 
             List<T> filteredList = new();
 
@@ -80,6 +77,24 @@ namespace NewSchoolSystem
 
                     filteredList = users.Values.OfType<T>().Where(e => e.Name.Item1 == name.Item1 && e.Name.Item2 == name.Item2).ToList();
                     break;
+                
+                case 3:
+                    GenderType gender = Program.GetUserInput<GenderType>
+                    (
+                        input => (int)input < 0 || (int)input >= Enum.GetNames(typeof(GenderType)).Count(),
+                        "Input Gender (Male, Female, Undefined): ",
+                        "Invalid Gender."
+                    );
+
+                    filteredList = users.Values.OfType<T>().Where(e => e.Gender == gender).ToList();
+                    break;
+
+                case 4:
+                    int age = Program.GetUserInput<int>(input => input < 0, "Input Age: ", "Invalid Age.");
+                    filteredList = users.Values.OfType<T>().Where(e => e.Age == age).ToList();
+                    break;
+                
+                                    
 
             }
 
