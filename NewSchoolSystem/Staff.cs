@@ -18,10 +18,10 @@ namespace NewSchoolSystem
 
         public RoleType Role {get; private set;}
 
-        public Staff(int id, string firstName, string lastName, GenderType gender, DateTime dob, RoleType role)
+        public Staff(int id, Tuple<string, string> name, GenderType gender, DateTime dob, RoleType role)
         {
             ID = id; 
-            Name = Tuple.Create(firstName, lastName);
+            Name = name;
             Gender = gender;
             DOB = dob;
             Age = GetAgeFromDOB(dob);

@@ -58,7 +58,7 @@ namespace NewSchoolSystem
                                 break;
 
                             case 2:
-                                //lookup staff
+                                school.LookupMember<Staff>();
                                 break;
                             
                             case 3:
@@ -87,7 +87,7 @@ namespace NewSchoolSystem
                                 break;
 
                             case 2:
-                                //Lookup Student
+                                school.LookupMember<Student>();
                                 break;
 
                             case 3:
@@ -130,7 +130,7 @@ namespace NewSchoolSystem
 
 
 
-        private static int DisplayMenu(string[] menuElements, string menuName)
+        public static int DisplayMenu(string[] menuElements, string menuName)
         {
 
             Console.Clear();

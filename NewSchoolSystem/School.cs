@@ -17,7 +17,7 @@ namespace NewSchoolSystem
             users = new Hashtable();
         }
 
-        public void DisplayAll<T>()
+        public void DisplayAll<T>() where T : SchoolMember
         {
 
             if (users.Values.OfType<T>().Count() == 0)
@@ -54,13 +54,65 @@ namespace NewSchoolSystem
             
         }
 
+        public void LookupMember<T>() where T :SchoolMember
+        {
+            string[] lookupOptions = {
+                "ID",
+                "Name"
+            };
 
-        public void AddMember<T>()
+            int lookupOption = Program.DisplayMenu(lookupOptions, "LOOKUP OPTIONS");
+
+            List<T> filteredList = new();
+
+            switch (lookupOption)
+            {
+
+                case 1:
+
+                    int id = Program.GetUserInput<int>(input => input < 0, "Input ID to Search: ", "Invalid ID");
+
+                    filteredList = users.Values.OfType<T>().Where(e => e.ID == id).ToList();
+                    break;
+                        
+                case 2:
+                    Tuple<string, string> name = GetNameTuple(); 
+
+                    filteredList = users.Values.OfType<T>().Where(e => e.Name.Item1 == name.Item1 && e.Name.Item2 == name.Item2).ToList();
+                    break;
+
+            }
+
+            filteredList.OrderBy(e => e.ID);
+
+            Console.Clear();
+            Console.WriteLine("FILTERED RESULTS" + "\n" + new string('=', 20));
+            foreach (T user in filteredList)
+            {
+                Console.WriteLine(new string('-', 10));
+                user.Display();
+                Console.WriteLine(new string('-', 10));
+            } 
+
+        }
+
+        private static Tuple<string, string> GetNameTuple()
+        {
+            string firstName = Program.GetUserInput<string>(input => input == "", "Input First Name: ", "Invalid First Name.");
+            string lastName = Program.GetUserInput<string>(input => input == "", "Input Last Name: ", "Invalid Last Name.");
+
+            return Tuple.Create(firstName, lastName);
+ 
+        }
+
+
+        public void AddMember<T>() where T : SchoolMember
         {
             Console.Clear();
             int id = Program.GetUserInput<int>(input => input < 0 || users.ContainsKey(input), "Input ID: ", "Invalid ID.");
-            string firstName = Program.GetUserInput<string>(input => input == "", "Input First Name: ", "Invalid First Name.");
-            string lastName = Program.GetUserInput<string>(input => input == "", "Input Last Name: ", "Invalid Last Name.");
+
+            Tuple<string, string> name = GetNameTuple();
+
             GenderType gender = Program.GetUserInput<GenderType>(input => (int)input < 0 || (int)input >= (int)Enum.GetNames(typeof(GenderType)).Length,
                 "Input Gender (Male, Female, Undefined): ", "Invalid Gender");
 
@@ -68,7 +120,7 @@ namespace NewSchoolSystem
 
             if (typeof(T) == typeof(Student))
             {
-                users.Add(id, new Student(id, firstName, lastName, gender, dob));
+                users.Add(id, new Student(id, name, gender, dob));
                 Console.WriteLine("Student Added.");
             }
             else if (typeof(T) == typeof(Staff))
@@ -87,13 +139,12 @@ namespace NewSchoolSystem
                     "\nInput Role: ",
                     "Invalid Role");
                 
-                users.Add(id, new Staff(id, firstName, lastName, gender, dob, role));
+                users.Add(id, new Staff(id, name, gender, dob, role));
                 Console.WriteLine($"{role} Added.");
             }
-            else
-            {
-                Console.WriteLine("COMPILATION ERROR: You have called (AddUser<T>), but the type does not match Student or Teacher. ");
-            }
+
+         
+            
         }
     }
 }
