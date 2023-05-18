@@ -40,6 +40,7 @@ namespace NewSchoolSystem
         {
             int secondarySelection;
             bool quit = false;
+            Staff thisStaff;
 
 
             while (!quit)
@@ -66,15 +67,16 @@ namespace NewSchoolSystem
                                 break;
 
                             case 4:
-                                //Remove staff 
+                                school.RemoveMember();
                                 break;
                             
                             case 5:
-                                //edit role
+                                thisStaff = school.GetMember<Staff>(); 
+                                thisStaff.EditRole();
                                 break;
                             
                             default:
-                                break;
+                                continue;
                         }
 
                         break;
@@ -95,7 +97,7 @@ namespace NewSchoolSystem
                                 break;                            
                             
                             case 4:
-                                //Remove Student
+                                school.RemoveMember();
                                 break;
                             
                             case 5:
@@ -106,7 +108,7 @@ namespace NewSchoolSystem
                                 //Save and reset register
                                 break;
                             default:
-                                break;
+                                continue;
                         }
 
                         break;
@@ -144,7 +146,7 @@ namespace NewSchoolSystem
         }
 
         
-
+        
 
 
 

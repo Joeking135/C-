@@ -16,7 +16,7 @@ namespace NewSchoolSystem
             Assistant
         }
 
-        public RoleType Role {get; private set;}
+        private RoleType Role {get; set;}
 
         public Staff(int id, Tuple<string, string> name, GenderType gender, DateTime dob, RoleType role)
         {
@@ -33,6 +33,16 @@ namespace NewSchoolSystem
             base.Display();
             Console.WriteLine($"Role: {Role}");
         } 
+
+        public void EditRole()
+        {
+            string[] roles = Enum.GetNames(typeof(RoleType));
+            RoleType newRole = (RoleType)(Program.DisplayMenu(roles, "ROLES") - 1);
+            Role = newRole;
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("[.] Role Updated");
+            Console.ForegroundColor = ConsoleColor.White;
+        }
         
     }
 }

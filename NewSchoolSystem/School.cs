@@ -136,7 +136,8 @@ namespace NewSchoolSystem
             if (typeof(T) == typeof(Student))
             {
                 users.Add(id, new Student(id, name, gender, dob));
-                Console.WriteLine("Student Added.");
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("[+] Student Added.");
             }
             else if (typeof(T) == typeof(Staff))
             {
@@ -153,13 +154,57 @@ namespace NewSchoolSystem
                     input => (int)input < 0 || (int)input > (int)Enum.GetNames(typeof(Staff.RoleType)).Length,
                     "\nInput Role: ",
                     "Invalid Role");
-                
+
                 users.Add(id, new Staff(id, name, gender, dob, role));
-                Console.WriteLine($"{role} Added.");
+
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine($"[+] {role} Added.");
             }
 
+            Console.ForegroundColor = ConsoleColor.White;
          
             
         }
+    
+        public void RemoveMember() 
+        {
+            while (true)
+            {
+                int removeIndex = Program.GetUserInput<int>(input => input < -1 , "Input ID to Remove (-1 to cancel): ", "Invalid ID");
+
+                if (removeIndex == -1)
+                {
+                    Console.WriteLine("Returning to Menu...");
+                    return; 
+                }
+                else if (!users.ContainsKey(removeIndex))
+                {
+                    Console.WriteLine("There is no member using that ID.");
+                    continue;
+                }
+
+                users.Remove(removeIndex);
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("[-] Member Removed.");
+                Console.ForegroundColor = ConsoleColor.White;
+                return;
+   
+            }
+            
+        }
+
+        public T GetMember<T>() where T : SchoolMember
+        {
+            int id = Program.GetUserInput<int>
+            (
+                input => input < 0 || !users.ContainsKey(input),
+                "Input ID: ",
+                "Invalid ID."
+            );
+
+            return (T)users[id];
+        }
+
+
     }
 }
