@@ -69,7 +69,7 @@ namespace NewSchoolSystem
                                 break;
 
                             case 4:
-                                school.RemoveMember();
+                                school.RemoveMember<Staff>();
                                 break;
                             
                             case 5:
@@ -99,7 +99,7 @@ namespace NewSchoolSystem
                                 break;                            
                             
                             case 4:
-                                school.RemoveMember();
+                                school.RemoveMember<Student>();
                                 break;
                             
                             case 5:

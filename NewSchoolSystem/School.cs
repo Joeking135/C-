@@ -169,7 +169,7 @@ namespace NewSchoolSystem
             
         }
     
-        public void RemoveMember() 
+        public void RemoveMember<T>() 
         {
             while (true)
             {
@@ -185,6 +185,13 @@ namespace NewSchoolSystem
                     Console.WriteLine("There is no member using that ID.");
                     continue;
                 }
+
+                if (typeof(T) != users[removeIndex].GetType())
+                {
+                    Console.WriteLine("Wrong Member type.");
+                    continue; 
+                }
+
 
                 users.Remove(removeIndex);
                 Console.ForegroundColor = ConsoleColor.Red;
