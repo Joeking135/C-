@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace NewSchoolSystem
 {
+    [Serializable]
     public class Staff : SchoolMember
     {
         public enum RoleType

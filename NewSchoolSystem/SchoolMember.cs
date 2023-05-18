@@ -16,6 +16,7 @@ namespace NewSchoolSystem
 
 
 
+    [Serializable]
     public abstract class SchoolMember 
     {
         

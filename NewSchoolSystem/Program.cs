@@ -1,5 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 
 
@@ -35,7 +37,7 @@ namespace NewSchoolSystem
         };
 
 
-        public static School school = new();
+        public static School school = School.Load("School.bin");
         static void Main(string[] args)
         {
             int secondarySelection;
@@ -101,11 +103,11 @@ namespace NewSchoolSystem
                                 break;
                             
                             case 5:
-                                //Take Attendance
+                                school.TakeAttendance();
                                 break;
                             
                             case 6:
-                                //Save and reset register
+                                school.SaveRegister();
                                 break;
                             default:
                                 continue;
@@ -115,6 +117,8 @@ namespace NewSchoolSystem
                     
 
                     case 3:
+
+                        school.Save();
                         quit = true;
                         break;
 
@@ -145,6 +149,9 @@ namespace NewSchoolSystem
             return GetUserInput<int>(input => input < 1 || input > menuElements.Length, "Input Selection: ", "Invalid Selection.");
         }
 
+
+
+        
         
         
 

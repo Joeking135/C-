@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace NewSchoolSystem
 {
+    [Serializable]
     public class Student : SchoolMember 
     {
         public enum Register
@@ -15,7 +16,7 @@ namespace NewSchoolSystem
             Unkown
         }
 
-        public Register Attendance {get; private set; }
+        public Register Attendance {get; set; }
 
 
         public Student(int id, Tuple<string, string> name, GenderType gender, DateTime dob)

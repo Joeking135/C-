@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace NewSchoolSystem
 {
+    [Serializable]
     public class School
     {
         private Hashtable users {get; set;} 
@@ -205,6 +208,66 @@ namespace NewSchoolSystem
             return (T)users[id];
         }
 
+        public void TakeAttendance() 
+        {
+            char registerEntry;
+
+            Console.WriteLine("REGISTER (a - abscent, / - present)");
+
+            foreach (Student student in users.Values.OfType<Student>())
+            {
+                registerEntry = Program.GetUserInput<char>(input => !(input == 'a' || input == '/'), $"{student.Name.Item1} {student.Name.Item2}: ", "Invalid entry.");
+
+                student.Attendance = (registerEntry == '/') ? Student.Register.Present : Student.Register.Absent;
+            }
+        }
+
+        public void SaveRegister()
+        {
+            StreamWriter file = new StreamWriter("Register.txt");
+
+            file.WriteLine(DateTime.Now);
+            file.WriteLine(new string('=', 10));
+            foreach (Student student in users.Values.OfType<Student>())
+            {
+                file.WriteLine($"{student.Name.Item1} {student.Name.Item2}: {student.Attendance}");
+                student.Attendance = Student.Register.Unkown;
+            }
+
+            file.Close();
+        }
+        public void Save()
+        {
+            
+            IFormatter formatter = new BinaryFormatter();
+            Stream file = new FileStream("School.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+
+            formatter.Serialize(file, this);
+            file.Close();
+        }
+
+        public static School Load(string fileName)
+        {
+            IFormatter formatter = new BinaryFormatter();
+            School school = new School();
+
+            if (File.Exists(fileName))
+            {
+                Stream file = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.Read); 
+
+                try
+                {
+                    school = (School)formatter.Deserialize(file);
+                    file.Close();
+                }
+                catch 
+                {
+                    file.Close();
+                }
+            }
+
+            return school;
+        }
 
     }
 }
