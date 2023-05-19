@@ -151,17 +151,6 @@ namespace NewSchoolSystem
 
 
 
-        
-        
-        
-
-
-
-
-
-
-
-
         public delegate bool FailCondition<T>(T input);
         public static T GetUserInput<T>(FailCondition<T> failCondition, string request, string errorMessage){
             do

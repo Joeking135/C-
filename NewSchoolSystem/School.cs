@@ -12,18 +12,18 @@ namespace NewSchoolSystem
     [Serializable]
     public class School
     {
-        private Hashtable users {get; set;} 
+        private Hashtable members {get; set;} 
 
         
         public School()
         {
-            users = new Hashtable();
+            members = new Hashtable();
         }
 
         public void DisplayAll<T>() where T : SchoolMember
         {
 
-            if (users.Values.OfType<T>().Count() == 0)
+            if (members.Values.OfType<T>().Count() == 0)
             {
                 Console.WriteLine("There are no Members to Display.");
             }
@@ -40,7 +40,7 @@ namespace NewSchoolSystem
                     Console.WriteLine("STUDENTS\n" + new string('=', 20));
                 }
                        
-                foreach (T user in users.Values.OfType<T>())
+                foreach (T user in members.Values.OfType<T>())
                 {
                     Console.WriteLine(new string('-', 20));
                     user.Display(); 
@@ -72,13 +72,13 @@ namespace NewSchoolSystem
 
                     int id = Program.GetUserInput<int>(input => input < 0, "Input ID to Search: ", "Invalid ID");
 
-                    filteredList = users.Values.OfType<T>().Where(e => e.ID == id).ToList();
+                    filteredList = members.Values.OfType<T>().Where(e => e.ID == id).ToList();
                     break;
                         
                 case 2:
                     Tuple<string, string> name = GetNameTuple(); 
 
-                    filteredList = users.Values.OfType<T>().Where(e => e.Name.Item1 == name.Item1 && e.Name.Item2 == name.Item2).ToList();
+                    filteredList = members.Values.OfType<T>().Where(e => e.Name.Item1 == name.Item1 && e.Name.Item2 == name.Item2).ToList();
                     break;
                 
                 case 3:
@@ -89,12 +89,12 @@ namespace NewSchoolSystem
                         "Invalid Gender."
                     );
 
-                    filteredList = users.Values.OfType<T>().Where(e => e.Gender == gender).ToList();
+                    filteredList = members.Values.OfType<T>().Where(e => e.Gender == gender).ToList();
                     break;
 
                 case 4:
                     int age = Program.GetUserInput<int>(input => input < 0, "Input Age: ", "Invalid Age.");
-                    filteredList = users.Values.OfType<T>().Where(e => e.Age == age).ToList();
+                    filteredList = members.Values.OfType<T>().Where(e => e.Age == age).ToList();
                     break;
                 
                                     
@@ -127,7 +127,7 @@ namespace NewSchoolSystem
         public void AddMember<T>() where T : SchoolMember
         {
             Console.Clear();
-            int id = Program.GetUserInput<int>(input => input < 0 || users.ContainsKey(input), "Input ID: ", "Invalid ID.");
+            int id = Program.GetUserInput<int>(input => input < 0 || members.ContainsKey(input), "Input ID: ", "Invalid ID.");
 
             Tuple<string, string> name = GetNameTuple();
 
@@ -138,7 +138,7 @@ namespace NewSchoolSystem
 
             if (typeof(T) == typeof(Student))
             {
-                users.Add(id, new Student(id, name, gender, dob));
+                members.Add(id, new Student(id, name, gender, dob));
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("[+] Student Added.");
             }
@@ -158,7 +158,7 @@ namespace NewSchoolSystem
                     "\nInput Role: ",
                     "Invalid Role");
 
-                users.Add(id, new Staff(id, name, gender, dob, role));
+                members.Add(id, new Staff(id, name, gender, dob, role));
 
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine($"[+] {role} Added.");
@@ -180,20 +180,20 @@ namespace NewSchoolSystem
                     Console.WriteLine("Returning to Menu...");
                     return; 
                 }
-                else if (!users.ContainsKey(removeIndex))
+                else if (!members.ContainsKey(removeIndex))
                 {
                     Console.WriteLine("There is no member using that ID.");
                     continue;
                 }
 
-                if (typeof(T) != users[removeIndex].GetType())
+                if (typeof(T) != members[removeIndex].GetType())
                 {
                     Console.WriteLine("Wrong Member type.");
                     continue; 
                 }
 
 
-                users.Remove(removeIndex);
+                members.Remove(removeIndex);
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("[-] Member Removed.");
                 Console.ForegroundColor = ConsoleColor.White;
@@ -207,12 +207,12 @@ namespace NewSchoolSystem
         {
             int id = Program.GetUserInput<int>
             (
-                input => input < 0 || !users.ContainsKey(input),
+                input => input < 0 || !members.ContainsKey(input),
                 "Input ID: ",
                 "Invalid ID."
             );
 
-            return (T)users[id];
+            return (T)members[id];
         }
 
         public void TakeAttendance() 
@@ -221,7 +221,7 @@ namespace NewSchoolSystem
 
             Console.WriteLine("REGISTER (a - abscent, / - present)");
 
-            foreach (Student student in users.Values.OfType<Student>())
+            foreach (Student student in members.Values.OfType<Student>())
             {
                 registerEntry = Program.GetUserInput<char>(input => !(input == 'a' || input == '/'), $"{student.Name.Item1} {student.Name.Item2}: ", "Invalid entry.");
 
@@ -235,7 +235,7 @@ namespace NewSchoolSystem
 
             file.WriteLine(DateTime.Now);
             file.WriteLine(new string('=', 10));
-            foreach (Student student in users.Values.OfType<Student>())
+            foreach (Student student in members.Values.OfType<Student>())
             {
                 file.WriteLine($"{student.Name.Item1} {student.Name.Item2}: {student.Attendance}");
                 student.Attendance = Student.Register.Unkown;
