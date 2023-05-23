@@ -21,7 +21,10 @@ namespace Monsters
 
         public void Attack(Player P)
         {
-
+            if (PosX == P.PosX && PosY == P.PosY)
+            {
+                P.LoseHealth(AttackAmount);
+            }
         }
 
 
