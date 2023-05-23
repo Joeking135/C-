@@ -25,43 +25,43 @@ namespace Monsters
 
         public void Zap(Monsters Mons, int screenW, int screenH)
         {
-              for (int i = _PosY; i < screenH; i++) // south
+            for (int i = _PosY; i < screenH; i++) // south
+            {
+                foreach (Monster M in Mons.MonsterList)
+                {
+                    if (M.PosY == i && M.PosX == _PosX)
                     {
-                        foreach (Monster M in Mons.MonsterList)
-                        {
-                            if (M.PosY == i && M.PosX == _PosX)
-                            {
-                                M.Kill();
-                            }
-                        }
+                        M.Kill();
                     }
-                 
-       }
-       
-      
+                }
+            }
+
+        }
+
+
         public Boolean Dead()
         {
-            if (_Health <=0)
-                {
+            if (_Health <= 0)
+            {
                 return true;
-                }
+            }
             else
-                {
+            {
                 return false;
-                }
+            }
         }
-    
 
-        public Player(int StartX, int StartY, ConsoleColor C, Char I, int H) :  base (StartX,StartY,C,I)
+
+        public Player(int StartX, int StartY, ConsoleColor C, Char I, int H) : base(StartX, StartY, C, I)
         {
-            _Health=H;
-            _Dir=direction.north;
+            _Health = H;
+            _Dir = direction.north;
         }
 
-        
+
         public void LoseHealth(int attackAmount)
         {
-                _Health=_Health-attackAmount;
+            _Health = _Health - attackAmount;
         }
 
         public void GainHealth(int gainAmount)

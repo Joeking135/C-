@@ -10,7 +10,7 @@ namespace Monsters
     {
         private Random R = new Random();
 
-        public Collectible(int X, int Y, ConsoleColor C, char I): base(X,Y,C,I)
+        public Collectible(int X, int Y, ConsoleColor C, char I) : base(X, Y, C, I)
         { }
 
         public void Collected(Player P, int width, int height)

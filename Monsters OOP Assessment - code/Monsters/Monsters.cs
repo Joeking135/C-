@@ -24,11 +24,11 @@ namespace Monsters
             {
                 int x = R.Next(1, width);
                 int y = R.Next(1, height);
-                while (x==width /2 && y==height /2)
-	                {
-                        x = R.Next(1, width);
-                        y = R.Next(1, height);
-	                }
+                while (x == width / 2 && y == height / 2)
+                {
+                    x = R.Next(1, width);
+                    y = R.Next(1, height);
+                }
 
                 Monster M = new Monster(x, y, ConsoleColor.Red, 'X', R.Next(1, 4));
                 _MonsterList.Add(M);
@@ -38,11 +38,11 @@ namespace Monsters
         public void DisplayMonsters()
         {
             foreach (Monster M in _MonsterList)
-	        {
+            {
                 if (!M.Dead)
-                    {
-		            M.display();
-	                }
+                {
+                    M.display();
+                }
             }
         }
 
@@ -59,7 +59,7 @@ namespace Monsters
 
         public int MonstersLeft()
         {
-           return 20;
+            return 20;
         }
 
         public void MoveTowardsPlayer(Player P, int screenW, int screenH)

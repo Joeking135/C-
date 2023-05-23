@@ -17,7 +17,7 @@ namespace Monsters
         {
             get { return _PosX; }
         }
-        
+
         protected int _PosY;
 
         public int PosY
@@ -32,10 +32,10 @@ namespace Monsters
         {
             Console.SetCursorPosition(_LastX, _LastY);
             Console.Write(" ");
-            Console.SetCursorPosition(_PosX,_PosY);
-            Console.ForegroundColor=Colour;
+            Console.SetCursorPosition(_PosX, _PosY);
+            Console.ForegroundColor = Colour;
             Console.Write(Image);
-            Console.ForegroundColor=ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.White;
         }
 
         public Character(int X, int Y, ConsoleColor C, Char I)
@@ -55,29 +55,29 @@ namespace Monsters
                 case direction.north:
                     if (_PosY > 1)
                     {
-                        _PosY=_PosY-1;
+                        _PosY = _PosY - 1;
                     }
                     break;
 
                 case direction.south:
 
-                    if (_PosY < screenH-1)
+                    if (_PosY < screenH - 1)
                     {
-                        _PosY=_PosY+1;
+                        _PosY = _PosY + 1;
                     }
                     break;
 
                 case direction.east:
-                    if (_PosX < screenW-1)
+                    if (_PosX < screenW - 1)
                     {
-                        _PosX=_PosX+1;
+                        _PosX = _PosX + 1;
                     }
                     break;
 
                 case direction.west:
                     if (_PosX > 1)
                     {
-                        _PosX=_PosX-1;
+                        _PosX = _PosX - 1;
                     }
                     break;
 
