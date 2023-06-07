@@ -32,10 +32,11 @@ namespace Monsters
             Console.CursorVisible = false;
             Console.SetWindowSize(SCREENWIDTH, SCREENHEIGHT);
 
+
+            
             //game loop
             while (!P.Dead() && Mons.MonstersLeft() > 0)
             {
-
                 Console.SetCursorPosition(1, 0);
                 Console.WriteLine("Health = {0}, Survived Time = {1}, Monsters left = {2}", P.Health, SurviveTime / 1000, Mons.MonstersLeft());
                 P.display();

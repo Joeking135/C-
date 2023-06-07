@@ -15,6 +15,13 @@ namespace Monsters
 
         public void Collected(Player P, int width, int height)
         {
+            if (P.PosX == PosX && P.PosY == PosY)
+            {
+                P.GainHealth(R.Next(3, 7));
+
+                _PosX = R.Next(0, width);
+                _PosY = R.Next(0, height);
+            }
         }
     }
 }

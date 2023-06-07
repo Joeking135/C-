@@ -59,7 +59,7 @@ namespace Monsters
 
         public int MonstersLeft()
         {
-            return 20;
+            return MonsterList.Count(e => e.Dead == false);
         }
 
         public void MoveTowardsPlayer(Player P, int screenW, int screenH)
