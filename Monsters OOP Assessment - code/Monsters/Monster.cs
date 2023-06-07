@@ -36,7 +36,37 @@ namespace Monsters
         public void MoveTowardsPlayer(Player P, int screenW, int screenH)
         {
             direction d = direction.none;
-            d = (direction)R.Next(1, 5);
+            //d = (direction)R.Next(1, 5);
+
+            int relativeX = P.PosX - PosX;
+            int relativeY = P.PosY - PosX;
+
+            if (relativeX > relativeY)
+            {
+                if (relativeX > 0)
+                {
+                    d = direction.east;
+                }
+                else if (relativeX < 0)
+                {
+                    d = direction.west;
+                }
+                
+            }
+            else if (relativeY > relativeX)
+            {
+                if (relativeY > 0)
+                {
+                    d = direction.south;
+                }
+                else if (relativeY < 0)
+                {
+                    d = direction.north; 
+                }
+            }
+            
+
+
             move(d, screenW, screenH);
         }
     }
