@@ -28,13 +28,14 @@ namespace BlackJackRemastered
         public void Play()
         {
             Shuffle();
+            Console.Clear();
             Player dealer = new Player();
 
             List<Player> players = new List<Player>();
 
             int playerCount = Program.GetUserInput<int>
             (
-                input => input < 1, "Input Number of Players: ", "Invalid Player Count."
+                input => input < 1 || input > 8, "Input Number of Players (max 8): ", "Invalid Player Count."
             );
 
             for (int i = 0; i < playerCount; i++)
