@@ -23,54 +23,82 @@ namespace BlackJackRemastered
         public void Play()
         {
             Shuffle();
-            Player player = new Player();
             Player dealer = new Player();
+
+            List<Player> players = new List<Player>();
+
+            int playerCount = Program.GetUserInput<int>
+            (
+                input => input < 1, "Input Number of Players: ", "Invalid Player Count."
+            );
+
+            for (int i = 0; i < playerCount; i++)
+            {
+                players.Add(new Player()); 
+                players[i].PlayerID = i + 1;
+            }
 
             for (int i = 0; i < 2; i++)
             {
-                player.Add(cards.Dequeue());
+                foreach (Player player in players)
+                {
+                    player.Add(cards.Dequeue());
+                }                
+
+
                 dealer.Add(cards.Dequeue());
             }
 
             char input;
 
-            do
+            foreach (Player player in players.Where(e => e.Bust == false))
             {
-                Console.Clear();
-
-                Console.WriteLine($"Dealers card: {dealer.PeekLast()}");
-
-                Console.WriteLine("\nYour Hand:");
-                player.DisplayAll();
-                Console.WriteLine($"\nTotal = {player.Total}");
-
-                
-
-                input = Program.GetUserInput<string>(input => !(input.ToUpper() == "H" || input.ToUpper() == "S"), "<H>it or <S>tick: ", "Invalid input").ToUpper()[0];
-
-                if (input == 'H') //Hit
+                do
                 {
-                    player.Add(cards.Dequeue());
-                    Console.Write($"You got a "); player.PeekLast().Display();
+                    Console.Clear();
+                    Console.WriteLine($"Player {player.PlayerID}\n" + new string('=', 10) + "\n");               
+
+                    Console.Write($"Dealers card: "); dealer.PeekLast().Display();
                     Console.WriteLine();
-                }
 
-                if (player.Bust)
-                {
-                    if (player.HasAcesLeft)
+                    Console.WriteLine("\nYour Hand:");
+                    player.DisplayAll();
+                    Console.WriteLine($"\nTotal = {player.Total}");
+
+                    
+
+                    input = Program.GetUserInput<string>(input => !(input.ToUpper() == "H" || input.ToUpper() == "S"), "<H>it or <S>tick: ", "Invalid input").ToUpper()[0];
+
+                    if (input == 'H') //Hit
                     {
-                        player.UseAce();
-                    } 
-                    else
+                        player.Add(cards.Dequeue());
+                        Console.Write($"You got a "); player.PeekLast().Display();
+                        Console.WriteLine();
+                    }
+
+                    if (player.Bust)
                     {
-                        Console.WriteLine("You've gone bust!");
-                        return;   
+                        if (player.HasAcesLeft)
+                        {
+                            player.UseAce();
+                        } 
+                        else
+                        {
+                            Console.WriteLine("You've gone bust!");
+                            Console.WriteLine("Hit Enter.");Console.ReadLine();
+                            break;
+                        }
+                        
                     }
                     
-                }
-                
-            } while (input != 'S');
+                } while (input != 'S');
+            }
 
+            if (!players.Any())
+            {
+                Console.WriteLine($"Everyone is bust! ({dealer.Total})"); 
+                return;
+            } 
             //Dealer hit
 
             while (dealer.Total < 17)
@@ -78,27 +106,43 @@ namespace BlackJackRemastered
                 dealer.Add(cards.Dequeue());
             } 
 
-            Console.Clear();
-            Console.WriteLine($"Your Total = {player.Total}");
-            Console.WriteLine($"Dealers Total = {dealer.Total}");
-
-
-            //evaluate winnings (only need to change positive positions)
-
             if (dealer.Bust)
             {
-                player.Won = true; 
-                Console.WriteLine($"Dealer has gone bust!");
+                Console.WriteLine("Dealer is Bust! Everyone Wins.");
+                return;
             }
-            else if (player.Total > dealer.Total)
+
+            Console.Clear();
+
+            foreach (Player player in players.Where(e => !e.Bust))
             {
-                player.Won = true; 
+                Console.WriteLine($"Player {player.PlayerID} = {player.Total}");
             }
 
 
-            Console.WriteLine(player.Won ? "You win!": "You lose!");
+            Console.WriteLine($"\nDealer Total = {dealer.Total}");
 
-            ReturnCards(player);
+
+            if (dealer.Total >= players.Where(e => e.Bust == false).Max(e => e.Total))
+            {
+                dealer.Won = true;
+                Console.WriteLine("Dealer Wins!");
+                return;
+            }
+            
+            List<Player> winners = new List<Player>();
+            winners = players.Where(e => e.Bust == false && e.Total == players.Max(e => e.Total)).ToList();
+
+            for (int i = 0; i < winners.Count; i++)
+            {
+                Console.WriteLine($"Player {players[i].PlayerID} Wins!"); 
+            } 
+
+            foreach (Player player in players)
+            {
+                ReturnCards(player); 
+            }
+
             ReturnCards(dealer);
 
         }

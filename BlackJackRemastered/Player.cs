@@ -32,6 +32,8 @@ namespace BlackJackRemastered
             get {return AcesUsed < AceCount; }
         }
 
+        public int PlayerID {get; set;}
+
         public Player() : base()
         { 
             AcesUsed = 0;
