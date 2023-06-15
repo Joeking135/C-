@@ -8,6 +8,11 @@ namespace BlackJackRemastered
 {
     internal class BlackJack : Cards
     {
+
+        
+
+
+
         public BlackJack() : base()
         {
             for (int i = 0; i < 4; i++)
@@ -35,7 +40,7 @@ namespace BlackJackRemastered
             for (int i = 0; i < playerCount; i++)
             {
                 players.Add(new Player()); 
-                players[i].PlayerID = i + 1;
+                players[i].ID = i + 1;
             }
 
             for (int i = 0; i < 2; i++)
@@ -56,7 +61,7 @@ namespace BlackJackRemastered
                 do
                 {
                     Console.Clear();
-                    Console.WriteLine($"Player {player.PlayerID}\n" + new string('=', 10) + "\n");               
+                    Console.WriteLine($"Player {player.ID}\n" + new string('=', 10) + "\n");               
 
                     Console.Write($"Dealers card: "); dealer.PeekLast().Display();
                     Console.WriteLine();
@@ -72,7 +77,7 @@ namespace BlackJackRemastered
                     if (input == 'H') //Hit
                     {
                         player.Add(cards.Dequeue());
-                        Console.Write($"You got a "); player.PeekLast().Display();
+                        
                         Console.WriteLine();
                     }
 
@@ -84,8 +89,10 @@ namespace BlackJackRemastered
                         } 
                         else
                         {
-                            Console.WriteLine("You've gone bust!");
+                            Console.Write($"You got a "); player.PeekLast().Display(); Console.WriteLine();
+                            Console.WriteLine("\nYou've gone bust!");
                             Console.WriteLine("Hit Enter.");Console.ReadLine();
+                            ReturnCards(player);
                             break;
                         }
                         
@@ -94,49 +101,57 @@ namespace BlackJackRemastered
                 } while (input != 'S');
             }
 
-            if (!players.Any())
+            players = players.Where(e => !e.Bust).ToList();
+
+            if (!players.Any()) //Checks if everyone is bust, in which case dealer wins
             {
-                Console.WriteLine($"Everyone is bust! ({dealer.Total})"); 
-                return;
-            } 
-            //Dealer hit
-
-            while (dealer.Total < 17)
-            {
-                dealer.Add(cards.Dequeue());
-            } 
-
-            if (dealer.Bust)
-            {
-                Console.WriteLine("Dealer is Bust! Everyone Wins.");
-                return;
-            }
-
-            Console.Clear();
-
-            foreach (Player player in players.Where(e => !e.Bust))
-            {
-                Console.WriteLine($"Player {player.PlayerID} = {player.Total}");
-            }
-
-
-            Console.WriteLine($"\nDealer Total = {dealer.Total}");
-
-
-            if (dealer.Total >= players.Where(e => e.Bust == false).Max(e => e.Total))
-            {
-                dealer.Won = true;
+                Console.WriteLine($"Everyone is bust! "); 
                 Console.WriteLine("Dealer Wins!");
-                return;
-            }
-            
-            List<Player> winners = new List<Player>();
-            winners = players.Where(e => e.Bust == false && e.Total == players.Max(e => e.Total)).ToList();
-
-            for (int i = 0; i < winners.Count; i++)
-            {
-                Console.WriteLine($"Player {players[i].PlayerID} Wins!"); 
             } 
+            else
+            {
+                while (dealer.Total < 17) //Dealer hit
+                {
+                    dealer.Add(cards.Dequeue());
+                } 
+
+                if (dealer.Bust) //If the dealer is bust, anyone still in play wins.
+                {
+                    Console.WriteLine($"Dealer is Bust! ({dealer.Total})");
+                    foreach (Player player in players)
+                    {
+                        Console.WriteLine($"Player {player.ID} wins!"); 
+                    }
+                }
+                else
+                {
+                    Console.Clear();
+
+                    foreach (Player player in players)
+                    {
+                        Console.WriteLine($"Player {player.ID} = {player.Total}");
+                    }
+                    Console.WriteLine($"\nDealer Total = {dealer.Total}");
+                    
+                    List<Player> winners = new List<Player>();
+                    winners = players.Where(e => e.Total > dealer.Total).ToList();
+
+                    if (!winners.Any()) //If no one is above the dealer
+                    {
+                        Console.WriteLine("Dealer Wins!"); 
+                    }
+                    else
+                    {
+                        foreach (Player winner in winners)
+                        {
+                            Console.WriteLine($"Player {winner.ID} Wins!"); 
+                        }   
+                    }
+                    
+                }
+
+                
+            }
 
             foreach (Player player in players)
             {
@@ -149,7 +164,7 @@ namespace BlackJackRemastered
 
         private void ReturnCards(Player player)
         {
-            List<Card> playerCards = player.ReturnCards();
+            List<Card> playerCards = player.GetCards();
 
             foreach (Card card in playerCards)
             {

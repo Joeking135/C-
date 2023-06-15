@@ -13,7 +13,6 @@ namespace BlackJackRemastered
             get { return cards.Sum(e => e.GetValue()) - (AcesUsed * 10); }
         }
 
-        public bool Won {get; set;}
 
         public bool Bust
         {
@@ -32,12 +31,11 @@ namespace BlackJackRemastered
             get {return AcesUsed < AceCount; }
         }
 
-        public int PlayerID {get; set;}
+        public int ID {get; set;}
 
         public Player() : base()
         { 
             AcesUsed = 0;
-            Won = false;
         }
 
         public void Add(Card card)
@@ -49,7 +47,7 @@ namespace BlackJackRemastered
             return cards.Last();
         }
 
-        public List<Card> ReturnCards()
+        public List<Card> GetCards()
         {
             return cards.ToList();
         } 

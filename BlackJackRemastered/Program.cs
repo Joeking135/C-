@@ -21,7 +21,7 @@ namespace BlackJackRemastered
             {
                 game.Play();
 
-                Console.WriteLine("Game over. Hit a key to play again.");
+                Console.WriteLine("\nGame over. Hit a key to play again.");
                 Console.ReadKey();
             }
         }
