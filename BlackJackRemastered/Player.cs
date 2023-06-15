@@ -47,9 +47,9 @@ namespace BlackJackRemastered
             return cards.Last();
         }
 
-        public Card GetTopCard()
+        public List<Card> ReturnCards()
         {
-            return cards.Dequeue();
+            return cards.ToList();
         } 
         public void UseAce()
         {

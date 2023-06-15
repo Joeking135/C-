@@ -14,10 +14,16 @@ namespace BlackJackRemastered
         {
 
             BlackJack game = new BlackJack();
-
-            game.Play();
-
             
+               
+
+            while (true)
+            {
+                game.Play();
+
+                Console.WriteLine("Game over. Hit a key to play again.");
+                Console.ReadKey();
+            }
         }
 
 

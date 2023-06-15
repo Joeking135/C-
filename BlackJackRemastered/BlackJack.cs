@@ -98,13 +98,19 @@ namespace BlackJackRemastered
 
             Console.WriteLine(player.Won ? "You win!": "You lose!");
 
+            ReturnCards(player);
+            ReturnCards(dealer);
 
+        }
 
+        private void ReturnCards(Player player)
+        {
+            List<Card> playerCards = player.ReturnCards();
 
-            
-
-
-
+            foreach (Card card in playerCards)
+            {
+                cards.Enqueue(card); 
+            }
         }
     }
 }
