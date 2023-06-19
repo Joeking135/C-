@@ -115,6 +115,9 @@ namespace BlackJackRemastered
                 {
                     dealer.Add(cards.Dequeue());
                 } 
+                Console.Clear();
+                Console.Write("\nDealers Hand = "); dealer.DisplayAll();
+                Console.WriteLine();
 
                 if (dealer.Bust) //If the dealer is bust, anyone still in play wins.
                 {
@@ -126,13 +129,12 @@ namespace BlackJackRemastered
                 }
                 else
                 {
-                    Console.Clear();
-
                     foreach (Player player in players)
                     {
                         Console.WriteLine($"Player {player.ID} = {player.Total}");
                     }
-                    Console.WriteLine($"\nDealer Total = {dealer.Total}");
+
+                    Console.WriteLine($"\nDealer Total = {dealer.Total}\n");
                     
                     List<Player> winners = new List<Player>();
                     winners = players.Where(e => e.Total > dealer.Total).ToList();
