@@ -10,11 +10,16 @@ namespace BlackJackRemastered
     {
 
         
+        private List<Player> players { get; set; }
 
+        private Player dealer {get; set;}
 
 
         public BlackJack() : base()
         {
+
+            players = new List<Player>();
+
             for (int i = 0; i < 4; i++)
             {
                 for (int j = 1; j < 13; j++)
@@ -22,16 +27,8 @@ namespace BlackJackRemastered
                     cards.Enqueue(new Card(Tuple.Create((Card.Suit)i, (Card.Rank)j)));
                 }
             }
-        }
 
-
-        public void Play()
-        {
-            Shuffle();
-            Console.Clear();
-            Player dealer = new Player();
-
-            List<Player> players = new List<Player>();
+            dealer = new Player("Dealer");
 
             int playerCount = Program.GetUserInput<int>
             (
@@ -40,9 +37,15 @@ namespace BlackJackRemastered
 
             for (int i = 0; i < playerCount; i++)
             {
-                players.Add(new Player()); 
-                players[i].ID = i + 1;
+                players.Add(new Player(i + 1)); 
             }
+        }
+
+
+        public void Play()
+        {
+            Shuffle();
+            Console.Clear();
 
             for (int i = 0; i < 2; i++)
             {
@@ -62,7 +65,7 @@ namespace BlackJackRemastered
                 do
                 {
                     Console.Clear();
-                    Console.WriteLine($"Player {player.ID}\n" + new string('=', 10) + "\n");               
+                    Console.WriteLine($"Player {player.ID} ({player.Name})\n" + new string('=', 10) + "\n");               
 
                     Console.Write($"Dealers card: "); dealer.PeekLast().Display();
                     Console.WriteLine();
@@ -159,10 +162,16 @@ namespace BlackJackRemastered
             foreach (Player player in players)
             {
                 ReturnCards(player); 
+                player.Reset();
             }
 
             ReturnCards(dealer);
 
+        }
+
+        public void Stop()
+        {
+            Console.WriteLine("All players Bust.");
         }
 
         private void ReturnCards(Player player)

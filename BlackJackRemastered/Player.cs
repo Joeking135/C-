@@ -13,7 +13,7 @@ namespace BlackJackRemastered
             get { return cards.Sum(e => e.GetValue()) - (AcesUsed * 10); }
         }
 
-
+        public string Name {get; private set;}
         public bool Bust
         {
             get { return Total  > 21; }
@@ -33,9 +33,23 @@ namespace BlackJackRemastered
 
         public int ID {get; set;}
 
-        public Player() : base()
+        public Player(int id) : base()
         { 
             AcesUsed = 0;
+            
+            Name = Program.GetUserInput<string>
+            (
+                input => input == "",
+                $"Player {id} name: ",
+                "Invalid Name"
+            );
+
+            ID = id;
+        }
+        public Player(string name) : base() 
+        {
+            AcesUsed = 0;
+            Name = name;
         }
 
         public void Add(Card card)
@@ -54,6 +68,11 @@ namespace BlackJackRemastered
         public void UseAce()
         {
             AcesUsed++;
+        }
+
+        public void Reset()
+        {
+            AcesUsed = 0;
         }
 
 
