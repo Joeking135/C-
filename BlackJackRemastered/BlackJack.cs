@@ -181,8 +181,12 @@ namespace BlackJackRemastered
 
             foreach (Card card in playerCards)
             {
-                cards.Enqueue(card); 
+                cards.Enqueue(card);
             }
+
+            player.ClearCards();
+            player.Reset();
+            
         }
     }
 }

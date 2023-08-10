@@ -75,6 +75,12 @@ namespace BlackJackRemastered
             AcesUsed = 0;
         }
 
+        public void ClearCards()
+        {
+            cards.Clear();
+        }
+
+
 
 
 
