@@ -17,7 +17,7 @@ namespace BlackJackRemastered
 
         public BlackJack() : base()
         {
-
+            Console.Clear();
             players = new List<Player>();
 
             for (int i = 0; i < 4; i++)

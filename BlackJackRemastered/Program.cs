@@ -13,13 +13,30 @@ namespace BlackJackRemastered
         static void Main(string[] args)
         {
             BlackJack game = new BlackJack();
+            game.Play();
+
             while (true)
             {
-                game.Play();
 
-                Console.WriteLine("\nGame over. Hit a key to play again.");
-                Console.ReadKey();
-                Console.Clear();
+                Console.WriteLine("\nGame over."); 
+
+                int menuSelection = GetUserInput<int>
+                (
+                    input => input < 1 || input > 2,
+                    "\n1. Play Again\n2. Reset Table\n\nInput: ",
+                    "Invalid Input"
+                );
+
+                switch (menuSelection)
+                {
+                    case 1:
+                        break;
+                    case 2:
+                        game = new BlackJack();
+                        break;
+                }
+
+                game.Play();
             }
         }
 
