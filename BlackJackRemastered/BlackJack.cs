@@ -117,10 +117,7 @@ namespace BlackJackRemastered
                 {
                     dealer.Add(cards.Dequeue());
 
-                    if (dealer.Bust && dealer.HasAcesLeft)
-                    {
-                        dealer.UseAce();
-                    }
+                    dealer.CheckAces(); 
                 } 
                 Console.Clear();
                 Console.Write("\nDealers Hand = "); dealer.DisplayAll();
