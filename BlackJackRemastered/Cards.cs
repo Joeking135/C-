@@ -11,6 +11,11 @@ namespace BlackJackRemastered
     {
         protected Queue<Card> cards { get; set; }
 
+        public int DeckTotal 
+        {
+            get { return cards.Sum(e => e.GetValue());}
+        }
+
 
         public Cards()
         {

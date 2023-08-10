@@ -44,6 +44,7 @@ namespace BlackJackRemastered
 
         public void Play()
         {
+
             Shuffle();
             Console.Clear();
 
@@ -56,7 +57,11 @@ namespace BlackJackRemastered
 
 
                 dealer.Add(cards.Dequeue());
+
+
+                
             }
+
 
             char input;
 
@@ -96,7 +101,6 @@ namespace BlackJackRemastered
                             Console.Write($"You got a "); player.PeekLast().Display(); Console.WriteLine();
                             Console.WriteLine("\nYou've gone bust!");
                             Console.WriteLine("Hit Enter.");Console.ReadLine();
-                            ReturnCards(player);
                             break;
                         }
                         
@@ -105,9 +109,9 @@ namespace BlackJackRemastered
                 } while (input != 'S');
             }
 
-            players = players.Where(e => !e.Bust).ToList();
+            List<Player> remainingPlayers = players.Where(e => !e.Bust).ToList();
 
-            if (!players.Any()) //Checks if everyone is bust, in which case dealer wins
+            if (!remainingPlayers.Any()) //Checks if everyone is bust, in which case dealer wins
             {
                 Console.WriteLine($"Everyone is bust! "); 
                 Console.WriteLine("Dealer Wins!");
@@ -130,32 +134,31 @@ namespace BlackJackRemastered
                 if (dealer.Bust) //If the dealer is bust, anyone still in play wins.
                 {
                     Console.WriteLine($"Dealer is Bust! ({dealer.Total})");
-                    foreach (Player player in players)
+                    foreach (Player player in remainingPlayers)
                     {
-                        Console.WriteLine($"Player {player.ID} wins!"); 
+                        Console.WriteLine($"Player {player.ID} ({player.Name}) wins!"); 
                     }
                 }
                 else
                 {
-                    foreach (Player player in players)
+                    foreach (Player player in remainingPlayers)
                     {
                         Console.WriteLine($"Player {player.ID} = {player.Total}");
                     }
 
                     Console.WriteLine($"\nDealer Total = {dealer.Total}\n");
                     
-                    List<Player> winners = new List<Player>();
-                    winners = players.Where(e => e.Total > dealer.Total).ToList();
+                    remainingPlayers = remainingPlayers.Where(e => e.Total > dealer.Total).ToList();
 
-                    if (!winners.Any()) //If no one is above the dealer
+                    if (!remainingPlayers.Any()) //If no one is above the dealer
                     {
                         Console.WriteLine("Dealer Wins!"); 
                     }
                     else
                     {
-                        foreach (Player winner in winners)
+                        foreach (Player winner in remainingPlayers)
                         {
-                            Console.WriteLine($"Player {winner.ID} Wins!"); 
+                            Console.WriteLine($"Player {winner.ID} ({winner.Name}) Wins!"); 
                         }   
                     }
                     

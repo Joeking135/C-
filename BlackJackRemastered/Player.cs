@@ -81,6 +81,15 @@ namespace BlackJackRemastered
         }
 
 
+        public void DisplayStats() // For Testing Use Only
+        {
+            Console.WriteLine($"Player {ID}");
+            Console.WriteLine($"Aces Count = {AceCount}");
+            Console.WriteLine($"Aces Used = {AcesUsed}");
+            Console.ReadLine();
+        }
+
+
 
 
 
