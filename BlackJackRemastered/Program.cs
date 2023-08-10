@@ -12,17 +12,14 @@ namespace BlackJackRemastered
     {
         static void Main(string[] args)
         {
-
-            BlackJack game = new BlackJack();
-            
-               
-
             while (true)
             {
+                BlackJack game = new BlackJack();
                 game.Play();
 
                 Console.WriteLine("\nGame over. Hit a key to play again.");
                 Console.ReadKey();
+                Console.Clear();
             }
         }
 

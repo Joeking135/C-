@@ -117,6 +117,11 @@ namespace BlackJackRemastered
                 while (dealer.Total < 17) //Dealer hit
                 {
                     dealer.Add(cards.Dequeue());
+
+                    if (dealer.Bust && dealer.HasAcesLeft)
+                    {
+                        dealer.UseAce();
+                    }
                 } 
                 Console.Clear();
                 Console.Write("\nDealers Hand = "); dealer.DisplayAll();
@@ -169,10 +174,6 @@ namespace BlackJackRemastered
 
         }
 
-        public void Stop()
-        {
-            Console.WriteLine("All players Bust.");
-        }
 
         private void ReturnCards(Player player)
         {
