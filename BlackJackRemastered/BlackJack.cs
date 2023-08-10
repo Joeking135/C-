@@ -62,11 +62,11 @@ namespace BlackJackRemastered
                 
             }
 
-
             char input;
 
-            foreach (Player player in players.Where(e => e.Bust == false))
+            foreach (Player player in players)
             {
+                player.CheckAces();
                 do
                 {
                     Console.Clear();
@@ -90,19 +90,14 @@ namespace BlackJackRemastered
                         Console.WriteLine();
                     }
 
+
+                    player.CheckAces();
                     if (player.Bust)
                     {
-                        if (player.HasAcesLeft)
-                        {
-                            player.UseAce();
-                        } 
-                        else
-                        {
-                            Console.Write($"You got a "); player.PeekLast().Display(); Console.WriteLine();
-                            Console.WriteLine("\nYou've gone bust!");
-                            Console.WriteLine("Hit Enter.");Console.ReadLine();
-                            break;
-                        }
+                        Console.Write($"You got a "); player.PeekLast().Display(); Console.WriteLine();
+                        Console.WriteLine("\nYou've gone bust!");
+                        Console.WriteLine("Hit Enter.");Console.ReadLine();
+                        break;
                         
                     }
                     

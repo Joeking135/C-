@@ -80,6 +80,14 @@ namespace BlackJackRemastered
             cards.Clear();
         }
 
+        public void CheckAces()
+        {
+            if (Bust && HasAcesLeft)
+            {
+               UseAce(); 
+            }
+        }
+
 
         public void DisplayStats() // For Testing Use Only
         {
