@@ -54,12 +54,7 @@ namespace BlackJackRemastered
                 {
                     player.Add(cards.Dequeue());
                 }                
-
-
                 dealer.Add(cards.Dequeue());
-
-
-                
             }
 
             char input;
@@ -78,8 +73,6 @@ namespace BlackJackRemastered
                     Console.WriteLine("\nYour Hand:");
                     player.DisplayAll();
                     Console.WriteLine($"\nTotal = {player.Total}");
-
-                    
 
                     input = Program.GetUserInput<string>(input => !(input.ToUpper() == "H" || input.ToUpper() == "S"), "<H>it or <S>tick: ", "Invalid input").ToUpper()[0];
 
@@ -155,14 +148,11 @@ namespace BlackJackRemastered
                     }
                     
                 }
-
-                
             }
 
             foreach (Player player in players)
             {
                 ReturnCards(player); 
-                player.Reset();
             }
 
             ReturnCards(dealer);
@@ -178,8 +168,6 @@ namespace BlackJackRemastered
             {
                 cards.Enqueue(card);
             }
-
-            player.ClearCards();
             player.Reset();
             
         }

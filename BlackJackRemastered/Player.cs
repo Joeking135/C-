@@ -21,7 +21,7 @@ namespace BlackJackRemastered
 
         public int AceCount
         {
-            get{ return cards.Count(e => e.GetValue() == 11);}
+            get {return cards.Count(e => e.GetValue() == 11);}
         }
 
         private int AcesUsed { get; set; }
@@ -73,12 +73,10 @@ namespace BlackJackRemastered
         public void Reset()
         {
             AcesUsed = 0;
-        }
-
-        public void ClearCards()
-        {
             cards.Clear();
         }
+
+        
 
         public void CheckAces()
         {
@@ -87,19 +85,5 @@ namespace BlackJackRemastered
                UseAce(); 
             }
         }
-
-
-        public void DisplayStats() // For Testing Use Only
-        {
-            Console.WriteLine($"Player {ID}");
-            Console.WriteLine($"Aces Count = {AceCount}");
-            Console.WriteLine($"Aces Used = {AcesUsed}");
-            Console.ReadLine();
-        }
-
-
-
-
-
     }
 }
