@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,11 +45,7 @@ namespace BlackJackRemastered
 
         public void DisplayAll()
         {
-            foreach (Card card in cards)
-            {
-                card.Display(); 
-                Console.Write(", ");
-            }
+            Console.WriteLine(string.Join(", ", cards.Select(e => "<"+e.Values.suit.ToString()[0].ToString()+">" + e.Values.rank.ToString())));
             Console.WriteLine();
 
         }

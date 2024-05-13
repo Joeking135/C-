@@ -38,7 +38,7 @@ namespace BlackJackRemastered
 
         public int GetValue()
         {
-            int value = (int)Values.Item2;
+            int value = (int)Values.rank;
 
             if (value > 10)
             {

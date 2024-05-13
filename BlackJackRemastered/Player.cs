@@ -33,6 +33,10 @@ namespace BlackJackRemastered
 
         public int ID {get; set;}
 
+        public int Balance {get; private set;}
+        public int CurrentBet{get; private set;}
+        public bool Bankrupt{get { return Balance <= 0;}}
+
         public Player(int id) : base()
         { 
             AcesUsed = 0;
@@ -45,6 +49,8 @@ namespace BlackJackRemastered
             );
 
             ID = id;
+            CurrentBet = 0;
+            Balance = 1000;
         }
         public Player(string name) : base() 
         {
@@ -74,6 +80,7 @@ namespace BlackJackRemastered
         {
             AcesUsed = 0;
             cards.Clear();
+            CurrentBet = 0;
         }
 
         
@@ -84,6 +91,15 @@ namespace BlackJackRemastered
             {
                UseAce(); 
             }
+        }
+
+        public void Bet(int Amount){
+            CurrentBet = Amount;
+            Balance -= Amount;
+        }
+        public void Reward(){
+            const int scale = 2;
+            Balance += CurrentBet * scale;
         }
     }
 }

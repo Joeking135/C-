@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,8 @@ namespace BlackJackRemastered
 
         private Player dealer {get; set;}
 
+        public bool PlayersLeft{get {return players.Any();}}
+
 
         public BlackJack() : base()
         {
@@ -27,6 +30,7 @@ namespace BlackJackRemastered
                     cards.Enqueue(new Card(((Card.Suit)i, (Card.Rank)j)));
                 }
             }
+            Shuffle();
 
             dealer = new Player("Dealer");
 
@@ -45,7 +49,7 @@ namespace BlackJackRemastered
         public void Play()
         {
 
-            Shuffle();
+            // Shuffle(); To allow counting.
             Console.Clear();
 
             for (int i = 0; i < 2; i++)
@@ -58,6 +62,15 @@ namespace BlackJackRemastered
             }
 
             char input;
+
+            foreach (Player player in players)
+            {
+                Console.Clear();
+                Console.WriteLine($"Player {player.ID} ({player.Name})\n" + new string('=', 10) + "\n");               
+                Console.WriteLine($"Balance = {player.Balance}");
+                int bet = Program.GetUserInput<int>(input => input < 0 || input > player.Balance, "Input bet: ", "Invalid bet");
+                player.Bet(bet);
+            }
 
             foreach (Player player in players)
             {
@@ -122,6 +135,7 @@ namespace BlackJackRemastered
                     foreach (Player player in remainingPlayers)
                     {
                         Console.WriteLine($"Player {player.ID} ({player.Name}) wins!"); 
+                        player.Reward();
                     }
                 }
                 else
@@ -144,6 +158,8 @@ namespace BlackJackRemastered
                         foreach (Player winner in remainingPlayers)
                         {
                             Console.WriteLine($"Player {winner.ID} ({winner.Name}) Wins!"); 
+                            winner.Reward();
+                            
                         }   
                     }
                     
@@ -154,6 +170,14 @@ namespace BlackJackRemastered
             {
                 ReturnCards(player); 
             }
+            List<Player> BankruptPlayers = players.Where(e => e.Bankrupt).ToList();
+            if (BankruptPlayers.Any())
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"\n{string.Join(", ", BankruptPlayers.Select(e => e.Name))} {((BankruptPlayers.Count > 1) ? "are" : "is")} bankrupt and will be removed.");
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+            players = players.Where(e => !e.Bankrupt).ToList();
 
             ReturnCards(dealer);
 

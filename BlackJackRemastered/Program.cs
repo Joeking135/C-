@@ -20,12 +20,22 @@ namespace BlackJackRemastered
 
                 Console.WriteLine("\nGame over."); 
 
-                int menuSelection = GetUserInput<int>
-                (
-                    input => input < 1 || input > 2,
-                    "\n1. Play Again\n2. Reset Table\n\nInput: ",
-                    "Invalid Input"
-                );
+                int menuSelection = 2;
+                if (game.PlayersLeft)
+                {
+                    menuSelection = GetUserInput<int>
+                    (
+                        input => input < 1 || input > 2,
+                        "\n1. Play Again\n2. Reset Table\n\nInput: ",
+                        "Invalid Input"
+                    );   
+                }
+                else
+                {
+                    Console.WriteLine("There are no players left. Press enter to restart.");
+                    Console.ReadLine();
+                }
+                
 
                 switch (menuSelection)
                 {
