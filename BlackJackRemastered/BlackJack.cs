@@ -49,7 +49,7 @@ namespace BlackJackRemastered
         public void Play()
         {
 
-            // Shuffle(); To allow counting.
+            Shuffle(); 
             Console.Clear();
 
             for (int i = 0; i < 2; i++)

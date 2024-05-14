@@ -45,7 +45,7 @@ namespace BlackJackRemastered
 
         public void DisplayAll()
         {
-            Console.WriteLine(string.Join(", ", cards.Select(e => "<"+e.Values.suit.ToString()[0].ToString()+">" + e.Values.rank.ToString())));
+            Console.WriteLine(string.Join(", ", cards.Select(e => "<"+e.Values.suit.ToString()[0]+">" + e.Values.rank.ToString())));
             Console.WriteLine();
 
         }
